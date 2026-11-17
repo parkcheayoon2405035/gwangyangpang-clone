@@ -1,0 +1,116 @@
+@media (min-width: 640px) 
+{ 
+
+.wrap { width:430px; margin:0 auto; }
+.main_menu_1 { position:fixed; margin:0 auto; max-width:430px; z-index:10000; background:white; }
+.main_menu_11 { width:430px; padding:12px; box-shadow:0 0 3px 0 #d6d6d6; } 
+.main_menu_11 th { font-family: 'Cafe24Ssurround'; font-size:25px; color:#000;  }
+.main_menu_11 th a { font-family: 'Cafe24Ssurround'; font-size:25px; color:#000; }
+
+.agree_box { width:100%; border-radius:20px; background:rgba(245,245,245,0.1); padding:15px; font-family: 'Cafe24SsurroundAir'; font-size:12px; color:#fff; }
+.agree_box b { font-family: 'Cafe24SsurroundAir'; font-size:12px; color:#fff; }
+.agree_box2 { width:100%; text-align:center; border-radius:20px; background:rgba(245,245,245,0.1); padding:45px 15px; font-size:20px; color:#fff; line-height:1.2em; font-weight:bold; }
+.sms_box { width:100%; background:url(../images/sms_bg.png) no-repeat; background-size:100%; padding:20px 15px; font-family: 'Cafe24SsurroundAir'; font-size:18px; color:#fff; height:110px; line-height:1.4em; }
+.sms_box2 { width:100%; background:url(../images/sms_bg2.png) no-repeat; background-size:100%; padding:12px 0; font-family: 'Cafe24SsurroundAir'; font-size:18px; color:#fff; height:65px; line-height:1.4em; text-align:center;}
+.t_box { width:100%; }
+.t_box input { width:100%; border-radius:20px; font-size:18px; color:#6D7278; padding:25px 20px; border:0; }
+.layer_main_t { width:100%; text-align:center; padding:40px 0 0 0; font-family: 'Cafe24Ssurround'; font-size:40px; color:#fff; line-height:1.2em; }
+.layer_main_t2 { font-size:15px; color:#fff; line-height:1.2em; text-align:center; padding:20px 0 0 0;  }
+.time_box { width:100%; border-radius:20px; background:rgba(245,245,245,0.1); padding:15px; font-size:25px; color:#fff; text-align:center; }
+.time_box b { font-size:25px; color:#fff; }
+.time_box2 { width:100%; border-radius:20px; background:rgba(245,245,245,0.1); padding:15px; font-size:25px; color:#fff; text-align:center; line-height:1.8em; }
+.time_box2 b { font-size:60px; color:#fff; }
+.shop_box { text-align:center;padding:30px 0 0 0; color:#fff; font-weight:800; font-size:45px; line-height:1.2em; }
+.shop_box2 { text-align:center;padding:30px 0 0 0; color:#fff; font-weight:800; font-size:45px; line-height:1.2em; font-family: 'Cafe24Ssurround'; }
+
+
+.list_box { margin:0 auto; width:100%; padding:20px 15px 0 15px; }
+.list_box1 { width:100%; line-height:0; position:relative; }
+.list_box1 img { width:100%; border-radius:8px; }
+.list_box_t1 { font-size:18px; font-weight:bold; color:#000; line-height:1.2em; padding:10px 0 0 0; letter-spacing:-0.03em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.list_box_t2 { font-size:13px; font-weight:400; color:#707070; line-height:1.2em; padding:6px 0 0 0; letter-spacing:-0.03em; height:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.list_box_t3 { font-size:13px; font-weight:400; color:#000; line-height:1.2em; padding:6px 0 0 0; letter-spacing:-0.03em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.list_btn { width:100%; text-align:center; padding:20px 0 50px 0; }
+.list_point { position:absolute; right:15px; bottom:15px; }
+
+.search_box { width:430px; padding:60px 0 0 0; margin:0 auto; }
+.search_title { font-size:17px; color:#000; font-weight:bold; text-align:center; padding:0 0 30px 0; }
+.search_box2 { width:100%; padding:0 0 30px 0; }
+.search_q { font-size:14px; color:#000; font-weight:bold; padding:0 0 14px 0; }
+.search_a { font-size:14px; color:#000; font-weight:500; padding:0 0 10px 10px; }
+.search_a input { margin:0 10px 0 0; width:15px; height:15px;}
+.search_a textarea { width:100%; height:100px; padding:15px; font-size:14px; color:#000; border:1px solid #D1D5DB; }
+.search_a .point_btn { border-radius:20px; background:#E02020; color:#fff; font-size:25px; width:100%; padding:20px 0; }
+.search_a .point_btn b { color:#fff; font-size:25px; font-weight:bold; }
+
+.use_1 { width:100%; display:flex; justify-content:left; margin:0 0 10px; 0; }
+.use_1_1 { margin:0 10px 0 0; line-height:0; }
+.use_1_2 { font-size:16px; font-weight:bold; padding:5px 0 0 0; color:#000; line-height:1em; }
+.use_1_3 { font-size:16px; font-weight:bold; padding:0; color:#000; line-height:1.5em; color:#dd294c; text-align:center; width:100%; }
+.use_2 { width:100%; border-radius:10px; padding:15px; background:#F8F9FA; font-size:14px; font-weight:500; color:#000; line-height:1.8em; }
+
+
+.mypoint_1 { font-size:15px; font-weight:bold; padding:0 0 10px 0; color:#000; line-height:1em; }
+.mypoint_2 { width:100%; border-radius:10px; padding:15px; background:#F8F9FA; font-size:12px; color:#000; line-height:1.8em; }
+.mypoint_21 { width:100%; border-radius:10px; padding:15px; background:#F8F9FA; font-size:30px; color:#E02020; line-height:1.8em; text-align:center; font-weight:bold; }
+
+.info_box { width:100%; margin:50px 0;  display:flex; flex-wrap:wrap; gap:15px 0; }
+.info_box2 { width:100%; margin:50px 0;  display:flex; flex-wrap:wrap; gap:15px 0; }
+.info_box3 { width:100%; margin:30px 0 60px 0;  display:flex; flex-wrap:wrap; gap:15px 0; }
+.info_box4 { width:100%; margin:30px 0 60px 0; }
+.info_box5 { width:100%; margin:0 0 30px 0;  display:flex; flex-wrap:wrap; gap:15px 0; }
+
+.point_box { width:100%; background:#F5F5F5; font-size:17px; color:#000; text-align:center; margin:0 0 20px 0;  padding:20px;  border-radius:10px; }
+.point_box b { font-size:17px; color:#DC294C; font-weight:bold; }
+.point_box2 { width:100%; background:url(../images/point_bg.png) no-repeat; background-size:100%; font-size:20px; color:#000; text-align:center; margin:0 auto; padding:65px 0 0 0; height:185px; line-height:1.5em; }
+.point_box2 b { font-size:45px; color:;#000; font-weight:bold; letter-spacing:-0.03em; }
+.point_box3 { width:100%; background:#fff; border-radius:20px; font-size:20px; color:#000; padding:0; }
+
+
+.point_btn { width:100%; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 0;  }
+.pb01 { width:31%; border-radius:20px; background:#5935ab; text-align:center; }
+.pb01 button { width:100%; height:74px; color:#fff; font-size:17px; font-weight:700; background:rgba(255,255,255,0); }
+.pb02 { width:31%; border-radius:20px; background:url(../images/reset_img.png) no-repeat #5935ab; background-size:100%; }
+.pb02 button { width:100%; height:74px; color:#fff; font-size:17px; font-weight:700; background:rgba(255,255,255,0); }
+.pb03 { width:65%; border-radius:20px; background:url(../images/point_use_btn.png) no-repeat #5935ab; background-size:100%; }
+.pb03 button { width:100%; height:74px; color:#fff; font-size:25px; font-weight:700; background:rgba(255,255,255,0); }
+
+
+
+.lan_btn { width:100%; margin:90px 0; display:flex; flex-wrap:wrap; gap:20px 0; }
+.lan_btn1 { width:100%; }
+.lan_btn1 button { width:100%; height:55px; border-radius:20px; color:#fff; font-size:20px; font-weight:bold; background:#5935AB; }
+.lan_btn1_ { width:100%; }
+.lan_btn1_ button { width:100%; height:55px; border-radius:20px; color:#fff; font-size:20px; font-weight:bold; background:#DF3E5D; }
+.lan_btn_2 { width:100%; text-align:center; padding:0; }
+.lan_btn_2 button { width:100%; height:74px; border-radius:20px; color:#fff; font-size:25px; font-weight:500; background:url(../images/intro_btn.png) no-repeat; background-size:100%; }
+.lan_btn_2 button b { color:#fff; font-size:25px; font-weight:bold; }
+.lan_btn_2 button span { color:#fff; font-size:15px; }
+.lan_btn_3 { width:100%; text-align:center; padding:0; }
+.lan_btn_3 button { width:100%; height:74px; border-radius:20px; color:#fff; font-size:25px; font-weight:500; background:url(../images/intro_btn.png) no-repeat; background-size:100%; line-height:1em; padding:0 0 10px 0; }
+.lan_btn_3 button b { color:#fff; font-size:25px; font-weight:bold; }
+.lan_btn_3 button span { color:#fff; font-size:15px; }
+.lan_btn_4 { width:100%; text-align:center; padding:0; }
+.lan_btn_4 button { width:100%; height:74px; border-radius:20px; color:#fff; font-size:25px; font-weight:500; background:url(../images/main_btn.png) no-repeat #DC294C; background-size:100%; }
+.lan_btn_4 button b { color:#fff; font-size:25px; font-weight:bold; }
+
+.layer_popup {  width:400px; padding:22px; border-radius:10px; /*box-shadow:1px 2px 5px #777;*/ background:#fff; font-size:16px; color:#333; line-height:1.5em; margin:0 auto; }
+.layer_popup .p_title { width:100%; font-size:15px; font-weight:500; color:#000; text-align:center;line-height:2em; }
+.layer_popup .p_title b { font-size:30px; font-weight:800; color:#000; }
+.layer_popup .p_title span { font-size:15px; font-weight:800; color:#000; }
+.layer_popup .p_title strong { font-size:15px; font-weight:800; color:#DC294C; }
+.layer_popup .p_title2 { width:100%; font-size:20px; font-weight:700; color:#000; text-align:center; line-height:2em; }
+.layer_popup .p_title2 b { color:#471FA2; font-size:45px; font-weight:800; }
+
+
+.bottom_menu { width:430px; background:#f5f5f5; background-size:100%; display:flex; justify-content:center; padding:0; margin:0 auto;}
+.bottom_menu1 { font-family: 'Cafe24SsurroundAir'; text-align:center;line-height:1em; padding:14px 19px; color:#000; font-size:14px; }
+.bottom_menu1on { font-family: 'Cafe24SsurroundAir'; text-align:center;line-height:1em; padding:14px 19px; color:#fff; font-size:14px; background:#d1143a;}
+.bottom_menu1 a { font-family: 'Cafe24SsurroundAir'; text-align:center;line-height:1em; padding:0; color:#000; font-size:14px; }
+.bottom_menu1on a { font-family: 'Cafe24SsurroundAir'; text-align:center;line-height:1em; padding:0; color:#fff; font-size:14px; }
+.bottom_menu_bar { width:2px;  background:#fff; }
+.bottom_bn { padding:0; max-width:430px; line-height:0; margin:0 auto; }
+.copy { max-width:430px; background:#F5F5F5; padding:20px 15px 20px 15px; margin:0 auto; }
+.sp_map iframe {max-width:100%;}
+
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>광양행운팡팡(개발용)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="description" content="광양행운팡팡">
+<meta name="keywords" content="">
+<meta name="viewport" content="user-scalable=yes, width=device-width, viewport-fit=cover" />
+
+<meta property='og:type' content='website'>
+<meta property='og:title' content='광양행운팡팡'>
+<meta property='og:description' content='광양행운팡팡'>
+<meta property='og:image' content='http://www.gwangyangpang.com/images/og.jpg'>
+<meta property='og:url' content='http://www.gwangyangpang.com'>  
+  
+             <link href='images/icon01.jpg' rel='icon' type='image/png' />
+<link href='images/icon01.jpg' rel='shortcut icon' type='image/png' />
+<link href='images/icon02.jpg' rel='apple-touch-icon' type='image/png' />
+<link rel="canonical" href="index.html">
+<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/button.css">
+<script type='text/javascript' src="js/script.js"></script>
+<script type='text/javascript' src="js/member.js"></script>
+<SCRIPT type='text/javascript' src="js/jquery-1.11.1.js"></script>
+
+<script type="text/javascript" src="js/i18n.js"></script>
+</head>
+
+
+<script type='text/javascript'>
+
+function open_agree_pop()
+{
+ document.getElementById('layer_agree').style.display = 'block';
+}  
+function agree_ok()
+{
+ document.getElementById('layer_agree').style.display = 'none';
+ document.getElementById('chk_info').checked = true;
+}  
+
+
+function send_submit()
+{
+   if(document.getElementById('B_name').value == '')
+   {
+     err_msg_layer("<b>조회할 수 없습니다.</b><div class='text_h05'></div>이름을 적으세요");
+     return;
+   }  
+
+   if(document.getElementById('B_phone').value == '')
+   {
+     err_msg_layer("<b>조회할 수 없습니다.</b><div class='text_h05'></div>연락처를 적으세요");
+     return;
+   }     
+   document.getElementById('send_form').submit();
+/* 개인정보 수집동의 삭제
+  if(document.getElementById('chk_info').checked == true)
+  {
+    document.getElementById('send_form').submit();
+  }
+  else
+  {
+    alert('개인정보 수집에 동의하셔야됩니다');
+    open_agree_pop();
+  }  
+  */
+}  
+
+function get_auth_num()
+{
+  phone_num = document.getElementById('B_phone').value;
+ 
+  $.ajax({
+            url:'ajax_auth_phone.php',
+            type:'post',            
+            data : {
+               "phone_num" : phone_num, 
+               "mode" : "check"
+            },
+            
+            success:function(data)
+            {
+              if(data == 'OK')
+              {
+                document.getElementById('B_auth_num').placeholder = "발급받은 인증번호를 입력하세요";
+              }  
+              else
+              {
+//                alert(data);
+                  err_msg_layer(data);
+              }  
+            }
+        });
+}  
+
+var next_ck = false;
+function err_msg_layer(err_text)
+{
+  next_ck = false;
+  document.getElementById('layer_err_msg').innerHTML = err_text;  
+  document.getElementById('layer_pop_error').style.display = 'block';  
+}  
+
+function err_msg_layer_next(err_text)
+{
+  next_ck = true;
+  document.getElementById('layer_err_msg').innerHTML = err_text;  
+  document.getElementById('layer_pop_error').style.display = 'block';  
+}  
+
+
+function close_layer()
+{
+  if(next_ck == true)
+  {
+    location = 'index.html';
+  }  
+  else
+  {
+    document.getElementById('layer_pop_error').style.display = 'none';
+  }
+}  
+
+</script>
+<style type='text/css'>
+placeholder{color:red; }
+.lan {width:100%; padding:15% 15% 0 35%;}
+.lan td { text-align:center; line-height:0} 
+.lan td img {width:85%; border:1px solid #ddd;}
+
+@media (min-width: 640px) 
+{ 
+.pl_title { width:100%; text-align:center;padding:30px 0 0 0; font-family: 'Cafe24Ssurround'; font-size:30px; color:#fff; line-height:1.2em; }
+}
+/* 모바일 버전에서만 작동 */
+@media (max-width: 640px) 
+{ 
+  .sms_box {font-size:3.5vw !important;}
+  .lan_btn_2 button {font-size:5vw !important; line-height:4vw !important; height:17vw !important;}
+  .lan_btn_2 button b {font-size:5vw !important;}  
+.pl_title { width:100%; text-align:center;padding:30px 0 0 0; font-family: 'Cafe24Ssurround'; font-size:7vw; color:#fff; line-height:1.2em; }
+}
+</style>
+
+
+<body style="margin:0 auto; padding:0; height:100%; width:100%; background:#DC294C;">
+<!--에러 메시지 레이어 -->
+<div id='layer_pop_error' style='position:relative; z-index:10000; display:none;'>
+  <section style='position:fixed; display:flex; top:0; left:0; width:100%; height:100%;  justify-content: center; align-items: center; background:rgba(0,0,0,0.5);'>
+	 <div class="layer_popup">
+	    <div style='width:100%;text-align:right;line-height:0;'><a onclick="close_layer()"><img src="images/icon_close.png"></a></div>
+		<div class="text_h3"></div>
+		<div class="p_title" id='layer_err_msg' >
+		  <br>		  <br> <br>
+		</div>
+		<div class="text_h3"></div>
+		<button class='btn02' type='button' onclick="close_layer();" >확 인<button>
+		<div class="text_h3"></div>
+	 </div>
+	</section> 
+</div>	
+<!--에러 메시지 레이어 -->
+
+<div class="wrap">
+
+
+<div style="width:100%; height:100%; padding:50px 60px;">
+
+<div class='pl_title' style="">
+<!--<a href='index.html'><img src="images/logo_w.png" height="70"></a>-->
+본인확인
+</div>
+<!--<div class="layer_main_t">나의 포인트 조회</div>-->
+<form name="send_form" id="send_form" action="phone_login.html" method="post" target='send_frame'>
+<div class="info_box">
+  <div class="agree_box">
+  <b>경북교육청 참여를 위한 정보 수집 동의 (필수)</b><div class="text_h1"></div>
+  1. 수집 항목 : 이름, 전화번호<br> 
+  2. 선물지급 및 사용에만 이용 됩니다<br>
+  3. 4주 후 자동 삭제됩니다
+  </div>
+  <div class="t_box"><input type="text" name='B_name' id='B_name' placeholder='이름'></div>
+  <div class="t_box"><input type="text" name='B_phone' id='B_phone' placeholder='연락처'></div>
+</div>
+<!-- 휴대폰 인증할 경우 -->
+     <div id='phone_auth_result' style='text-align:center; margin:10px auto;'>
+       <span class='blink' style='color:red;'>연락처를 적으시고 '인증번호받기'버튼을 클릭 하세요</span>
+     </div>     
+	   
+     <div id='phone_auth_area' style="margin:10px auto; clear:both;">
+       <input type="text" class='number' name='B_auth_num' id='B_auth_num' placeholder='인증번호를 받으세요' style="float:left; width:45%;height:40px;border:1px solid #dddddd;border-top:1px solid #b4b4b4;">
+       <input id='get_auth' type='button'  class='btn_pauth1 blink' value="인증번호받기" onclick="get_auth_num()" style='float:right;'>
+       <input id='set_auth' type='button'  class='btn_pauth2 blink' value="인증번호확인" onclick="check_auth_num()" style='float:right; display:none;'>
+     </div>
+<!-- 휴대폰 인증할 경우 -->     
+<div class="lan_btn_2"><button type="button" onclick="send_submit()">나의사용내역 <b>조회</b></button></div>
+<input type='hidden' name='login_type' value=''>
+<input type='hidden' name='send_mode' value='send'>
+<iframe name='send_frame' id='send_frame' style='border:none; width:0; height:0;'></iframe>
+</form>
+
+</div>
+
+</div>
+</body>
+</html><!--
+
+
+<form name="send_form" id="send_form" action="phone_login.html" method="post">
+
+
+   <div class='m_id' >
+
+	 
+     <article style="margin:0 auto;width:100%;padding:5% 8%;">
+	   <div style="color:#000;font-size:6vw;line-height:1.5em;text-align:center;font-weight:700;letter-spacing:-0.03em;">여러분의 방문을 환영합니다.</div>
+	   <div style="color:#000;font-size:3.4vw;line-height:1.5em;text-align:center;">
+	   '광양행운팡팡(개발용)' 이벤트참여를 위한 본인확인인증 절차입니다.
+	   </div>
+	   <div style="padding:5% 0 0 0;">
+	      <input class='name' type='text' name='B_name' id='B_name' value='' placeholder='이름'>
+		  <div style="width:100%; height:10px;"></div>
+	      <input class='number' type='text' name='B_phone' id='B_phone' value='' placeholder='연락처 (숫자만적음, 예:0101234567)'>	
+	   </div>
+	   <div class="radio_wrap" onclick="open_agree_pop()">
+          <input type='radio' id='chk_info' name="chk_info"  value=""> 개인정보 수집 동의(필수)
+	   </div>
+	   <div style="text-align:center;"><button onclick="send_submit()" type='button' class='btn01'>나의포인트 조회<button></div>
+	 </article>
+
+
+
+
+       <article style="margin:0 auto;width:250px;">
+       <div style="text-align:center;"><button onclick="location.href='view.html?num=AF02235C7B05787F037D0403'" class='btn01'>참여하기 →<button></div>
+	   <div style="width:100%;margin:40px auto; text-align:center;"></div>
+     </article>  
+
+   </div>
+
+
+
+
+
+
+
+
+<input type='hidden' name='login_type' value=''>
+<input type='hidden' name='send_mode' value='send'>
+</form>
+</body>
+</html>-->

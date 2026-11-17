@@ -1,0 +1,107 @@
+@charset "euc-kr";
+
+/* 구글 나눔폰트 */
+/* @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css"); */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+/* 기본 CSS (수정금지) */
+@import url("ini.css");
+
+/* 사용자 CSS */
+@import url("style.css");
+
+/* 반응형 CSS */
+@import url("pc.css");  /* PC 해상도에서만 적용되는 CSS */
+/* @import url("tablet.css"); */ /* 태블릿 해상도에서만 적용되는 CSS */
+@import url("mobile.css"); /* 모바일 해상도에서만 적용되는 CSS */
+
+
+/*나눔 고딕 글꼴*/
+/*
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/NanumGothic-Regular.eot');
+  src: url('../font/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../font/NanumGothic-Regular.woff2') format('woff2'),
+       url('../font/NanumGothic-Regular.woff') format('woff'),
+       url('../font/NanumGothic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../font/NanumGothic-Bold.eot');
+  src: url('../font/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../font/NanumGothic-Bold.woff2') format('woff2'),
+       url('../font/NanumGothic-Bold.woff') format('woff'),
+       url('../font/NanumGothic-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../font/NanumGothic-ExtraBold.eot');
+  src: url('../font/NanumGothic-ExtraBold.eot?#iefix') format('embedded-opentype'),
+       url('../font/NanumGothic-ExtraBold.woff2') format('woff2'),
+       url('../font/NanumGothic-ExtraBold.woff') format('woff'),
+       url('../font/NanumGothic-ExtraBold.ttf') format('truetype');
+}
+*/
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*  Noto Sans KR  */
+/*
+@font-face {
+ font-family: 'NotoKrL';
+ font-style: normal;
+ font-weight: 100;
+ src: local('Noto Sans Light'), local('NotoSans-Light'), url(../font/NotoSans-Light.eot);
+ src: url(../font/NotoSans-Light.eot?#iefix) format('embedded-opentype'),
+ url(../font/NotoSans-Light.woff2) format('woff2'),
+ url(../font/NotoSans-Light.woff) format('woff');;
+ }
+ @font-face {
+ font-family: 'NotoKrR';
+ font-style: normal;
+ font-weight: 300;
+ src: local('Noto Sans Regular'), local('NotoSans-Regular'), url(../font/NotoSans-Regular.eot);
+ src: url(../font/NotoSans-Regular.eot?#iefix) format('embedded-opentype'),
+ url(../font/NotoSans-Regular.woff2) format('woff2'),
+ url(../font/NotoSans-Regular.woff) format('woff');
+ }
+ @font-face {
+ font-family: 'NotoKrM';
+ font-style: normal;
+ font-weight: 500;
+ src: local('Noto Sans Medium'), local('NotoSans-Medium'), url(../font/NotoSans-Medium.eot);
+ src: url(../font/NotoSans-Medium.eot?#iefix) format('embedded-opentype'),
+ url(../font/NotoSans-Medium.woff2) format('woff2'),
+ url(../font/NotoSans-Medium.woff) format('woff');
+ }
+ @font-face {
+ font-family: 'NotoKrB';
+ font-style: normal;
+ font-weight: 700;
+ src: local('Noto Sans Bold'), local('NotoSans-Bold'), url(../font/NotoSans-Bold.eot);
+ src: url(../font/NotoSans-Bold.eot?#iefix) format('embedded-opentype'),
+ url(../font/NotoSans-Bold.woff2) format('woff2'),
+ url(../font/NotoSans-Bold.woff) format('woff');
+ }
+*/

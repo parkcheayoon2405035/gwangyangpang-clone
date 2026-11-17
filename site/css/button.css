@@ -1,0 +1,56 @@
+/* button */
+.abtn160 { border:none; color:#444; margin:0; padding:4px 0 0; width:160px; height:25px; background:url('../icon/abtn160.gif') no-repeat; cursor:pointer; }
+.abtn140 { border:none; color:#444; margin:0; padding:4px 0 0; width:140px; height:25px; background:url('../icon/abtn140.gif') no-repeat; cursor:pointer; }
+.abtn120 { border:none; color:#444; margin:0; padding:4px 0 0; width:120px; height:25px; background:url('../icon/abtn120.gif') no-repeat; cursor:pointer; }
+.abtn100 { border:none; color:#444; margin:0; padding:4px 0 0; width:100px; height:25px; background:url('../icon/abtn100.gif') no-repeat; cursor:pointer; }
+.abtn80  { border:none; color:#444; margin:0; padding:4px 0 0; width:80px;  height:25px; background:url('../icon/abtn80.gif')  no-repeat; cursor:pointer; }
+.abtn60  { border:none; color:#444; margin:0; padding:4px 0 0; width:60px;  height:25px; background:url('../icon/abtn60.gif')  no-repeat; cursor:pointer; }
+.abtn50  { border:none; color:#444; margin:0; padding:4px 0 0; width:50px;  height:25px; background:url('../icon/abtn50.gif')  no-repeat; cursor:pointer; }
+.abtn40  { border:none; color:#444; margin:0; padding:4px 0 0; width:40px;  height:25px; background:url('../icon/abtn40.gif')  no-repeat; cursor:pointer; }
+.abtn30  { border:none; color:#444; margin:0; padding:4px 0 0; width:30px;  height:25px; background:url('../icon/abtn30.gif')  no-repeat; cursor:pointer; }
+
+
+.mbtn160 { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:160px; height:20px; background:url('../icon/mbtn160.gif') no-repeat; cursor:pointer; }
+.mbtn140 { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:140px; height:20px; background:url('../icon/mbtn140.gif') no-repeat; cursor:pointer; }
+.mbtn120 { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:120px; height:20px; background:url('../icon/mbtn120.gif') no-repeat; cursor:pointer; }
+.mbtn100 { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:100px; height:20px; background:url('../icon/mbtn100.gif') no-repeat; cursor:pointer; }
+.mbtn80  { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:80px;  height:20px; background:url('../icon/mbtn80.gif')  no-repeat; cursor:pointer; }
+.mbtn60  { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:60px;  height:20px; background:url('../icon/mbtn60.gif')  no-repeat; cursor:pointer; }
+.mbtn50  { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:50px;  height:20px; background:url('../icon/mbtn50.gif')  no-repeat; cursor:pointer; }
+.mbtn40  { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:40px;  height:20px; background:url('../icon/mbtn40.gif')  no-repeat; cursor:pointer; }
+.mbtn30  { border:none; font-family:����; font-size:11px; color:#444; margin:0; padding:1px 0 ; width:30px;  height:20px; background:url('../icon/mbtn30.gif')  no-repeat; cursor:pointer; }
+
+
+
+.ibtn160 { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:160px; height:25px; background:url('../icon/ibtn160.gif') no-repeat 0 50%; cursor:pointer; }
+.ibtn140 { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:140px; height:25px; background:url('../icon/ibtn140.gif') no-repeat 0 50%; cursor:pointer; }
+.ibtn120 { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:120px; height:25px; background:url('../icon/ibtn120.gif') no-repeat 0 50%; cursor:pointer; }
+.ibtn100 { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:100px; height:25px; background:url('../icon/ibtn100.gif') no-repeat 0 50%; cursor:pointer; }
+.ibtn80  { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:80px;  height:25px; background:url('../icon/ibtn80.gif')  no-repeat 0 50%; cursor:pointer; }
+.ibtn60  { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:60px;  height:25px; background:url('../icon/ibtn60.gif')  no-repeat 0 50%; cursor:pointer; }
+.ibtn50  { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:50px;  height:25px; background:url('../icon/ibtn50.gif')  no-repeat 0 50%; cursor:pointer; }
+.ibtn40  { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:40px;  height:25px; background:url('../icon/ibtn40.gif')  no-repeat 0 50%; cursor:pointer; }
+.ibtn30  { border:none; font-family:����; font-size:9pt; color:#444; font-weight:bold; margin:0; padding:4px 3px; width:30px;  height:25px; background:url('../icon/ibtn30.gif')  no-repeat 0 50%; cursor:pointer; }
+
+
+.cbtn160 { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:160px; height:25px; background:url('../icon/cbtn160.gif') no-repeat 0 50%; cursor:pointer; }
+.cbtn140 { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:140px; height:25px; background:url('../icon/cbtn140.gif') no-repeat 0 50%; cursor:pointer; }
+.cbtn120 { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:120px; height:25px; background:url('../icon/cbtn120.gif') no-repeat 0 50%; cursor:pointer; }
+.cbtn100 { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:100px; height:25px; background:url('../icon/cbtn100.gif') no-repeat 0 50%; cursor:pointer; }
+.cbtn80  { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:80px;  height:25px; background:url('../icon/cbtn80.gif')  no-repeat 0 50%; cursor:pointer; }
+.cbtn60  { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:60px;  height:25px; background:url('../icon/cbtn60.gif')  no-repeat 0 50%; cursor:pointer; }
+.cbtn50  { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:50px;  height:25px; background:url('../icon/cbtn50.gif')  no-repeat 0 50%; cursor:pointer; }
+.cbtn40  { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:40px;  height:25px; background:url('../icon/cbtn40.gif')  no-repeat 0 50%; cursor:pointer; }
+.cbtn30  { border:none; font-family:����; font-size:9pt; color:#FFFFFF; font-weight:bold; margin:0; padding:4px 17px; width:30px;  height:25px; background:url('../icon/cbtn30.gif')  no-repeat 0 50%; cursor:pointer; }
+
+
+
+.sbtn160 { border:none; color:#444; margin:0; padding:4px 0 0; width:160px; height:21px; background:url('../icon/sbtn160.gif') no-repeat; cursor:pointer; }
+.sbtn140 { border:none; color:#444; margin:0; padding:4px 0 0; width:140px; height:21px; background:url('../icon/sbtn140.gif') no-repeat; cursor:pointer; }
+.sbtn120 { border:none; color:#444; margin:0; padding:4px 0 0; width:120px; height:21px; background:url('../icon/sbtn120.gif') no-repeat; cursor:pointer; }
+.sbtn100 { border:none; color:#444; margin:0; padding:4px 0 0; width:100px; height:21px; background:url('../icon/sbtn100.gif') no-repeat; cursor:pointer; }
+.sbtn80  { border:none; color:#444; margin:0; padding:4px 0 0; width:80px;  height:21px; background:url('../icon/sbtn80.gif')  no-repeat; cursor:pointer; }
+.sbtn60  { border:none; color:#444; margin:0; padding:4px 0 0; width:60px;  height:21px; background:url('../icon/sbtn60.gif')  no-repeat; cursor:pointer; }
+.sbtn50  { border:none; color:#444; margin:0; padding:4px 0 0; width:50px;  height:21px; background:url('../icon/sbtn50.gif')  no-repeat; cursor:pointer; }
+.sbtn40  { border:none; color:#444; margin:0; padding:4px 0 0; width:40px;  height:21px; background:url('../icon/sbtn40.gif')  no-repeat; cursor:pointer; }
+.sbtn30  { border:none; color:#444; margin:0; padding:4px 0 0; width:30px;  height:21px; background:url('../icon/sbtn30.gif')  no-repeat; cursor:pointer; }

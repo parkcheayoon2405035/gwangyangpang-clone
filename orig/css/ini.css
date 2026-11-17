@@ -1,0 +1,460 @@
+@media print 
+{
+  #print_hidden, #print_none { display: none; }
+  body { margin: 0; padding: 0; background: #fff; }
+}
+
+
+/*
+@media screen and (-webkit-animation) 
+{
+	a {
+		margin-bottom: -4px;
+	}
+}
+*/
+
+/* html 전체 padding 값이 박스 사이즈에 영향을 주지않게 변화 */
+*{
+   font-size:9pt;
+   font-style:normal;
+   margin:0;padding:0;
+   font-family:"Noto Sans KR", "굴림", "Gulim", Verdana, Arial, Sans-serif;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;   
+  -webkit-text-size-adjust : none;  /* 크롬, 사파리, 오페라 신버전 */
+  -ms-text-size-adjust : none;  /* IE */
+  -moz-text-size-adjust : none;  /* 파이어폭스 */
+  -o-text-size-adjust : none;  /* 오페라 구버전 */      
+   
+}
+
+
+* html{
+  overflow:scroll;overflow-x:auto;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+  -webkit-text-size-adjust : none;  /* 크롬, 사파리, 오페라 신버전 */
+  -ms-text-size-adjust : none;  /* IE */
+  -moz-text-size-adjust : none;  /* 파이어폭스 */
+  -o-text-size-adjust : none;  /* 오페라 구버전 */   
+   
+}
+* html body		{height:100%;overflow-y:scroll;}
+html, body		{min-height:100%;margin:0;padding:0;}
+body			{  font-size: 100%;  color: #686868;  font-style: normal;  font-family: "Noto Sans KR", "굴림","verdana";  line-height:150%; }
+
+/* 본문 제목 */
+#header h1 {margin: 0; padding: 0; background: transparent; } /* 사이트제목 */
+#header h2, #snb h2, #body_head h2, #body_foot h2, #footer h2, #aside h2 { margin: 0; padding: 0; background: transparent; }
+
+h1, h2, h3, h4, h5, h6 {font-size:100%;letter-spacing:0;line-height:1.25;text-align:left;}
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {font-weight: normal;} 
+h1 {font-size:130%;font-weight:bold;letter-spacing:-0.1em;color:#111;}
+h2 {font-size:118%;font-weight:bold;letter-spacing:-0.1em;color:#333;}
+h3 {font-weight:bold;letter-spacing:-0.1em;color:#009763;}
+h4 {font-weight:bold;color:#333;}
+h5 {font-weight:normal;color:#111; }
+h6 {font-weight:normal; }
+
+
+
+/* 기본테그 */
+strong	{font-weight:bold;}
+
+a {cursor:pointer; }
+A:link    {font: 100% Gulim,"굴림"; text-decoration: none; color:#000000}
+A:active  {font: 100% Gulim,"굴림"; text-decoration: none; color:#000000}
+A:visited {color:#000000}
+A:hover   {text-decoration: none; color:#ff0096;}
+
+form { margin: 0; padding: 0; }
+fieldset { margin: 0; padding: 0; border: 0; }
+legend { margin: 0; padding: 0; }
+
+table caption	{visibility:hidden; height:0;}
+fieldset, button{display:block;border:none;}
+img				{margin:0;border:0;  border-style : none;} 
+ol,ul,li		{list-style:none;}
+ul{  list-style-image : none;}
+hr, button img	{display:none;}
+textarea		{overflow:auto;} 
+option			{padding-right:6px;} 
+legend			{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;visibility:hidden; font-size:0; line-height:0;} 
+dl,dt			{margin:0;padding:0;}
+dd				{display:inline;margin:0;padding:0;}
+label.none		{display:none;}
+input{  border: 1px solid #A5ACB2;  font-size: 100%;  color: #595959;  font-style: normal;  font-family: "굴림","verdana";  line-height:150%;  margin-left: 0;  word-spacing:-1pt; vertical-align:middle;}
+table, tr,td {  font-size: 100%;  color: #686868;  font-style: normal;  font-family: "굴림","verdana";  line-height:150%; }
+
+input[type="text"], input[type="password"]{ padding-left:10px; height:20px; line-height:20px; font-size:15px;}
+
+input, textarea, button { 
+appearance: none; 
+-moz-appearance: none; 
+-webkit-appearance: none; 
+-webkit-border-radius: 0; 
+-moz-border-radius: 0; 
+}
+
+  
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: red;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: red;
+}
+
+
+/* 사용자정의 */
+.noborder {  border-style : none;}
+.font0 {font-size:0px;}
+.font0 a {font-size:0px;}
+
+
+/* 일정관리 테이블 색상 */
+.sch_head_dark {  background-color : #BF799F;  height : 3px;}
+.sch_head_light {  background-color : #FEEEFA;}
+
+
+/* 기본테이블 */
+.table_1 {  border-collapse : collapse;  border-width : 0;  border-style:solid;  border-color : #999999;    border-top:2px solid #ddd;}
+.table_1 th {  border-width : 0;  border-style:solid;  padding : 3px;    border-color : #999999; border-bottom:1px solid #ddd;background-color : #00abe1; color:#fff; font-size:15px;}
+.table_1 td {  border-width : 0;  border-style:solid;  padding : 10px 20px;    border-color : #999999; vertical-align:center; border-bottom:1px solid #ddd; font-size:15px;}
+
+
+/* 기본정렬방식 */
+.left { text-align:left;}
+.center { text-align:center;}
+.right { text-align:right;}
+.f_left { float:left;}
+.f_right { float:right;}
+.f_clear { clear:both;}
+.f_center { margin:0 auto; }
+.f_left_clear { clear:left;}
+.f_right_clear { clear:right;}
+.vtop {vertical-align:top;}
+.vmiddle {vertical-align:middle;}
+.vbottom {vertical-align:bottom;}
+
+.font0 {font-size:0px; line-height:0;}
+.font0 a {font-size:0px; line-height:0;}
+
+
+
+
+/* 라운드 박스 */
+.box 
+{  
+   border-radius: 5px;
+   -webkit-border-radius: 5px;  /* safari */
+   -moz-border-radius: 5px;  /* firefox */
+   border: 1px solid #aaa;  
+/*   behavior: url(border-radius.htc); */
+}
+
+
+/* 그라데이션1 상->하, color1-> color2 */
+.gradient1
+{
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E0E0E0), color-stop(0.6, #EFEFEF));
+  
+  /* Safari 5.1, Chrome 10+ */  
+  background: -webkit-linear-gradient(top, #E0E0E0, #FFFFFF);  
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top,#FFFFFF, #EFEFEF, #E0E0E0);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #E0E0E0, #FFFFFF);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #E0E0E0, #FFFFFF);
+  
+}
+
+
+/* 그라데이션2 좌->우, color1-> color2 -> color1 -> color2 */
+.gradient2
+{
+  /* fallback DIY*/
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#2F2727), color-stop(0.25, #1a82f7), color-stop(0.5, #2F2727), color-stop(0.75, #1a82f7), to(#2F2727));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+}
+
+
+input[type="button"].bd_selected
+{
+  width:26px;  
+  height:26px; 
+  font-size:120%; 
+  background:#fff; 
+  color:#005299; 
+  font-weight:bold; 
+  border-style:solid; 
+  border-width:0px; 
+  margin:2px; 
+  padding:2px 2px 2px 2px; 
+  line-height:130%; 
+  cursor:pointer;
+}
+input[type="button"].bd_unselected
+{
+  width:26px;  
+  height:26px; 
+  font-size:120%;   
+  background:white; 
+  color:#000;
+  font-weight:bold; 
+  border-style:solid; 
+  border-width:0px; 
+  margin:2px; 
+  padding:2px 2px 2px 2px; 
+  line-height:130%; 
+  cursor:pointer;
+}
+
+
+/* 반투명 */
+.opacity_50
+{
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity:0.5;
+  opacity:0.5;
+}
+
+.opacity_25
+{
+  filter:alpha(opacity=25);
+  -moz-opacity:0.25;
+  -khtml-opacity:0.25;
+  opacity:0.25;
+}
+
+.opacity_75
+{
+  filter:alpha(opacity=75);
+  -moz-opacity:0.75;
+  -khtml-opacity:0.75;
+  opacity:0.75;
+}
+
+
+
+
+/* 이미지 효과 */
+
+.image_over_big a:hover img 
+{
+  transform: scale(1.1); 
+  transition: transform 1s ease;
+}
+
+
+.image_over_rotate_x a:hover img 
+{
+  transform: rotateX(360deg);
+  transition: transform 1s ease;
+}
+
+.image_over_rotate_y a:hover img 
+{
+  transform: rotateY(360deg);
+  transition: transform 1s ease;
+}
+
+.image_over_rotate_z a:hover img 
+{
+  transform: rotateZ(360deg);
+  transition: transform 1s ease;
+}
+
+/* 박스/텍스트 그림자 효과 */
+/*
+.image_box_shadow
+{
+  box-shadow:5px 5px 15px #999;
+}
+
+.selected_bg
+{
+  background:#1070CF;
+  font-color:white;
+  text-shadow:1px 1px 1px black;   
+  box-shadow:2px 4px 4px #002455;   /* 오른쪽 그림자 */
+  /*  box-shadow:-2px 4px 4px #002455; */   /* 왼쪽 그림자 */
+}
+*/
+
+/*  애니메이션 효과 */
+/*
+@keyframes fade_in 
+{
+    0%   {  
+           filter:alpha(opacity=0);
+           -moz-opacity:0;
+           -khtml-opacity:0;
+           opacity:0;
+         }
+    25%  {
+           filter:alpha(opacity=25);
+           -moz-opacity:0.25;
+           -khtml-opacity:0.25;
+           opacity:0.25;    
+         }
+    50%  {
+           filter:alpha(opacity=50);
+           -moz-opacity:0.50;
+           -khtml-opacity:0.50;
+           opacity:0.5;        
+         }
+    100% {
+           filter:alpha(opacity=100);
+           -moz-opacity:1;
+           -khtml-opacity:1;
+           opacity:1;        
+         }
+}
+@-webkit-keyframes fade_in
+{
+    0%   {  
+           filter:alpha(opacity=0);
+           -moz-opacity:0;
+           -khtml-opacity:0;
+           opacity:0;
+         }
+    25%  {
+           filter:alpha(opacity=25);
+           -moz-opacity:0.25;
+           -khtml-opacity:0.25;
+           opacity:0.25;    
+         }
+    50%  {
+           filter:alpha(opacity=50);
+           -moz-opacity:0.50;
+           -khtml-opacity:0.50;
+           opacity:0.5;        
+         }
+    100% {
+           filter:alpha(opacity=100);
+           -moz-opacity:1;
+           -khtml-opacity:1;
+           opacity:1;        
+         }
+}
+
+
+@keyframes fade_out 
+{
+    0% {
+           filter:alpha(opacity=100);
+           -moz-opacity:1;
+           -khtml-opacity:1;
+           opacity:1;        
+       }
+    50%  {
+           filter:alpha(opacity=50);
+           -moz-opacity:0.50;
+           -khtml-opacity:0.50;
+           opacity:0.5;        
+         }       
+    75%  {
+           filter:alpha(opacity=25);
+           -moz-opacity:0.25;
+           -khtml-opacity:0.25;
+           opacity:0.25;    
+         }
+
+    100%   {  
+           filter:alpha(opacity=0);
+           -moz-opacity:0;
+           -khtml-opacity:0;
+           opacity:0;
+         }
+
+}
+@-webkit-keyframes fade_out
+{
+    0% {
+           filter:alpha(opacity=100);
+           -moz-opacity:1;
+           -khtml-opacity:1;
+           opacity:1;        
+       }
+    50%  {
+           filter:alpha(opacity=50);
+           -moz-opacity:0.50;
+           -khtml-opacity:0.50;
+           opacity:0.5;        
+         }       
+    75%  {
+           filter:alpha(opacity=25);
+           -moz-opacity:0.25;
+           -khtml-opacity:0.25;
+           opacity:0.25;    
+         }
+
+    100%   {  
+           filter:alpha(opacity=0);
+           -moz-opacity:0;
+           -khtml-opacity:0;
+           opacity:0;
+         }
+
+}
+
+
+
+#sample_id {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: fade_in;
+    -webkit-animation-name: fade_in;
+    
+    animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+    
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    
+    animation-direction: alternate;   
+    -webkit-animation-direction: alternate;       
+
+    animation-fill-mode: both; /* 끝에서 멈춤 */
+    -webkit-animation-fill-mode:both;  
+
+
+} 
+*/

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>광양행운팡팡(개발용)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="description" content="광양행운팡팡">
+<meta name="keywords" content="">
+<meta name="viewport" content="user-scalable=yes, width=device-width, viewport-fit=cover" />
+
+<meta property='og:type' content='website'>
+<meta property='og:title' content='광양행운팡팡'>
+<meta property='og:description' content='광양행운팡팡'>
+<meta property='og:image' content='http://www.gwangyangpang.com/images/og.jpg'>
+<meta property='og:url' content='http://www.gwangyangpang.com'>  
+  
+             <link href='http://www.gwangyangpang.com/images/icon01.jpg' rel='icon' type='image/png' />
+<link href='http://www.gwangyangpang.com/images/icon01.jpg' rel='shortcut icon' type='image/png' />
+<link href='http://www.gwangyangpang.com/images/icon02.jpg' rel='apple-touch-icon' type='image/png' />
+<link rel="canonical" href="http://www.gwangyangpang.com">
+<link rel="stylesheet" href="http://www.gwangyangpang.com/css/default.css">
+<link rel="stylesheet" href="http://www.gwangyangpang.com/css/button.css">
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/url_list.php"></script>
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/script.js"></script>
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/member.js"></script>
+<SCRIPT type='text/javascript' src="http://www.gwangyangpang.com/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script> <script type="text/javascript"> if(!wcs_add) var wcs_add = {}; wcs_add["wa"] = "e53423271ab320"; if(window.wcs) {wcs_do(); } </script>
+</head>
+
+<script type='text/javascript'>
+var auth_err_num = 0;
+function open_agree_pop()
+{
+ document.getElementById('layer_agree').style.display = 'block';
+}  
+function agree_ok()
+{
+ document.getElementById('layer_agree').style.display = 'none';
+ document.getElementById('chk_info').checked = true;
+}  
+
+
+function send_submit()
+{
+  document.getElementById('send_form').submit();
+/*
+  if(document.getElementById('chk_info').checked == true || 1)
+  {
+    document.getElementById('send_form').submit();
+  }
+  else
+  {
+    alert('개인정보 수집에 동의하셔야됩니다');
+    open_agree_pop();
+  }  
+  */
+}  
+
+function get_auth_num()
+{
+  let phone_num = document.getElementById('B_phone').value;
+  $.ajax({
+            url:'ajax_auth_phone.php',
+            type:'post',            
+            data : {
+               "phone_num" : phone_num, 
+               "mode" : "check"
+            },
+            
+            success:function(data)
+            {
+              if(data == 'OK')
+              {
+                document.getElementById('B_auth_num').placeholder = "발급받은 인증번호를 입력하세요";
+                document.getElementById('phone_auth_result').innerHTML = "       <span class='blink' >발급받은 인증번호를 입력하세요</span>";
+                document.getElementById('get_auth').style.display = 'none';
+                document.getElementById('set_auth').style.display = 'inline';                
+              }  
+              else
+              {
+                alert(data);
+              }  
+            }
+        });
+}  
+
+
+function check_auth_num()
+{
+  let auth_num = document.getElementById('B_auth_num').value;
+  let phone_num = document.getElementById('B_phone').value;
+  $.ajax({
+            url:'ajax_auth_phone.php',
+            type:'post',            
+            data : {
+               "phone_num" : phone_num, 
+               "auth_num" : auth_num,
+               "mode" : "check_auth"
+            },
+            
+            success:function(data)
+            {
+              if(data == 'OK')
+              {
+                document.getElementById('next_btn').disabled = false;
+                document.getElementById('next_btn').style.background = "";
+                document.getElementById('phone_auth_area').style.display = 'none';
+                document.getElementById('phone_auth_result').innerHTML = "       <span class='blink' style='color:blue; font-weight:bold;'>인증번호가 확인되었습니다</span>";                
+                
+              }  
+              else
+              {
+                auth_err_num++;
+                if(auth_err_num >= 5)
+                {
+                  document.getElementById('phone_auth_area').style.display = 'none';
+                  document.getElementById('phone_auth_result').innerHTML = "       <span style='color:red; font-weight:bold;'>인증번호가 5회 틀렸습니다.</span>";
+                }  
+                alert(data);
+              }  
+            }
+        });
+}  
+
+var next_ck = false;
+function err_msg_layer(err_text)
+{
+  next_ck = false;
+  document.getElementById('layer_err_msg').innerHTML = err_text;  
+  document.getElementById('layer_pop_error').style.display = 'block';  
+}  
+
+function err_msg_layer_next(err_text)
+{
+  next_ck = true;
+  document.getElementById('layer_err_msg').innerHTML = err_text;  
+  document.getElementById('layer_pop_error').style.display = 'block';  
+}  
+
+
+function close_layer()
+{
+  if(next_ck == true)
+  {
+    location = 'http://www.gwangyangpang.com';
+  }  
+  else
+  {
+    document.getElementById('layer_pop_error').style.display = 'none';
+  }
+}  
+
+</script>
+
+<style type='text/css'>
+placeholder{color:red; }
+.lan {width:100%; padding:15% 15% 0 45%; }
+.lan td { text-align:center; line-height:0} 
+.lan td img {width:80%; border:1px solid #ddd;}
+#phone_auth_result .blink {font-size:14px; font-weight:bold; color:white;}
+/* 모바일 버전에서만 작동 */
+@media (max-width: 640px) 
+{ 
+  .agree_box {font-size:3vw !important;}
+  .agree_box b {font-size:3vw !important;}    
+  .lan_btn_2 button {font-size:4vw !important; line-height:4vw !important; height:17vw !important;}
+  .lan_btn_2 button b {font-size:4vw !important;}  
+}
+</style>
+
+
+
+<body style="margin:0 auto; padding:0; height:100%; width:100%; background:#DC294C;">
+
+
+<!--에러 메시지 레이어 -->
+<div id='layer_pop_error' style='position:relative; z-index:10000; display:none;'>
+  <section style='position:fixed; display:flex; top:0; left:0; width:100%; height:100%;  justify-content: center; align-items: center; background:rgba(0,0,0,0.5);'>
+	 <div class="layer_popup">
+	    <div style='width:100%;text-align:right;line-height:0;'><a onclick="close_layer()"><img src="http://www.gwangyangpang.com/images/icon_close.png"></a></div>
+		<div class="text_h3"></div>
+		<div class="p_title" id='layer_err_msg' >
+		  <br>		  <br> <br>
+		</div>
+		<div class="text_h3"></div>
+		<button class='btn02' type='button' onclick="close_layer();" >확 인<button>
+		<div class="text_h3"></div>
+	 </div>
+	</section> 
+</div>	
+<!--에러 메시지 레이어 -->
+
+<div class="wrap">
+
+
+<div style="width:100%; height:100%; padding:50px 60px;">
+
+<div style="width:100%; text-align:center;padding:50px 0 0 0;"><img src="http://www.gwangyangpang.com/images/logo_w.png" width="100%"></div>
+<div style="width:100%; text-align:center; padding:30px 0 0 0; color:#fff; font-family: 'Cafe24Ssurround'; font-size:25px; line-height:1.3em;">
+방문을 환영합니다!
+</div>
+<form name="send_form" id="send_form" action="/view.html" method="post"  target='send_frame'>
+<div class="info_box">
+  <div class="agree_box">
+  <b>행운팡팡 참여를 위한 정보 수집 동의 (필수)</b><div class="text_h1"></div>
+  1. 수집 항목 : 이름, 전화번호<br> 
+  2. 포인트 지급 및 사용에만 이용 됩니다<br>
+  3. 4주 후 자동 삭제됩니다
+  </div>
+  <div class="t_box"><input type="text" name='B_name' id='B_name' placeholder='이름'></div>
+  <div class="t_box"><input type="text" name='B_phone' id='B_phone' placeholder='연락처'></div>
+</div>
+<div class="lan_btn_2"><button type="button" onclick="send_submit()">동의 및 <b>당첨확인</b></button></div>
+<input type='hidden' name='num' value='D604B24477545F5C60502405576165'>
+<input type='hidden' name='send_mode' value='send'>
+<iframe name='send_frame' id='send_frame' style='border:none; width:0; height:0;'></iframe>
+</form>
+
+</div>
+
+</div>
+</body>
+</html>

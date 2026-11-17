@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>광양행운팡팡(개발용)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="description" content="광양행운팡팡">
+<meta name="keywords" content="">
+<meta name="viewport" content="user-scalable=yes, width=device-width, viewport-fit=cover" />
+
+<meta property='og:type' content='website'>
+<meta property='og:title' content='광양행운팡팡'>
+<meta property='og:description' content='광양행운팡팡'>
+<meta property='og:image' content='http://www.gwangyangpang.com/images/og.jpg'>
+<meta property='og:url' content='http://www.gwangyangpang.com'>  
+  
+             <link href='http://www.gwangyangpang.com/images/icon01.jpg' rel='icon' type='image/png' />
+<link href='http://www.gwangyangpang.com/images/icon01.jpg' rel='shortcut icon' type='image/png' />
+<link href='http://www.gwangyangpang.com/images/icon02.jpg' rel='apple-touch-icon' type='image/png' />
+<link rel="canonical" href="http://www.gwangyangpang.com">
+<link rel="stylesheet" href="http://www.gwangyangpang.com/css/default.css">
+<link rel="stylesheet" href="http://www.gwangyangpang.com/css/button.css">
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/url_list.php"></script>
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/script.js"></script>
+<script type='text/javascript' src="http://www.gwangyangpang.com/js/member.js"></script>
+<SCRIPT type='text/javascript' src="http://www.gwangyangpang.com/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script> <script type="text/javascript"> if(!wcs_add) var wcs_add = {}; wcs_add["wa"] = "e53423271ab320"; if(window.wcs) {wcs_do(); } </script>
+</head>
+
+
+<body style="margin:0 auto; padding:0; min-height:100%; width:100%;">
+
+<div class="wrap">
+
+<style type='text/css' title=''>
+#tour_menu1 { width:33%; font-size:14px; background:#005299; text-align:center;color:#fff; padding:8px; border-radius:30px; font-weight:900;}
+</style>
+
+<div class='m_id'>
+<!--메뉴 탭 -->
+<script type='text/javascript'>
+<!--
+var oepned_menu = false;
+function open_user_menu()
+{
+  if(oepned_menu == true)
+  {
+     close_user_menu();
+     oepned_menu = false;     
+  }
+  else
+  {
+    view_user_menu();
+    oepned_menu = true;
+  }    
+}  
+
+function view_user_menu()
+{
+  document.getElementById('main_user_menu').style.display = 'block';
+  document.getElementById('cu_blank').style.display = 'block';  
+  setTimeout("document.getElementById('main_user_menu').style.left = '0vw';", 100);  
+}  
+function close_user_menu()
+{
+  document.getElementById('main_user_menu').style.left = '-100vw';
+  document.getElementById('cu_blank').style.display = 'none';  
+  setTimeout("document.getElementById('main_user_menu').style.display = 'none';", 500);
+}  
+//-->
+</script>
+<style type='text/css' title=''>
+/* ============= 왼쪽 슬라이드 메뉴 ============= */
+.fixed_user_menu
+{
+  position:fixed; top:50px; z-index:201;  width:100%; 
+}
+
+.main_user_menu
+{
+
+  z-index:201; 
+  position:absolute; 
+  left:-100vw; 
+  display:block; 
+  width:100%;
+  transition: all 0.5s ease;      
+}
+.main_user_menu_front
+{
+  position:absolute; 
+  padding:10px;    
+  z-index:201; 
+  width:300px;
+  top:5px; left:0;
+  text-shadow:1px 1px 1px black;  
+}
+
+.main_user_menu_back
+{
+  position:absolute; 
+  z-index:200; 
+  background-color:#674595;  
+  box-shadow:4px 4px 4px black;  
+  width:300px;
+  top:0; left:0;
+  filter:alpha(opacity=95);      -moz-opacity:0.95;     -khtml-opacity:0.95;  opacity:0.95;  
+}
+
+
+.main_font
+{
+  font-size:140%;
+  color:#ffffff;
+}
+.main_font06{color:#ffffff;}
+/* ============= 왼쪽 슬라이드 메뉴 ============= */
+</style>
+
+
+<div class="main_menu_1">
+<!--
+<article style="margin:0 auto;width:100%;padding:4%; margin-bottom:0px; display:flex; justify-content: space-between;  box-shadow:0 0px 8px 0px #999; border:1px solid red;">
+   <div class="top_tab" style="width:50%; display:flex; justify-content:left; flex-wrap:wrap; gap:0; ">
+      <div style="width:20%;padding:6.5% 0 0 0;"><img onclick="open_user_menu()" src='http://www.gwangyangpang.com/images/icon_tab.png' height='12' align="absmiddle" class="tab_m"></div>
+	  <div style="width:80%;padding:3% 0 0 0;"><img onclick="location.href='index.html'" src='http://www.gwangyangpang.com/images/logo_1.jpg' height='25' align="absmiddle"></div>
+   </div>
+   <div class="top_L" style="display:flex; justify-content:right; flex-wrap:wrap; gap:0;">
+     <div style="width:52%;text-align:right; padding:0 5px 0 0;"><img onclick="window.open('http://www.geojemice.kr/images/tour_geoje.jpg')" src='http://www.gwangyangpang.com/images/r_info.jpg' height='35'></div>
+     <div style="width:48%;"><div onclick="location.href='phone_login.html?login_type=mylist'" class="t_point"  style="border-radius:12px; height:35px;">포인트 확인</a></div>
+   </div>
+</article>-->
+
+<div class="main_menu_11">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+   <tr>
+      <td width="20%" style="line-height:0;"><a href="vote.html" style='line-height:0;'><img src="http://www.gwangyangpang.com/images/search_btn.png" height="36"></a></td>
+	  <th valign="center" style="line-height:0;"><img onclick="location.href='index.html'" src="http://www.gwangyangpang.com/images/logo_img.png" height="32"></th>
+	  <td width="20%" style="line-height:0; text-align:right;"><a href="phone_login.html?login_type=mylist" style="line-height:0;"><img src="http://www.gwangyangpang.com/images/mypoint_btn.png" height="36"></a></td>
+   </tr>
+</table>
+</div>
+
+<!--
+<div id='cu_blank' style="position:fixed; display:none; width:100%; height:100%; top:0; left:0; z-index:1; " onclick="close_user_menu()"></div>
+<section style='position:relative;  background:white;'>
+<div id='main_user_menu' class='main_user_menu' style='background:white;' >
+  <article class="drop_m" style='border-top:1px solid #ddd;'>
+   <a href="phone_login.html?login_type=mylist"><div class="drop_menu">포인트사용내역</div></a>
+   <a href="coupon.html"><div class="drop_menu">이용안내</div></a>
+   
+   <a href="tour_intro.html"><div class="drop_menu">주변 관광지</div></a>
+   <a href="food_intro.html"><div class="drop_menu">주변 맛집</div></a>
+   <a href="hotel_intro.html"><div class="drop_menu">주변 숙박</div></a>
+   <a href="sp_intro.html"><div class="drop_menu">상점가</div></a>
+</article>
+</div>
+</section>
+<!-- drop_menu-->
+
+</div>
+</div>
+
+<!--
+<article style="margin:0 auto;width:100%;padding:5%; margin-bottom:0px; display:flex; justify-content: space-between;  box-shadow:0 0px 8px 0px #999;">
+   <div class="top_tab">
+      <a onclick="open_user_menu()"><img src='http://www.gwangyangpang.com/images/icon_tab.png' height='12' align="absmiddle" class="tab_m"></a>
+	  <a href="index.html"><img src='http://www.gwangyangpang.com/images/logo_1.jpg' height='25' align="absmiddle" style="margin:0 0 0 3vw;"></a>
+   </div>
+   <div class="top_L"><a href="phone_login.html?login_type=mylist"><div class="t_point">나의포인트</div></a></div>
+</article>
+<!-- 설문참여자는 설문 버튼 감추기 --
+<div style="position:fixed; bottom:5vw; right:5vw; z-index:10000;"><a href="vote.html" style='line-height:0;'><img src='http://www.gwangyangpang.com/images/s_icon.png' height="90"></a>
+</div>
+--
+
+<article id='tour_menu' style="margin:0 auto;width:100%;padding:5% 5% 5% 5%; position:fixed; z-index:1000; background:white;">
+   <div class="sub_tab">
+	  <div id='tour_menu1' class="st1" onclick="location.href='tour_intro.html'">주변 관광지</div>
+	  <div id='tour_menu2' class="st1" onclick="location.href='food_intro.html'">주변 맛집</div>
+	  <div id='tour_menu3' class="st1" onclick="location.href='hotel_intro.html'">주변 숙박</div>
+	  <div id='tour_menu4' class="st1" onclick="location.href='sp_intro.html'">상점가</div>
+   </div>
+</article>-->
+	   
+<!--메뉴 탭 -->
+
+<!-- 카테고리 --
+<article style="margin:0 auto; width:100%; padding:75px 15px 15px 15px; ">
+   <div class="main_btn1">
+
+	  <div class="mb1"><a href="festival_intro.html">행사안내</a></div>		   
+	  <div class="mb1on"><a href="food_intro.html">음식점</a></div>
+	  <div class="mb1"><a href="hotel_intro.html">숙박</a></div>		   
+	  <div class="mb1"><a href="tour_intro.html">관광지</a></div>
+	  <div class="mb1"><a href="sp_intro.html">지역특산물</a></div>
+
+   </div>
+</article>-->
+
+
+<div style="padding:0; width:100%; height:60px;"></div>
+
+<div class="bottom_menu">
+   <div class="bottom_menu1" onclick="location.href='festival_intro.html'"><a href="festival_intro.html">행사안내</a></div>
+   <div class="bottom_menu_bar"></div>
+   <div class="bottom_menu1on" onclick="location.href='food_intro.html'"><a href="food_intro.html">음식점</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1" onclick="location.href='hotel_intro.html'"><a href="hotel_intro.html" style="line-height:0;">숙박</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1" onclick="location.href='tour_intro.html'"><a href="tour_intro.html" style="line-height:0;">관광지</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1" onclick="location.href='sp_intro.html'"><a href="sp_intro.html" style="line-height:0;">지역 특산물</a></div>
+</div>
+
+<article style="margin:0 auto;width:100%;">
+
+
+<style type='text/css' title=''>
+
+ .item img{ width:100%;}
+</style>
+
+<div >
+    
+    <div class='item'>
+        <div>     
+          <img src='http://www.gwangyangpang.com/file.php?U_index=303' width='100%'>
+        </div>        
+     </div>    
+    <div class='item'>
+        <div>     
+          <img src='http://www.gwangyangpang.com/file.php?U_index=304' width='100%'>
+        </div>        
+     </div></div>
+
+
+  		   
+</article>
+
+
+
+	   <article style="margin:0 auto;width:100%;padding:15px;">
+	      <div class="title03">그러소 광양불고기 광양읍본점</div>
+	      
+		   <div class="place3">
+			   <div class="sub_cont02">
+			   <div class="sub_cont02">
+			   <strong>남도음식명가</strong><br />
+<br />
+푸짐한 남도식 차림과 신선한 광양불고기<br />
+맛과 건강을 챙긴 남도의 맛을 전합니다.			   </div>	
+			   </div>			   
+		   </div>
+		   <div class="text_h2"></div>
+		   
+		   <div class="place4">
+
+<!-- 메뉴판 -->
+			
+<!--추가01 분류-->
+			  
+
+<!--추가02 대표메뉴-->
+			  
+			  			 
+			  			  
+			  <div class="sp1"><img src="http://www.gwangyangpang.com/images/s_call_icon.png" height='25'></div>
+			  <div class="sp2"><b style='text-decoration:underline;'><a href='tel:061-762-9291'>061-762-9291</a></b></div>
+
+				 
+			  			  
+			  <div class="sp1"><img src="http://www.gwangyangpang.com/images/s_map_icon.png" height='25'></div>
+			  <div class="sp2"><b><a href='<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.0815151112747!2d127.5727065770884!3d34.979622868193765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e0d8b28e34397%3A0x3fbc0786a561bb6e!2z6re465-s7IaM!5e0!3m2!1sko!2skr!4v1772454100615!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' target='_blank'>광양시 광양읍 매천로 714</a></b></div>
+
+		
+
+
+
+<!- 네이버지도 ->
+<div><a href='https://map.naver.com/p/entry/place/1197606246?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202603022121&locale=ko&svcName=map_pcv5' target='_blank'><img src="http://www.gwangyangpang.com/images/naver_map.png" width='100%'></a></div>						  
+	
+
+
+<!- 영문일땐 영문구글맵-->			  
+
+<!- 영문일땐 한글구글맵-->			  
+              <div class="sp_map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.0815151112747!2d127.5727065770884!3d34.979622868193765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e0d8b28e34397%3A0x3fbc0786a561bb6e!2z6re465-s7IaM!5e0!3m2!1sko!2skr!4v1772454100615!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              
+     			  </div>
+
+
+		   </div>
+
+
+
+		   <div class="text_h2"></div>
+		   
+		  <!-- <button type='button' class="btn04" onclick="history.back(-1);">Back</button>-->
+	   </article>
+
+
+ <div class="text_h4"></div>
+
+<!-- 관광지인기글 -->
+<div style="padding:0; width:100%; line-height:0; "><img src="http://www.gwangyangpang.com/images/tour_title.png" width="100%"></div>
+ <div class="text_h4"></div>
+
+<!-- 주변 음식점 -->
+<div style="padding:0; width:100%; line-height:0; "><img src="http://www.gwangyangpang.com/images/food_title.png" width="100%"></div>
+
+
+
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/food_s1.html?com_idx=67'><img src='http://www.gwangyangpang.com/file.php?U_index=311' class='thum_img'></a></div>
+  <div class='list_box_t1'>백운뜰</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>남도음식명가</strong></div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/food_s1.html?com_idx=65'><img src='http://www.gwangyangpang.com/file.php?U_index=307' class='thum_img'></a></div>
+  <div class='list_box_t1'>지곡산장</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>남도음식명가</strong></div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/food_s1.html?com_idx=76'><img src='http://www.gwangyangpang.com/file.php?U_index=329' class='thum_img'></a></div>
+  <div class='list_box_t1'>만리향</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>30년 이상 장수식당</strong></div>
+</article>
+  
+              
+
+
+
+ <div class="text_h4"></div>
+
+
+
+
+ <!-- 주변 숙박 -->
+<div style="padding:0; width:100%; line-height:0; "><img src="http://www.gwangyangpang.com/images/hotel_title.png" width="100%"></div>
+
+
+
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/hotel_s1.html?com_idx=53'><img src='http://www.gwangyangpang.com/file.php?U_index=265' class='thum_img'></a></div>
+  <div class='list_box_t1'>양은식민박</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>광양시 다압면에 위치한 &#39;양은식민박&#39;</strong></div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/hotel_s1.html?com_idx=34'><img src='http://www.gwangyangpang.com/file.php?U_index=182' class='thum_img'></a></div>
+  <div class='list_box_t1'>봉강하조오토캠핑장</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>자연 속 계곡캠핑을 할 수 있는 오토캠핑</strong></div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/hotel_s1.html?com_idx=35'><img src='http://www.gwangyangpang.com/file.php?U_index=184' class='thum_img'></a></div>
+  <div class='list_box_t1'>섬진강별빛야영장</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'><strong>끝들마을 엑티비티존에 자리한 야영장</strong></div>
+</article>
+  
+              
+
+
+
+ <div class="text_h4"></div>
+
+
+
+<!-- 주변 관광지 -->
+<div style="padding:0; width:100%; line-height:0; "><img src="http://www.gwangyangpang.com/images/tour_title2.png" width="100%"></div>
+
+
+
+
+
+ <div class="text_h4"></div>
+
+
+ <!-- 주변 특산물 -->
+<div style="padding:0; width:100%; line-height:0; "><img src="http://www.gwangyangpang.com/images/sp_title.png" width="100%"></div>
+
+
+
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/sp_s1.html?com_idx=9'><img src='http://www.gwangyangpang.com/file.php?U_index=107' class='thum_img'></a></div>
+  <div class='list_box_t1'>광양숯불고기</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'>청동화로에 참숯을 피워 구리 석쇠에 구어 낸 광양불고기는 &lsquo;천하일미 마로화적&rsquo;으로 일컬어 질 정도로 널리 알려져 있으며 맛의 비결은 얇게 다진 쇠고기와 집집마다 특색있는 양념을 살짝 버무린 데 있다. 매년 10월경 아름다운 서천변을 배경으로 전통숯불구이 축제가 열린다.</div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/sp_s1.html?com_idx=11'><img src='http://www.gwangyangpang.com/file.php?U_index=111' class='thum_img'></a></div>
+  <div class='list_box_t1'>광양섬진강재첩</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'>대한민국 대표 청정지역인 섬진강 하류에 서식하는 민물조개로 황달, 간질환, 숙취 해소에 으뜸인 건강식품이다. 국과 회로 섬진강변과 인근 망덕포구에서 맛볼 수 있다.</div>
+</article>
+  
+              
+  
+  <article class='list_box'>
+  <div class='list_box1'><a href='http://www.gwangyangpang.com/sp_s1.html?com_idx=10'><img src='http://www.gwangyangpang.com/file.php?U_index=109' class='thum_img'></a></div>
+  <div class='list_box_t1'>광양백운산고로쇠</div>
+  <div class='list_box_t2' style='height:20px; overflow:hidden;'>백운산 일대의 토종 고로쇠나무에서 추출하는 고로쇠 약수는 칼슘과 마그네슘, 칼륨, 망간 등 미네랄이 많이 들어있어 몸 안에 쌓인 나쁜 물질을 배출시키는데 효과가 있으며, 변비와 위장병, 관절염, 신경통, 산후통 예방과 산후조리, 원기회복 등에 효능이 있다.</div>
+</article>
+  
+              
+
+
+
+ <div class="text_h4"></div>
+
+</div>
+
+
+
+
+<div class="bottom_menu">
+   <div class="bottom_menu1"><a href="festival_intro.html">행사안내</a></div>
+   <div class="bottom_menu_bar"></div>
+   <div class="bottom_menu1"><a href="food_intro.html">음식점</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1"><a href="hotel_intro.html" style="line-height:0;">숙박</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1"><a href="tour_intro.html" style="line-height:0;">관광지</a></div>
+   <div style="width:2px; background:#fff;"></div>
+   <div class="bottom_menu1"><a href="sp_intro.html" style="line-height:0;">특산물</a></div>
+</div>
+
+<div class="bottom_bn" style="">
+   
+   <a href="vote.html" style='line-height:0;'><img src="http://www.gwangyangpang.com/images/banner_event_.png" width="100%"></a>
+   <a href="coupon.html" style='line-height:0;'><img src="http://www.gwangyangpang.com/images/banner_guide.png" width="100%"></a>
+   <a href="http://www.gwangyangpang.com/images/gy.jpg" target="_blank"  style='line-height:0;'><img src="http://www.gwangyangpang.com/images/banner_info.png" width="100%"></a>
+   <a href="tel:053-951-5555" style='line-height:0;'><img src="http://www.gwangyangpang.com/images/banner_center.png" width="100%"></a>
+</div>
+
+
+
+<div class="copy" style="">
+   <article style="margin:0 auto;width:100%;padding:0;">
+       <div style="padding:30px 0;"><img src="http://www.gwangyangpang.com/images/logo_img.png" height="30"></div>
+	   <div class="footer">
+		  <div class="ft2_1">정보 수정 / 업무 제휴 문의</div>
+		  <div class="ft2_2">pangpang@mjgc.co.kr</div>
+	   </div>
+	   <div class="footer">
+		  <div class="ft2_1">COMPANY</div>
+		  <div class="ft2_2">무지개컴퍼니 주식회사</div>
+	   </div>
+	   <div class="footer">
+		  <div class="ft2_1">OWNER</div>
+		  <div class="ft2_2">여상호 </div>
+	   </div>
+	   <div class="footer">
+		  <div class="ft2_1">BUSINESS LICENSE</div>
+		  <div class="ft2_2">504-81-68646 </div>
+	   </div>
+	   <div class="footer2">
+		  <div class="ft2_1">ADDRESS</div>
+		  <div class="ft2_2">대구광역시 북구 연암로4길 1, 2층 </div>
+	   </div>
+
+	   <div class="footer3">
+		  본 사이트의 정보는 업체 및 기관의 사정에 따라 변경될 수 있습니다. <br>
+Copyright © 2026 무지개컴퍼니 ALL RIGHT RESERVED.
+	   </div>
+	   
+	   <!--
+	   <div class="footer_">
+		  <div class="ft">© 2021 DAEGU CONVENTION & VISITORS BUREAU.ALL RIGHTS RESERVED</div>
+	   </div>-->
+	   <!--<div style='width:100%; text-align:center;'><img src='http://www.gwangyangpang.com/images/copy_img.jpg' height='50'></div>-->
+   </article>
+</div>
+<!--
+정보 수정 / 업무 제휴 문의 pangpang@mjgc.co.kr 
+COMPANY 무지개컴퍼니 주식회사 OWNER 여상호 
+BUSINESS LICENSE 504-81-68646 
+ADDRESS 대구광역시 북구 연암로4길 1, 2층 
+
+본 사이트의 정보는 업체 및 기관의 사정에 따라 변경될 수 있습니다. 
+Copyright © 2023 무지개컴퍼니 ALL RIGHT RESERVED.
+<!-- 내용 들어가는 부분 -->
+
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "39f143bf17a396";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+
+</div>
+</body>
+</html>
+
+

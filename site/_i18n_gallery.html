@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>다국어 이미지 확인용</title>
+<link rel="stylesheet" href="css/default.css">
+<style>
+  /* 확인용 페이지 (실서비스 아님). 주소 끝에 ?lang=en / ja / zh / ko */
+  body { margin: 0; padding: 16px; background: #888; font-family: sans-serif; }
+  h1 { font-size: 16px; color: #fff; margin: 0 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, 375px); gap: 14px; }
+  .cell { width: 375px; background: #fff; line-height: 0; }
+  .cell .name { line-height: 1.4; font: 11px monospace; padding: 2px 6px; background: #333; color: #ff0; }
+  .cell .body { padding: 0; }
+  .cell.small .body { padding: 10px; background: #f3f3f3; line-height: 0; }
+  .cell.dark .body { padding: 10px; background: #DC294C; }
+</style>
+<script type="text/javascript" src="js/i18n.js"></script>
+</head>
+<body>
+<h1>다국어 이미지 확인용 — ?lang=ko | en | ja | zh</h1>
+<div class="grid">
+  <div class="cell small"><div class="name">상단: search_btn / logo_img / mypoint_btn</div><div class="body">
+    <img src="images/search_btn.png" height="36"> <img src="images/logo_img.png" height="32"> <img src="images/mypoint_btn.png" height="36">
+  </div></div>
+  <div class="cell dark"><div class="name">logo_w (참여 페이지)</div><div class="body"><img src="images/logo_w.png" width="100%"></div></div>
+  <div class="cell"><div class="name">main_event.jpg</div><div class="body"><img src="images/main_event.jpg" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_food</div><div class="body"><img src="images/banner_food.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_hotel</div><div class="body"><img src="images/banner_hotel.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_tour</div><div class="body"><img src="images/banner_tour.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_market</div><div class="body"><img src="images/banner_market.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_event_</div><div class="body"><img src="images/banner_event_.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_guide</div><div class="body"><img src="images/banner_guide.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_guide_1 (이용가이드 페이지)</div><div class="body"><img src="images/banner_guide_1.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_info</div><div class="body"><img src="images/banner_info.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_center</div><div class="body"><img src="images/banner_center.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_fv_</div><div class="body"><img src="images/banner_fv_.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_food_</div><div class="body"><img src="images/banner_food_.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_hotel_</div><div class="body"><img src="images/banner_hotel_.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_tour_</div><div class="body"><img src="images/banner_tour_.png" width="100%"></div></div>
+  <div class="cell"><div class="name">banner_market_</div><div class="body"><img src="images/banner_market_.png" width="100%"></div></div>
+  <div class="cell small"><div class="name">제목 5종 + 더보기 + 네이버 지도</div><div class="body">
+    <img src="images/food_title.png" width="100%"><br><br>
+    <img src="images/hotel_title.png" width="100%"><br><br>
+    <img src="images/sp_title.png" width="100%"><br><br>
+    <img src="images/tour_title.png" width="100%"><br><br>
+    <img src="images/tour_title2.png" width="100%"><br><br>
+    <img src="images/more_btn.png" height="24"><br><br>
+    <img src="images/naver_map.png" width="100%">
+  </div></div>
+</div>
+</body>
+</html>
