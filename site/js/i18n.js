@@ -436,7 +436,8 @@
   }
 
   function lookup(key, lang) {
-    var e = DICT[key];
+    // DICT(화면 고정 문구) 다음으로 DB 내용 번역(js/i18n-content.js, 빌드: tools/build_i18n_content.py)을 찾아본다
+    var e = DICT[key] || (window.I18N_CONTENT && window.I18N_CONTENT[key]);
     return e && e[lang];
   }
 
@@ -447,7 +448,8 @@
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE' || !el.isConnected) continue;
-      if (el.querySelector(INTERACTIVE)) continue;
+      // 이미지를 품은 요소도 통째로 바꾸면 이미지가 지워지므로 건너뛰고, 안쪽 글자만 2) 에서 바꾼다
+      if (el.querySelector(INTERACTIVE + ',img')) continue;
       var t = lookup(textOf(el), lang);
       if (t) el.innerHTML = t;
     }

@@ -45,6 +45,9 @@ html.rn body {
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
 }
+/* keep-all 은 한국어용. 띄어쓰기가 없는 일본어·중국어는 줄을 바꿀 자리가 없어져 칸 밖으로 넘치므로 끈다 */
+html.rn[data-lang="ja"] body, html.rn[data-lang="ja"] body *,
+html.rn[data-lang="zh"] body, html.rn[data-lang="zh"] body * { word-break: normal; }
 html.rn .wrap {
   width: 100% !important;
   max-width: 520px;
@@ -349,6 +352,15 @@ html.rn .place4:not(:has(*)) { display: none; }
 html.rn .sp1 { width: 34px !important; display: flex; align-items: center; }
 html.rn .sp2 { width: calc(100% - 34px) !important; display: flex; align-items: center; color: var(--text) !important; }
 html.rn .sp2 b, html.rn .sp2 b a { color: var(--text) !important; font-size: 14.5px !important; font-weight: 700 !important; text-decoration: none !important; }
+/* 홈페이지 주소처럼 띄어쓰기 없는 긴 글자도 줄바꿈 (오른쪽이 잘리지 않게) */
+html.rn .sp2, html.rn .sp2 * { min-width: 0; overflow-wrap: anywhere; }
+/* 외국어 주소 아래 한국어 원문 (택시·지도 검색용) */
+html.rn .sp2:has(.rn-ko-orig) { flex-wrap: wrap; }
+html.rn .rn-ko-orig {
+  display: block; flex-basis: 100%; margin-top: 3px;
+  font-family: var(--font) !important; font-size: 12px !important; font-weight: 500 !important;
+  color: var(--sub) !important; text-decoration: none !important;
+}
 .rn-mini-ic {
   display: grid; place-items: center; width: 28px; height: 28px; border-radius: 10px;
   background: var(--tile-2); color: var(--pri);
@@ -362,7 +374,7 @@ html.rn .sp2 b, html.rn .sp2 b a { color: var(--text) !important; font-size: 14.
 .rn-btn--ghost { background: var(--tile-2); color: var(--text); }
 .rn-btn--ghost .rn-ic { color: #03C75A; }
 html.rn .place4 > div:not([class]),
-html.rn .place4 > .rn-holder { width: 100% !important; }
+html.rn .place4 > .rn-holder:not(.sp1) { width: 100% !important; }
 html.rn a:has(> .rn-btn) { display: block; width: 100%; text-decoration: none; }
 html.rn .sp_map { overflow: hidden; border-radius: 16px; line-height: 0; }
 html.rn .sp_map iframe { width: 100% !important; height: 260px !important; border: 0; color-scheme: light; }
