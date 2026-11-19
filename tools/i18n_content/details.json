@@ -1,0 +1,265 @@
+{
+  "_설명": "상세 페이지 본문 (sub_cont02). 번역문에 '<' 를 쓰지 않는다.",
+  "text": {
+    "수려한 풍광, 맑은 물 백운산 4대 계곡": {
+      "en": "Stunning scenery and clear water: the four valleys of Baegunsan",
+      "ja": "秀麗な風景と澄んだ水、白雲山4大渓谷",
+      "zh": "秀丽风光与清澈溪水——白云山四大溪谷"
+    },
+    "광양 백운산(1,222m)은 하늘이 보이지 않을 만큼 울창한 원시림을 끼고 흐르는 맑고 깨끗한 4대 계곡이 유명하다.": {
+      "en": "Baegunsan (1,222 m) in Gwangyang is famous for four crystal-clear valleys flowing through primeval forest so dense you can barely see the sky.",
+      "ja": "光陽の白雲山（1,222m）は、空が見えないほど鬱蒼とした原生林の間を流れる、澄んだ4大渓谷で有名です。",
+      "zh": "光阳白云山（1,222米）以流经遮天蔽日原始森林的四大清澈溪谷而闻名。"
+    },
+    "백운산 정상인 상봉에서 동(東)으로 매봉, 서(西)로는 따리봉, 도솔봉, 형제봉으로 이어지는 주능선과 각각 20㎞ 능선을 따라 성불·동곡·어치·금천 계곡등 4대 계곡이 수려한 풍광을 자랑한다.": {
+      "en": "From Sangbong, the summit, the main ridges run east to Maebong and west to Ttaribong, Dosolbong and Hyeongjebong. Along these 20 km ridges lie the four scenic valleys: Seongbul, Donggok, Eochi and Geumcheon.",
+      "ja": "白雲山の山頂・上峰から東はメボン、西はタリ峰、兜率峰、兄弟峰へと続く主稜線と、それぞれ20kmの稜線に沿って、成仏・東谷・オチ・クムチョンの4大渓谷が秀麗な景色を誇ります。",
+      "zh": "从白云山主峰上峰向东延伸至Maebong峰，向西连接Ttari峰、兜率峰、兄弟峰，沿着各约20公里的山脊，成佛、东谷、Eochi、Geumcheon四大溪谷风光秀丽。"
+    },
+    "백운산은 전라남도에서 가장 높은 산이다. 산세가 깊으니 계곡도 깊고 물도 유리처럼 맑고 손이 시릴 정도로 차갑다.": {
+      "en": "Baegunsan is the highest mountain in Jeollanam-do. Its deep mountains make for deep valleys, with water as clear as glass and cold enough to numb your hands.",
+      "ja": "白雲山は全羅南道で最も高い山です。山が深いぶん渓谷も深く、水はガラスのように澄み、手がしびれるほど冷たいです。",
+      "zh": "白云山是全罗南道最高的山。山势深邃，溪谷也深，溪水清澈如玻璃，冰凉得让手发麻。"
+    },
+    "백운산에는 가장 물이 맑고 기암괴석과 크고 작은 폭포, 울창한 소나무 숲을 지닌 진상면의 어치계곡을 비롯하여 4대 계곡 중 가장 짧은 봉강면의 성불계곡, 학사대, 용소, 선유대 등 볼 곳이 많은 옥룡면의 동곡계곡, 평지에 수량이 풍부하여 누구나 텐트를 치고 수다 삼매경에 빠져도 좋을 다압면의 금천계곡, 이 4대 계곡이 있어 일상에 지친 모두의 심신을 치유해준다.": {
+      "en": "Baegunsan has four valleys that heal anyone tired of daily life: Eochi Valley in Jinsang-myeon, with the clearest water, unusual rocks, waterfalls and dense pine forest; Seongbul Valley in Bonggang-myeon, the shortest of the four; Donggok Valley in Ongnyong-myeon, with many sights such as Haksadae, Yongso and Seonyudae; and Geumcheon Valley in Daap-myeon, flat and full of water — perfect for pitching a tent and chatting the day away.",
+      "ja": "白雲山には、最も水が澄み奇岩怪石や大小の滝、鬱蒼とした松林を持つ津上面のオチ渓谷、4大渓谷のうち最も短い鳳岡面の成仏渓谷、学士台・龍沼・仙遊台など見どころの多い玉龍面の東谷渓谷、平地で水量が豊富なので誰でもテントを張っておしゃべりを楽しめる多鴨面のクムチョン渓谷の4大渓谷があり、日常に疲れた心身を癒してくれます。",
+      "zh": "白云山有四大溪谷：水最清澈、奇岩怪石与大小瀑布、茂密松林兼备的津上面Eochi溪谷；四大溪谷中最短的凤冈面成佛溪谷；学士台、龙沼、仙游台等景点众多的玉龙面东谷溪谷；地势平坦、水量充沛，人人都能搭帐篷尽情聊天的多鸭面Geumcheon溪谷。它们治愈着每个被日常疲惫的人。"
+    },
+    "1대 계곡 성불계곡": {
+      "en": "Valley 1: Seongbul Valley",
+      "ja": "第1渓谷 成仏渓谷",
+      "zh": "第一溪谷：成佛溪谷"
+    },
+    "광양시 봉강면에는 백운산의 봉우리인 형제봉, 도솔봉이 솟아 있다. 도솔봉과 형제봉 사이에서 발원한 성불계곡은 조령리의 성불교에서 성불사 위쪽까지 약 2km 길이로 펼쳐져 있다.": {
+      "en": "Hyeongjebong and Dosolbong, peaks of Baegunsan, rise in Bonggang-myeon, Gwangyang. Rising between them, Seongbul Valley stretches about 2 km from Seongbul Bridge in Joryeong-ri to above Seongbulsa Temple.",
+      "ja": "光陽市鳳岡面には白雲山の峰である兄弟峰と兜率峰がそびえています。その間を源流とする成仏渓谷は、チョリョン里の成仏橋から成仏寺の上まで約2kmにわたって広がります。",
+      "zh": "光阳市凤冈面耸立着白云山的兄弟峰与兜率峰。发源于两峰之间的成佛溪谷，从Joryeong里的成佛桥延伸至成佛寺上方，全长约2公里。"
+    },
+    "백운산 4대계곡 중 가장 아담하며, 기암괴석 사이로 많은 평평한 바위가 산재해 있고, 계곡을 흐르는 맑은 물과 수려한 삼림은 원시림을 방불케 하는 아름다운 풍광을 자랑하여 여름철 가족단위 피서객들로부터 각광을 받고 있다.": {
+      "en": "The coziest of Baegunsan's four valleys, it has many flat rocks among striking boulders. Its clear water and lush forest, reminiscent of primeval woods, make it a favorite summer spot for families.",
+      "ja": "白雲山4大渓谷の中で最もこぢんまりとしており、奇岩怪石の間に平らな岩が点在しています。渓谷を流れる澄んだ水と秀麗な森は原生林を思わせる美しさで、夏には家族連れの避暑客に人気です。",
+      "zh": "是白云山四大溪谷中最小巧的一个，奇岩怪石间散布着许多平坦的岩石，清澈的溪水与秀美的森林宛如原始森林，夏季深受家庭避暑游客的喜爱。"
+    },
+    "계곡상류에는 고려시대 불교문화 중심지로 전해오는 ‘성불사’가 자리하여 불자들의 왕래가 잦은 곳이기도 하다. 계곡위로 드리워진 울창한 삼림은 10월 하순부터 붉게 물들기 시작하여 11월초에 절정을 이루며, 겨울에는 겨울눈꽃이 아름답다. 성불계곡 상류에 위치한 성불사를 뒤로하여 새재를 잇는 등산로와 형제봉과 도솔봉 사이를 통과하는 등산로는 능선을 따라 도솔봉, 따리봉, 한재, 백운산 정상으로 이어진다.": {
+      "en": "Upstream sits Seongbulsa, said to have been a center of Buddhist culture in the Goryeo era, so many Buddhists visit. The forest over the valley turns red from late October and peaks in early November, and snow blossoms are beautiful in winter. Hiking trails from Seongbulsa — one toward Saejae, one between Hyeongjebong and Dosolbong — follow the ridges to Dosolbong, Ttaribong, Hanjae and the summit of Baegunsan.",
+      "ja": "渓谷の上流には高麗時代の仏教文化の中心地と伝わる「成仏寺」があり、仏教徒の往来が多い場所でもあります。渓谷を覆う森は10月下旬から赤く色づき始め11月初めに見頃を迎え、冬は雪景色が美しいです。成仏寺からセジェへ続く登山道と、兄弟峰と兜率峰の間を通る登山道は、稜線に沿って兜率峰、タリ峰、ハンジェ、白雲山山頂へと続きます。",
+      "zh": "溪谷上游坐落着相传为高丽时期佛教文化中心的“成佛寺”，信众往来频繁。笼罩溪谷的茂密森林从10月下旬开始变红，11月初达到最美，冬季雪景迷人。从成佛寺通往Saejae的登山路，以及穿过兄弟峰与兜率峰之间的登山路，沿山脊通往兜率峰、Ttari峰、Hanjae和白云山顶。"
+    },
+    "주변관광지로는 형제의병장 사당 ‘쌍의사’ 와 각종 수상레포츠를 즐길 수 있는 백운저수지가 있으며, 계곡 근처 산장에서는 흑염소 구이, 닭숯불구이, 닭백숙 등 자연건강식이 입맛을 돋운다.": {
+      "en": "Nearby are Ssangeuisa, a shrine to two brother militia leaders, and Baegun Reservoir for water sports. Lodges near the valley serve healthy local food such as grilled black goat, charcoal-grilled chicken and chicken soup.",
+      "ja": "周辺には兄弟義兵将の祠堂「双義祠」や、さまざまな水上レジャーが楽しめる白雲貯水池があり、渓谷近くの山荘では黒ヤギの焼き物、鶏の炭火焼き、鶏の水炊きなど自然の健康食が食欲をそそります。",
+      "zh": "周边有兄弟义兵将祠堂“双义祠”和可享受各种水上运动的白云水库，溪谷附近的山庄有烤黑山羊、炭烤鸡、清炖鸡等天然健康美食。"
+    },
+    "2대 계곡 동곡계곡": {
+      "en": "Valley 2: Donggok Valley",
+      "ja": "第2渓谷 東谷渓谷",
+      "zh": "第二溪谷：东谷溪谷"
+    },
+    "옥룡면 동곡리에 위치한 동곡계곡은 백운산(1,222m)과 한재, 따리봉 참샘이재, 도솔봉 남쪽 사면을 따라 흐르며 백운산 계곡 중 가장 크고 길며(약 10km) 계곡 주변을 따라 자연과 조화를 이룬 민박집들이 많다.": {
+      "en": "Donggok Valley in Donggok-ri, Ongnyong-myeon, flows along the southern slopes of Baegunsan (1,222 m), Hanjae, Chamsaemijae of Ttaribong and Dosolbong. It is the largest and longest of Baegunsan's valleys (about 10 km), lined with guesthouses that blend into nature.",
+      "ja": "玉龍面東谷里にある東谷渓谷は、白雲山（1,222m）とハンジェ、タリ峰のチャムセミジェ、兜率峰の南斜面に沿って流れ、白雲山の渓谷で最も大きく長く（約10km）、渓谷沿いには自然と調和した民泊が多くあります。",
+      "zh": "位于玉龙面东谷里的东谷溪谷，沿白云山（1,222米）、Hanjae、Ttari峰的Chamsaemijae与兜率峰南坡流淌，是白云山最大最长的溪谷（约10公里），沿岸有许多与自然和谐相融的民宿。"
+    },
+    "3대 계곡 어치계곡": {
+      "en": "Valley 3: Eochi Valley",
+      "ja": "第3渓谷 オチ渓谷",
+      "zh": "第三溪谷：Eochi溪谷"
+    },
+    "진상면 어치리에 위치한 어치계곡은 울창한 원시림 사이로 흐르는 맑은 물과 계곡 곳곳에 다리쉼을 할 수 있는 크고 작은 바위가 있다.": {
+      "en": "Eochi Valley in Eochi-ri, Jinsang-myeon, has clear water flowing through dense primeval forest and rocks of all sizes where you can rest your legs.",
+      "ja": "津上面オチ里にあるオチ渓谷は、鬱蒼とした原生林の間を澄んだ水が流れ、あちこちに足を休められる大小の岩があります。",
+      "zh": "位于津上面Eochi里的Eochi溪谷，清澈的溪水在茂密的原始森林间流淌，各处都有可供歇脚的大小岩石。"
+    },
+    "특히 한 낮에도 이슬이 맺힐 만큼 시원하다는 오로대와 천마의 전설을 가진 구시폭포가 있는 곳이다.": {
+      "en": "It is home to Orodae, said to be so cool that dew forms even at midday, and Gusi Falls, with its legend of a heavenly horse.",
+      "ja": "特に、真昼でも露が結ぶほど涼しいというオロデと、天馬の伝説があるクシ滝がある場所です。",
+      "zh": "这里有据说正午也会结露般凉爽的Orodae，以及流传着天马传说的Gusi瀑布。"
+    },
+    "어치계곡 하류에는 수어호가 있다.": {
+      "en": "Sueo Lake lies downstream of Eochi Valley.",
+      "ja": "オチ渓谷の下流には水魚湖があります。",
+      "zh": "Eochi溪谷下游有水鱼湖。"
+    },
+    "4대 계곡 금천계곡": {
+      "en": "Valley 4: Geumcheon Valley",
+      "ja": "第4渓谷 クムチョン渓谷",
+      "zh": "第四溪谷：Geumcheon溪谷"
+    },
+    "다압면 금천리에 위치한 금천계곡은 선녀가 내려와 베를 짰다는 옥녀봉에서 발원하여 때 묻지 않은 자연 그대로 잘 보존된 곳으로 섬진강의 절경과 조화를 이룬다.": {
+      "en": "Geumcheon Valley in Geumcheon-ri, Daap-myeon, rises from Oknyeobong, where a fairy is said to have come down to weave. Untouched and well preserved, it blends with the spectacular Seomjin River.",
+      "ja": "多鴨面クムチョン里にあるクムチョン渓谷は、天女が降りて機を織ったという玉女峰を源とし、手つかずの自然がよく保たれ、蟾津江の絶景と調和しています。",
+      "zh": "位于多鸭面Geumcheon里的Geumcheon溪谷，发源于相传仙女下凡织布的玉女峰，保存着未经雕琢的自然原貌，与蟾津江的绝景相映成趣。"
+    },
+    "봄 향기 가득한": {
+      "en": "Full of the scent of spring",
+      "ja": "春の香りいっぱいの",
+      "zh": "满溢春天芬芳的"
+    },
+    "광양매화마을(2025-2026 한국관광100선)": {
+      "en": "Gwangyang Maehwa Village (Korea Tourism 100, 2025–2026)",
+      "ja": "光陽梅花村（2025-2026 韓国観光100選）",
+      "zh": "光阳梅花村（2025-2026 韩国旅游100选）"
+    },
+    "봄을 알리는 첫 동네 매화마을, 새하얀 매화꽃 물결과 그윽한 매향에 취하다": {
+      "en": "Maehwa Village, the first to announce spring — lose yourself in waves of white blossoms and their deep fragrance",
+      "ja": "春を告げる最初の村・梅花村、真っ白な梅の花の波と奥ゆかしい梅の香りに酔う",
+      "zh": "最先报春的梅花村，沉醉于雪白梅花的花海与幽幽梅香"
+    },
+    "매년 3월이면 섬진강 하류 백운산 자락은 새하얀 매화로 눈부시다, 섬진강에 드리워진 매화가 봄을 재촉하고 고고한 선비정신을 전한다.": {
+      "en": "Every March, the foothills of Baegunsan along the lower Seomjin River dazzle with white plum blossoms. Hanging over the river, they hurry spring along and carry the noble spirit of the Korean scholar.",
+      "ja": "毎年3月になると、蟾津江下流の白雲山のふもとは真っ白な梅でまぶしく輝きます。蟾津江に枝垂れる梅は春を急かし、気高いソンビ（学者）の精神を伝えます。",
+      "zh": "每年三月，蟾津江下游的白云山麓被雪白的梅花装点得耀眼夺目。垂映在蟾津江上的梅花催促着春天，传递着高洁的士人精神。"
+    },
+    "3대에 걸쳐 매화를 가꾸어 온 명인의 혼은 2,500여 개의 전통 옹기와 함께 이어져 내려오며 최근에는 계절마다 맥문동, 구절초 등 야생화가 활짝 피어 사계절 관광지로 각광받고 있다.": {
+      "en": "The spirit of a master family who has tended plum trees for three generations lives on with some 2,500 traditional onggi jars. Wildflowers such as lilyturf and Korean chrysanthemum now bloom each season, making it a year-round destination.",
+      "ja": "3代にわたって梅を育ててきた名人の魂は、約2,500個の伝統甕とともに受け継がれ、最近は季節ごとにヤブラン、イワギクなどの野花が咲き誇り、四季を通じた観光地として注目されています。",
+      "zh": "三代人精心培育梅花的名人精神，与约2,500个传统瓮缸一起传承下来；近年来，麦冬、九节菊等野花四季盛开，使这里成为四季皆宜的旅游胜地。"
+    },
+    "겨울 얼음이 녹고, 아지랑이가 흙의 겨드랑이를 간지럽히며 올라오는 계절에 사진기 하나 들고 떠나기 좋은 곳이 그 유명한 광양의 매화마을이다.": {
+      "en": "When the winter ice melts and heat haze rises from the earth, the famous Maehwa Village of Gwangyang is the perfect place to visit with just a camera.",
+      "ja": "冬の氷が解け、陽炎が土をくすぐるように立ちのぼる季節、カメラひとつ持って出かけたいのが、あの有名な光陽の梅花村です。",
+      "zh": "当冬冰消融、地气升腾的季节，带上一台相机出发的好去处，就是著名的光阳梅花村。"
+    },
+    "광양의 매화축제는 외국인들에게도 유명해져 국제매화축제로 확대되기도 한 만큼 큰 축제중 하나이며 매화를 주제로 개최되는 꽃축제로는 전국에서 가장 이른 시기에 열린다.": {
+      "en": "Gwangyang's plum blossom festival has become so well known among international visitors that it was expanded into an international festival. It is one of Korea's major festivals and the earliest flower festival of the year.",
+      "ja": "光陽の梅花祭りは外国人にも有名になり、国際梅花祭りへと拡大したほどの大きな祭りで、梅をテーマにした花祭りとしては全国で最も早い時期に開かれます。",
+      "zh": "光阳梅花节在外国游客中也颇有名气，甚至扩大为国际梅花节，是规模较大的节庆之一，也是韩国以梅花为主题、举办时间最早的花卉节。"
+    },
+    "매실농원 뒤안길의 청보리밭을 지나면 감탄사가 절로 나오는 매화 장관을 볼 수 있다.": {
+      "en": "Walk past the green barley fields behind the plum orchards and you'll find a breathtaking sea of blossoms.",
+      "ja": "梅農園の裏道の青麦畑を抜けると、思わず感嘆の声がもれる梅の絶景が広がります。",
+      "zh": "穿过梅园后小路旁的青麦田，便能看到令人惊叹的梅花壮景。"
+    },
+    "홍매화, 청매화 등 차가운 겨울을 이겨내고 화사하게 세상을 물들이는 매화의 그 고운 자태는 오직 광양에서만 만날 수 있다.": {
+      "en": "Red and green plum blossoms that endure the cold winter and brighten the world — their graceful beauty can be found only in Gwangyang.",
+      "ja": "紅梅、青梅など、寒い冬を乗り越えて華やかに世界を彩る梅の美しい姿は、光陽でしか出会えません。",
+      "zh": "红梅、青梅战胜寒冬、绚丽地装点世界，那份秀美姿态唯有在光阳才能遇见。"
+    },
+    "광양매화축제는 100만명 이상의 관광객이 방문할 만큼 지역을 대표하는 축제로 자리 잡았으며 관광객들에게 볼거리와 먹거리, 즐길거리 등 다양하고 풍성한 프로그램을 운영하여 관광객들에게 호평을 받고 있다.": {
+      "en": "With over a million visitors, the Gwangyang Maehwa Festival has become the region's signature festival, earning praise for its rich program of sights, food and activities.",
+      "ja": "光陽梅花祭りは100万人以上の観光客が訪れる地域を代表する祭りとなり、見どころ、グルメ、アクティビティなど多彩で充実したプログラムで好評を得ています。",
+      "zh": "光阳梅花节已成为吸引百万以上游客的地方代表性节庆，以丰富多彩的观光、美食与娱乐项目深受游客好评。"
+    },
+    "따스한 햇살 힐링 숲": {
+      "en": "A healing forest of warm sunshine",
+      "ja": "暖かな日差しの癒しの森",
+      "zh": "温暖阳光下的疗愈森林"
+    },
+    "잘 보존된 원시림과 삼나무, 편백 등 인공림이 조화를 이룬 아름다운 수목이 융단처럼 펼쳐져 보는 사람의 감탄을 자아내게 한다.": {
+      "en": "Well-preserved primeval forest and planted cedar and cypress spread out like a carpet, leaving visitors in awe.",
+      "ja": "よく保存された原生林と、スギやヒノキなどの人工林が調和した美しい木々がじゅうたんのように広がり、見る人を感嘆させます。",
+      "zh": "保存完好的原始森林与柳杉、扁柏等人工林和谐交融，美丽的林木如地毯般铺展，令人赞叹。"
+    },
+    "숲속 사이로 산막, 황토방, 종합숙박동, 삼림욕장, 야생화단지, 오토캠핑장, 황톳길, 숲속의 쉼터 등 편의시설이 잘 갖추어져 있다.": {
+      "en": "Throughout the forest are cabins, red-clay rooms, a lodge, forest-bathing areas, a wildflower garden, an auto campsite, red-clay trails and rest areas.",
+      "ja": "森の中には山小屋、黄土部屋、総合宿泊棟、森林浴場、野花団地、オートキャンプ場、黄土の道、森の休憩所など便利な施設が整っています。",
+      "zh": "林间设有山屋、黄土房、综合住宿楼、森林浴场、野花园区、汽车露营地、黄土路、林中休憩处等完善设施。"
+    },
+    "스트레스를 치유하는데 이곳만큼 좋은 곳이 있을까? 그냥 숲이 아니라 잘 정돈된 단아한 숲을 만날 수 있는 곳, 한번 이곳을 왔다간 사람들은 반드시 두세 번 이상 다시 찾게 된다는 백운산 자연휴양림이다.": {
+      "en": "Is there a better place to relieve stress? Not just any forest, but a neat and graceful one — Baegunsan Natural Recreation Forest, where people who visit once are sure to come back two or three more times.",
+      "ja": "ストレスを癒すのにここほど良い場所があるでしょうか。ただの森ではなく、よく手入れされた上品な森に出会える場所。一度訪れた人は必ず二度三度と再訪するという白雲山自然休養林です。",
+      "zh": "还有比这里更适合疗愈压力的地方吗？这里不只是一片森林，而是整洁雅致的森林——来过一次的人必定会再来两三次的白云山自然休养林。"
+    },
+    "치유의 숲 센터에 가면 건강측정실, 요가명상실, 피톤치드 북카페, 족욕장, 아로마 테라피실, 일광욕 테라스 등 힐링을 위한 시설들이 눈에 띈다.": {
+      "en": "At the Healing Forest Center you'll find a health check room, yoga & meditation room, phytoncide book café, foot bath, aromatherapy room and sunbathing terrace.",
+      "ja": "癒しの森センターには、健康測定室、ヨガ瞑想室、フィトンチッドブックカフェ、足湯、アロマテラピー室、日光浴テラスなど癒しのための施設がそろっています。",
+      "zh": "在疗愈森林中心，可以看到健康测量室、瑜伽冥想室、芬多精书咖啡馆、足浴池、芳香疗法室、日光浴露台等疗愈设施。"
+    },
+    "백운산 자연휴양림에서는 숙박도 할 수 있는데 1~2 야영장, 카라반, 자동차야영장, 실내형 숙박시설인 숲속의 집과 캐빈하우스가 운영중이다.": {
+      "en": "You can also stay overnight: campsites 1–2, caravans, an auto campsite, and indoor lodging such as forest houses and cabins.",
+      "ja": "白雲山自然休養林では宿泊もでき、第1・第2キャンプ場、キャラバン、オートキャンプ場、屋内型宿泊施設の森の家とキャビンハウスが運営されています。",
+      "zh": "白云山自然休养林还可以住宿，设有第1、2露营地、房车、汽车露营地，以及室内住宿设施森林之家与小木屋。"
+    },
+    "뿐만아니라 목재체험관도 있어 유아부터 성인까지 목재를 직접 만지고 느끼며 목공 제작도 할 수 있다.": {
+      "en": "There is also a wood experience center where everyone from toddlers to adults can touch and feel wood and try woodworking.",
+      "ja": "さらに木材体験館もあり、幼児から大人まで木に直接触れて感じ、木工制作もできます。",
+      "zh": "此外还有木材体验馆，从幼儿到成人都能亲手触摸木材、动手制作木工。"
+    },
+    "광양만의 세계적인 현수교!": {
+      "en": "Gwangyang Bay's world-class suspension bridge!",
+      "ja": "光陽湾の世界的な吊り橋！",
+      "zh": "光阳湾的世界级悬索桥！"
+    },
+    "광양과 여수를 잇는 이순신대교는 국내 최장, 세계 7위 현수교라는 그 스펙만으로 볼만한 가치를 느끼게 한다.": {
+      "en": "Linking Gwangyang and Yeosu, Yi Sun-sin Bridge is Korea's longest suspension bridge and the world's 7th longest — worth seeing for that alone.",
+      "ja": "光陽と麗水を結ぶ李舜臣大橋は、国内最長・世界7位の吊り橋というだけでも見る価値があります。",
+      "zh": "连接光阳与丽水的李舜臣大桥，是韩国最长、世界第七的悬索桥，光凭这一点就值得一看。"
+    },
+    "여수시 묘도에서 바라보는 광양항의 야경과 이순신대교의 모습은 그 어떤 화가도 그려내기 힘든 작품을 완성한다.": {
+      "en": "Seen from Myodo Island in Yeosu, the night view of Gwangyang Port and Yi Sun-sin Bridge is a masterpiece no painter could match.",
+      "ja": "麗水市の猫島から眺める光陽港の夜景と李舜臣大橋の姿は、どんな画家にも描けない作品を完成させます。",
+      "zh": "从丽水市猫岛眺望光阳港夜景与李舜臣大桥，构成了任何画家都难以描绘的杰作。"
+    },
+    "총 연장 2,260m 주탑과 주탑 사이는 1545m에 달한다. 여기서 1545는 이순신 장군이 탄생한 1545년을 의미한다.": {
+      "en": "The bridge is 2,260 m long, with 1,545 m between its main towers — a number honoring 1545, the year Admiral Yi Sun-sin was born.",
+      "ja": "全長2,260m、主塔と主塔の間は1,545mに達します。この1545は李舜臣将軍が生まれた1545年を意味します。",
+      "zh": "大桥全长2,260米，主塔之间的距离为1,545米。这里的1545意指李舜臣将军出生的1545年。"
+    },
+    "주탑의 높이 270m는 서울 남산은 물론이고 여의도 63빌딩보다 높고, 콘크리트 주탑으로는 세계 최고다.": {
+      "en": "At 270 m, its towers are taller than Seoul's Namsan and the 63 Building in Yeouido — the tallest concrete towers in the world.",
+      "ja": "主塔の高さ270mはソウルの南山はもちろん汝矣島の63ビルよりも高く、コンクリート主塔としては世界一です。",
+      "zh": "主塔高270米，不仅高于首尔南山，也高于汝矣岛63大厦，是世界上最高的混凝土主塔。"
+    },
+    "연인, 가족과 함께 드라이브의 묘미를 느낄 수 있어 굳이 샌프란시스코의 금문교를 부러워할 필요가 없을 것 같다.": {
+      "en": "A drive here with your partner or family is so delightful that you won't need to envy San Francisco's Golden Gate Bridge.",
+      "ja": "恋人や家族とドライブの醍醐味を味わえるので、サンフランシスコのゴールデンゲートブリッジをうらやむ必要はなさそうです。",
+      "zh": "与恋人、家人一起兜风别有一番乐趣，完全不必羡慕旧金山的金门大桥。"
+    },
+    "윤동주시인의 유고를 품었던 자리": {
+      "en": "Where poet Yun Dong-ju's manuscripts were kept",
+      "ja": "詩人・尹東柱の遺稿を守った場所",
+      "zh": "曾珍藏诗人尹东柱遗稿的地方"
+    },
+    "전북 진안에서 발원한 섬진강은 전라도와 경상도의 젖줄이다. 우리나라 5대강 중 가장 수질이 맑아 청정물고기의 대명사인 은어 떼가 몰려다니고 재첩과 실뱀장어가 대량으로 서식한다. 섬진강은 모래가 많아 다사강(多沙江)으로 불리다 고려 말 왜구의 침입을 막은 두꺼비 전설에서 유래하여 섬진강(蟾津江)으로 명명되었다. 그 끝자락에는 윤동주시인의 유고를 품었던 망덕포구가 자리한다.": {
+      "en": "Rising in Jinan, Jeollabuk-do, the Seomjin River is the lifeline of the Jeolla and Gyeongsang regions. It is the cleanest of Korea's five major rivers, home to schools of sweetfish, freshwater clams and glass eels. Once called Dasagang (“river of much sand”), it was renamed Seomjingang (“toad river”) after a legend in which toads drove away Japanese pirates in late Goryeo. At its end lies Mangdeok Port, where poet Yun Dong-ju's manuscripts were kept.",
+      "ja": "全羅北道鎮安を源とする蟾津江は、全羅道と慶尚道の命の源です。韓国5大河川のうち最も水質が澄み、清流魚の代名詞であるアユの群れが泳ぎ、シジミやシラスウナギが多く生息しています。砂が多く「多沙江」と呼ばれていましたが、高麗末に倭寇の侵入を防いだヒキガエルの伝説から「蟾津江」と名付けられました。その河口には詩人・尹東柱の遺稿を守った望徳浦口があります。",
+      "zh": "发源于全罗北道镇安的蟾津江，是全罗道与庆尚道的母亲河。它是韩国五大江中水质最清澈的，清水鱼代表香鱼成群游弋，河蚬与幼鳗大量栖息。蟾津江因多沙曾被称为“多沙江”，后因高丽末年蟾蜍击退倭寇的传说而得名“蟾津江”。江的尽头是曾珍藏诗人尹东柱遗稿的望德浦口。"
+    },
+    "굽이치는 섬진강 물길을 따라 남쪽으로 내려오면 섬진강 맛집 군락지인 망덕포구가 나온다.": {
+      "en": "Follow the winding Seomjin River south and you'll reach Mangdeok Port, a cluster of great Seomjin River restaurants.",
+      "ja": "蛇行する蟾津江に沿って南へ下ると、蟾津江のグルメ店が集まる望徳浦口に着きます。",
+      "zh": "沿着蜿蜒的蟾津江南下，便来到蟾津江美食聚集地——望德浦口。"
+    },
+    "망덕포구는 소설가 김훈이 극찬했던 ‘섬진강 자전거길’의 육지부 시작점이자 종점이다.": {
+      "en": "Mangdeok Port is the start and end point of the land section of the Seomjin River Bike Path, praised by novelist Kim Hoon.",
+      "ja": "望徳浦口は、小説家キム・フンが絶賛した「蟾津江自転車道」の陸地部分の起点であり終点です。",
+      "zh": "望德浦口是小说家金薰盛赞的“蟾津江自行车道”陆地段的起点与终点。"
+    },
+    "망덕포구에서 꼭 맛봐야 할 벚굴은 벚꽃이 필 때 가장 알이 굵고 맛있다고 하여 정해진 이름인데 양식도 되지 않아 더 귀하고 인기가 많다.": {
+      "en": "Don't miss the beotgul (river oysters) at Mangdeok Port — named because they are plumpest and tastiest when cherry blossoms bloom. They can't be farmed, which makes them even more prized.",
+      "ja": "望徳浦口でぜひ味わいたいポッグル（川ガキ）は、桜の咲く頃に最も身が大きくおいしいことから名付けられ、養殖もできないためより貴重で人気があります。",
+      "zh": "望德浦口必尝的樱花蚝，因在樱花盛开时最为肥美而得名，且无法人工养殖，更显珍贵抢手。"
+    },
+    "망덕포구에는 먹거리 말고도 우리나라 자전거 라이더들이 가장 사랑하는 섬진강 종주 자전거 길이 있다.": {
+      "en": "Besides food, Mangdeok Port has the Seomjin River cross-country bike path, a favorite of Korean cyclists.",
+      "ja": "望徳浦口にはグルメのほかに、韓国のサイクリストに最も愛される蟾津江縦走自転車道があります。",
+      "zh": "望德浦口除了美食，还有韩国骑行爱好者最爱的蟾津江纵走自行车道。"
+    },
+    "그 중 광양 구간에 해당하는 제5코스는 남도대교~매화마을~배알도수변공원에 이르는 37.7km길이며 섬진강을 제대로 볼 수 있는 코스다.": {
+      "en": "Course 5, the Gwangyang section, runs 37.7 km from Namdo Bridge via Maehwa Village to Baealdo Waterfront Park — the best way to see the Seomjin River.",
+      "ja": "そのうち光陽区間にあたる第5コースは南道大橋～梅花村～拝謁島水辺公園までの37.7kmで、蟾津江をしっかり見られるコースです。",
+      "zh": "其中光阳段的第5路线从南道大桥经梅花村至拜谒岛水边公园，全长37.7公里，是充分领略蟾津江风光的路线。"
+    },
+    "광양시 다압면 매화마을로 유명한 소학재 한옥펜션": {
+      "en": "소학재, a hanok pension in Daap-myeon, Gwangyang, famous for Maehwa Village",
+      "ja": "光陽市多鴨面、梅花村で有名な韓屋ペンション「소학재」",
+      "zh": "位于以梅花村闻名的光阳市多鸭面的韩屋民宿「소학재」"
+    },
+    "3000평 넓은 분재정원과 매화꽃 나무를 비롯한 과실수가 있고": {
+      "en": "It has a large bonsai garden of about 10,000 m² and fruit trees including plum trees,",
+      "ja": "約1万㎡の広い盆栽庭園と、梅の木をはじめとする果樹があり、",
+      "zh": "拥有约一万平方米的宽阔盆景园，以及梅树等果树，"
+    },
+    "아름다운 소학재 한옥 카페가 상시 운영 중인 소학재.": {
+      "en": "and its beautiful hanok café is always open.",
+      "ja": "美しい韓屋カフェも常時営業しています。",
+      "zh": "美丽的韩屋咖啡馆也常年营业。"
+    },
+    "번잡한 도시를 떠나 힐링하기에 더없이 좋은 힐링 포인트를 원하시는 분들께 이곳의 힐링을 선사합니다.": {
+      "en": "For those who want to leave the busy city behind and recharge, this is the perfect healing spot.",
+      "ja": "慌ただしい都会を離れて癒されたい方に、ここならではの癒しをお届けします。",
+      "zh": "献给想要远离喧嚣城市、寻找疗愈之地的您。"
+    }
+  }
+}

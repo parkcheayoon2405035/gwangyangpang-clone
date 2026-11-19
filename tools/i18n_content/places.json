@@ -1,0 +1,151 @@
+{
+  "_설명": "주소(addr)는 로마자 표기 하나만 적으면 영·일·중 모두 그 표기 + 한국어 원문(작게)으로 보여 준다. 기간·메뉴(text)는 언어별로 적는다.",
+  "addr": {
+    "전남 광양시 다압면 지막1길 55 섬진마을": "55 Jimak 1-gil, Daap-myeon, Gwangyang-si, Jeollanam-do (Seomjin Village)",
+    "전라남도 광양시 다압면 목길 34-2": "34-2 Mok-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 금호로 299-13, 조각공원": "299-13 Geumho-ro, Gwangyang-si, Jeollanam-do (Sculpture Park)",
+    "광양시 옥룡면 백계로 337": "337 Baekgye-ro, Ongnyong-myeon, Gwangyang-si",
+    "전남 광양시 제철로 1655-250": "1655-250 Jecheol-ro, Gwangyang-si, Jeollanam-do",
+    "광양시 진월면 망덕리": "Mangdeok-ri, Jinwol-myeon, Gwangyang-si",
+    "전남 광양시 옥룡면 추산리 423-1": "423-1 Chusan-ri, Ongnyong-myeon, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 옥곡면 대치로 433, 국사봉랜드": "433 Daechi-ro, Okgok-myeon, Gwangyang-si, Jeollanam-do (Guksabong Land)",
+    "전남 광양시 진월면 선소중앙길 68-14, 망덕포구": "68-14 Seonsojungang-gil, Jinwol-myeon, Gwangyang-si, Jeollanam-do (Mangdeok Port)",
+    "전남 광양시 광양읍 서천1길 44": "44 Seocheon 1-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 101-15": "101-15 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 181-12": "181-12 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 하천길 94": "94 Hacheon-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 소학정길 42": "42 Sohakjeong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 염창길 29-7": "29-7 Yeomchang-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서천1길 46": "46 Seocheon 1-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "(57742) 전라남도 광양시 광양읍 매일시장길 31-4": "31-4 Maeilsijang-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do (57742)",
+    "광양시 광양읍 매천로 714": "714 Maecheon-ro, Gwangyang-eup, Gwangyang-si",
+    "전라남도 광양시 광양읍 서평로 40": "40 Seopyeong-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서북로 59": "59 Seobuk-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서북로 23": "23 Seobuk-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 인덕로 877": "877 Indeok-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서평로 55": "55 Seopyeong-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서천1길 52": "52 Seocheon 1-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 옥룡면 신재로 337": "337 Sinjae-ro, Ongnyong-myeon, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 서천1길 38": "38 Seocheon 1-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 광양읍 칠성로 48": "48 Chilseong-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 봉강면 필동길 5": "5 Pildong-gil, Bonggang-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 봉강면 개룡길 25-7": "25-7 Gaeryong-gil, Bonggang-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 백운1로 153": "153 Baegun 1-ro, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 광양읍 희양현로 19": "19 Huiyanghyeon-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 길호3길 20": "20 Gilho 3-gil, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 광양읍 와룡1길 8": "8 Waryong 1-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 광양읍 서북로 55": "55 Seobuk-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 광양읍 서북3길 26": "26 Seobuk 3-gil, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "광양시 항만13로 23-7(중동)": "23-7 Hangman 13-ro, Gwangyang-si (Jung-dong)",
+    "광양시 광양읍 서천1길53(칠성리)": "53 Seocheon 1-gil, Gwangyang-eup, Gwangyang-si (Chilseong-ri)",
+    "광양시 눈소2길 5": "5 Nunso 2-gil, Gwangyang-si",
+    "광양시 광양읍 인덕로 1129(구산리)": "1129 Indeok-ro, Gwangyang-eup, Gwangyang-si (Gusan-ri)",
+    "광양시 중마로 61": "61 Jungma-ro, Gwangyang-si",
+    "전라남도 광양시 발섬2길8": "8 Balseom 2-gil, Gwangyang-si, Jeollanam-do",
+    "(57793)전남 광양시 항만9로 113(해마루호텔)": "113 Hangman 9-ro, Gwangyang-si, Jeollanam-do (Haemaru Hotel) (57793)",
+    "전남 광양시 광양읍 희양현로 32-5": "32-5 Huiyanghyeon-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 15": "15 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 옥룡면 백계로 337(백운산휴양림)": "337 Baekgye-ro, Ongnyong-myeon, Gwangyang-si, Jeollanam-do (Baegunsan Recreational Forest)",
+    "전남 광양시 다압면 토끼재길 119-32": "119-32 Tokkijae-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 옥룡면 약수제단길 154(광양제철수련원)": "154 Yaksujedan-gil, Ongnyong-myeon, Gwangyang-si, Jeollanam-do (Gwangyang Steelworks Training Center)",
+    "전남 광양시 옥룡면 신재로 1678-54": "1678-54 Sinjae-ro, Ongnyong-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 봉강면 성불로 1097": "1097 Seongbul-ro, Bonggang-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 진월면 사평1길 23": "23 Sapyeong 1-gil, Jinwol-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 봉강면 성불로 144": "144 Seongbul-ro, Bonggang-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 봉강면 신촌길 140": "140 Sinchon-gil, Bonggang-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 40": "40 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 옥룡면 백계로 405": "405 Baekgye-ro, Ongnyong-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 원동길 73-18": "73-18 Wondong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 용무정길 8": "8 Yongmujeong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 계동1길 79": "79 Gyedong 1-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 지막길 97": "97 Jimak-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 181-45": "181-45 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 섬진강매화로 1633-4": "1633-4 Seomjingangmaehwa-ro, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 섬진강매화로 1507": "1507 Seomjingangmaehwa-ro, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 직금길 37-1": "37-1 Jikgeum-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 평동길 104": "104 Pyeongdong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 계동길 110": "110 Gyedong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 181-76": "181-76 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 181-47": "181-47 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 대청길 120": "120 Daecheong-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 섬진강매화로 2997": "2997 Seomjingangmaehwa-ro, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 다압면 섬진강매화로 3017": "3017 Seomjingangmaehwa-ro, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "전남 광양시 다압면 신원길 221-6": "221-6 Sinwon-gil, Daap-myeon, Gwangyang-si, Jeollanam-do",
+    "광양만 일원": "Gwangyang Bay area",
+    "광양시 옥룡면 백계1길 71 일원": "71 Baekgye 1-gil, Ongnyong-myeon, Gwangyang-si, and surrounding area",
+    "전라남도 광양시 구봉산전망대길 155": "155 Gubongsanjeonmangdae-gil, Gwangyang-si, Jeollanam-do",
+    "전라남도 광양시 광양읍 백운로 14": "14 Baegun-ro, Gwangyang-eup, Gwangyang-si, Jeollanam-do"
+  },
+  "text": {
+    "2026. 3. 13.(금) ~ 3. 22.(일) [10일간] / 07:00~18:00": {
+      "en": "Mar 13 (Fri) – Mar 22 (Sun), 2026 [10 days] / 07:00–18:00",
+      "ja": "2026年3月13日(金)～3月22日(日)［10日間］/ 07:00～18:00",
+      "zh": "2026年3月13日(周五)～3月22日(周日)［共10天］/ 07:00～18:00"
+    },
+    "2025. 3. 28.(금) ~ 3. 30.(일)": {
+      "en": "Mar 28 (Fri) – Mar 30 (Sun), 2025",
+      "ja": "2025年3月28日(金)～3月30日(日)",
+      "zh": "2025年3月28日(周五)～3月30日(周日)"
+    },
+    "2025. 4. 5.(토) ~ 4. 6.(일)": {
+      "en": "Apr 5 (Sat) – Apr 6 (Sun), 2025",
+      "ja": "2025年4月5日(土)～4月6日(日)",
+      "zh": "2025年4月5日(周六)～4月6日(周日)"
+    },
+    "2025. 4. 19.(토) ~ 4. 20.(일)": {
+      "en": "Apr 19 (Sat) – Apr 20 (Sun), 2025",
+      "ja": "2025年4月19日(土)～4月20日(日)",
+      "zh": "2025年4月19日(周六)～4月20日(周日)"
+    },
+    "2025. 9. 12.(금) ~ 9. 14.(일)(3일간)": {
+      "en": "Sep 12 (Fri) – Sep 14 (Sun), 2025 (3 days)",
+      "ja": "2025年9月12日(金)～9月14日(日)（3日間）",
+      "zh": "2025年9月12日(周五)～9月14日(周日)（共3天）"
+    },
+    "2025. 10. 24.(금) ~ 10. 26.(일) [3일간]": {
+      "en": "Oct 24 (Fri) – Oct 26 (Sun), 2025 [3 days]",
+      "ja": "2025年10月24日(金)～10月26日(日)［3日間］",
+      "zh": "2025年10月24日(周五)～10月26日(周日)［共3天］"
+    },
+    "광양불고기": {
+      "en": "Gwangyang Bulgogi (charcoal-grilled beef)",
+      "ja": "光陽プルコギ（炭火焼き牛肉）",
+      "zh": "光阳烤牛肉（炭火烤）"
+    },
+    "장어구이": {
+      "en": "Grilled eel",
+      "ja": "うなぎの焼き物",
+      "zh": "烤鳗鱼"
+    },
+    "닭숯불구이": {
+      "en": "Charcoal-grilled chicken",
+      "ja": "鶏の炭火焼き",
+      "zh": "炭烤鸡肉"
+    },
+    "서대회": {
+      "en": "Spicy raw sole salad (Seodae-hoe)",
+      "ja": "シタビラメの刺身和え（ソデフェ）",
+      "zh": "凉拌生舌鳎鱼片"
+    },
+    "쭈꾸미": {
+      "en": "Webfoot octopus (jjukkumi)",
+      "ja": "イイダコ（チュクミ）",
+      "zh": "短蛸（小章鱼）"
+    },
+    "메기탕, 닭구이, 꿩탕": {
+      "en": "Catfish stew, grilled chicken, pheasant soup",
+      "ja": "ナマズ鍋、鶏の焼き物、キジ鍋",
+      "zh": "鲶鱼汤、烤鸡、野鸡汤"
+    },
+    "뼈다귀해장국": {
+      "en": "Pork bone hangover soup",
+      "ja": "豚の背骨のヘジャンクク（酔い覚ましスープ）",
+      "zh": "猪骨醒酒汤"
+    },
+    "탕수육": {
+      "en": "Sweet and sour pork",
+      "ja": "酢豚（タンスユク）",
+      "zh": "糖醋肉"
+    }
+  }
+}
