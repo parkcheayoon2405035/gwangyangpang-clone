@@ -5,357 +5,270 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>행운팡팡 챗봇</title>
 <!--
-  행운팡팡 이용가이드 챗봇 (HTML 파일 하나짜리)
-  - 서버, AI 모델 없이 브라우저에서 바로 동작해요.
-  - 질문의 키워드를 보고 미리 적어둔 답 중 가장 맞는 것을 보여줘요.
-  - 내용을 바꾸려면 아래 <script> 안의 FAQ 목록만 고치면 돼요.
-  - 사이트에서는 버튼 링크로 이 파일을 열면 돼요. 예) <a href="chatbot.html">챗봇</a>
+  행운팡팡 챗봇 (서버 없이 브라우저에서 동작)
+  - 처음 버전(이용가이드 키워드 챗봇)의 화면 구성 — 인사 → 메뉴 4칸 → 말풍선 → 빠른 질문 — 을 이어받았다.
+  - 답은 chatbot/rag.js 가 자료(chatbot/kb/*.js)에서 찾아 만든다. 행사가 바뀌면 자료만 바뀐다.
+  - 주소 옵션: ?fest=gwangyang|gyeongbuk|wetland (행사)  ?lang=ko|en|ja|zh (화면 언어)  ?embed=1 (사이트 안 창)
+  - 위쪽 '시연용 행사 바꾸기'로 같은 질문에 행사마다 답이 바뀌는 것을 보여 줄 수 있다.
 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --purple: #6C4FD6;      /* 사이트의 5,000포인트 배너 색 */
-    --purple-dark: #5B2DA8; /* 만족도 조사 동그라미 */
-    --purple-soft: #F4F1FD;
-    --magenta: #E6177C;     /* '한국관광100선' 글자 */
-    --pink: #E8325F;        /* 나의 포인트 동그라미 */
-    --gray-bg: #F5F5F5;     /* 상단 메뉴 탭, 챗봇 말풍선 */
-    --line: #E5E5E5;
-    --text: #333333;
-    --text-sub: #686868;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; height: 100%; background: #FFFFFF; }
-  body { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', sans-serif; color: var(--text); }
-  button, input { font-family: inherit; }
+@font-face {
+  font-family: 'Pretendard';
+  src: url('fonts/PretendardVariable.woff2') format('woff2-variations'), url('fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 45 920; font-display: swap;
+}
+:root {
+  --bg: #0E0D12; --tile: #1C1A22; --tile-2: #26232E; --line: #34303D;
+  --text: #FFFFFF; --sub: #A9A4B4; --on-pri: #0E0D12; --on-acc: #0E0D12;
+  --pri: #FF3D8B; --acc: #D4FF3A;
+  color-scheme: dark;
+}
+[data-theme="spring"] { --pri: #FF3D8B; --acc: #D4FF3A; }
+[data-theme="edu"]    { --pri: #5B7CFF; --acc: #FFE14D; }
+[data-theme="eco"]    { --pri: #2EE6A8; --acc: #FF9F45; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); }
+body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+:lang(ja) body { font-family: 'Pretendard', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif; }
+:lang(zh) body { font-family: 'Pretendard', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+button, input, select { font: inherit; color: inherit; }
 
-  /* 사이트처럼 가운데 430px 휴대폰 화면 */
-  .app { max-width: 430px; margin: 0 auto; height: 100%; display: flex; flex-direction: column;
-         box-shadow: 0 0 0 1px var(--line); }
+.app { max-width: 520px; margin: 0 auto; height: 100%; display: flex; flex-direction: column; }
 
-  /* 상단 바 */
-  .top { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px;
-         background: #FFFFFF; box-shadow: 0 2px 4px rgba(0,0,0,0.08); position: relative; z-index: 2; }
-  .circle { width: 40px; height: 40px; border-radius: 50%; color: #FFFFFF; font-size: 10px; font-weight: 700;
-            line-height: 1.15; display: flex; align-items: center; justify-content: center; text-align: center;
-            text-decoration: none; flex: none; }
-  .title { text-align: center; line-height: 1.1; }
-  .title .year { font-size: 11px; font-weight: 700; color: var(--text); }
-  .title .main { font-size: 19px; font-weight: 900; color: #111111; letter-spacing: -0.5px; }
-  .title .main b { color: var(--magenta); font-weight: 900; }
-  .tab { background: var(--gray-bg); text-align: center; font-size: 13px; padding: 9px 0; }
+/* 위쪽: 지금 행사 + 시연용 행사 바꾸기 */
+.top { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.top .ava { width: 38px; height: 38px; border-radius: 12px; background: var(--pri); color: var(--on-pri); display: grid; place-items: center; flex: none; }
+.top .ava svg { width: 20px; height: 20px; }
+.top .who { flex: 1; min-width: 0; line-height: 1.25; }
+.top .who b { display: block; font-size: 15px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top .who small { display: block; font-size: 11.5px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.demo { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex: none; }
+.demo span { font-size: 10px; color: var(--sub); font-weight: 700; letter-spacing: .02em; }
+.demo select { max-width: 150px; text-overflow: ellipsis; appearance: none; border: 1px solid var(--line); background: var(--tile); border-radius: 999px; padding: 6px 26px 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--sub) 50%), linear-gradient(135deg, var(--sub) 50%, transparent 50%);
+  background-position: right 12px top 50%, right 8px top 50%; background-size: 4px 4px; background-repeat: no-repeat; }
 
-  /* 대화 영역 */
-  .chat { flex: 1; overflow-y: auto; padding: 0 0 12px; }
-  .banner { background: var(--purple); color: #FFFFFF; padding: 20px; text-align: right; margin-bottom: 12px; }
-  .banner .t1 { font-size: 14px; }
-  .banner .t2 { font-size: 21px; font-weight: 700; line-height: 1.35; }
-  .banner .t3 { font-size: 11px; color: #DCD3FA; margin-top: 4px; }
+/* 대화 */
+.chat { flex: 1; overflow-y: auto; padding: 14px 0 10px; scrollbar-width: thin; }
+.row { display: flex; gap: 8px; padding: 4px 14px; align-items: flex-start; }
+.row.user { justify-content: flex-end; }
+.row .mini { width: 30px; height: 30px; border-radius: 10px; background: var(--tile-2); color: var(--pri); display: grid; place-items: center; flex: none; }
+.row .mini svg { width: 16px; height: 16px; }
+.bubble { max-width: 82%; padding: 11px 14px; font-size: 14.5px; line-height: 1.6; white-space: pre-line; word-break: keep-all; overflow-wrap: anywhere; }
+:lang(ja) .bubble, :lang(zh) .bubble { word-break: normal; }
+.bot .bubble { background: var(--tile); border-radius: 6px 18px 18px 18px; }
+.user .bubble { background: var(--pri); color: var(--on-pri); border-radius: 18px 6px 18px 18px; font-weight: 600; }
+.bubble b { color: var(--pri); }
+.bubble a { color: var(--text); }
+.bubble a.go { display: inline-block; margin-top: 6px; padding: 7px 12px; border-radius: 999px; background: var(--acc); color: var(--on-acc); font-weight: 800; font-size: 13px; text-decoration: none; }
+.bubble .tag { display: inline-block; padding: 1px 8px; border-radius: 999px; background: var(--tile-2); color: var(--sub); font-size: 11.5px; font-weight: 700; vertical-align: 2px; }
+.src { display: block; margin-top: 8px; padding-top: 7px; border-top: 1px dashed var(--line); font-size: 11.5px; color: var(--sub); white-space: normal; }
+.src::before { content: '📄 '; }
 
-  .row { display: flex; gap: 8px; padding: 4px 14px; align-items: flex-start; }
-  .row.user { justify-content: flex-end; }
-  .avatar { width: 32px; height: 32px; border-radius: 8px; background: var(--purple); flex: none;
-            display: flex; align-items: center; justify-content: center; }
-  .avatar svg { width: 18px; height: 18px; stroke: #FFFFFF; }
-  .bubble { max-width: 80%; padding: 10px 14px; font-size: 14px; line-height: 1.6; white-space: pre-line;
-            word-break: keep-all; overflow-wrap: anywhere; /* 띄어쓰기 없는 긴 글도 말풍선 안에서 줄바꿈 */ }
-  .bot .bubble { background: var(--gray-bg); border-radius: 4px 14px 14px 14px; }
-  .user .bubble { background: var(--purple); color: #FFFFFF; border-radius: 14px 4px 14px 14px; }
-  .bubble b { color: var(--purple); }
+.typing span { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 50%; background: var(--sub); animation: blink 1s infinite; }
+.typing span:nth-child(2) { animation-delay: .2s; } .typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .typing span { animation: none; } }
 
-  /* 입력 중 표시 (점 세 개) */
-  .typing span { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 50%;
-                 background: #B4B2A9; animation: blink 1s infinite; }
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes blink { 0%, 80%, 100% { opacity: 0.3; } 40% { opacity: 1; } }
+/* 첫 화면 메뉴 4칸 */
+.menu { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 6px 14px 4px 52px; }
+.menu button { border: 0; border-radius: 16px; background: var(--tile); padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; text-align: left; font-size: 13.5px; font-weight: 800; line-height: 1.25; }
+.menu button:hover { background: var(--tile-2); }
+.menu button .ic { width: 32px; height: 32px; border-radius: 10px; background: var(--tile-2); color: var(--pri); display: grid; place-items: center; flex: none; }
+.menu button .ic svg { width: 17px; height: 17px; }
+.menu button span:last-child { word-break: keep-all; }
+:lang(ja) .menu button span:last-child, :lang(zh) .menu button span:last-child { word-break: normal; }
 
-  /* 첫 화면 메뉴: 사이트 카드처럼 흰 바탕 + 테두리 */
-  .menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px 14px 4px; }
-  .menu button { height: 74px; border: 1px solid var(--line); border-radius: 8px; background: #FFFFFF;
-                 cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;
-                 gap: 5px; font-size: 12px; font-weight: 700; color: var(--text); padding: 4px; }
-  .menu button:hover { border-color: var(--purple); background: var(--purple-soft); }
-  .menu svg { width: 24px; height: 24px; stroke: var(--purple); }
+/* 작은 휴대폰(360px 이하): 들여쓰기를 줄이고, 행사 바꾸기 칸은 제목 아래 줄로 */
+@media (max-width: 360px) {
+  .menu, .chips { padding-left: 14px; }
+  .menu button { padding: 10px; gap: 8px; font-size: 13px; }
+  .menu button .ic { width: 28px; height: 28px; }
+  .top { flex-wrap: wrap; }
+  .demo { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; }
+  .demo select { max-width: 60%; }
+}
 
-  /* 빠른 질문: 사이트의 '더보기 ▶' 버튼처럼 검정 테두리 알약 */
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 14px 4px 54px; }
-  .chips button { border: 1px solid #111111; background: #FFFFFF; border-radius: 999px; padding: 5px 11px;
-                  font-size: 12px; color: #111111; cursor: pointer; }
-  .chips button:hover { background: #111111; color: #FFFFFF; }
+/* 빠른 질문 */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 14px 6px 52px; }
+.chips button { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 600; color: var(--sub); cursor: pointer; }
+.chips button:hover { border-color: var(--pri); color: var(--text); }
 
-  /* 입력창 */
-  .input { display: flex; gap: 8px; padding: 10px 14px 14px; border-top: 1px solid var(--line); background: #FFFFFF; }
-  .input input { flex: 1; min-width: 0; height: 44px; border: 1px solid var(--line); border-radius: 999px;
-                 padding: 0 18px; font-size: 14px; outline: none; background: var(--gray-bg); }
-  .input input:focus { border-color: var(--purple); background: #FFFFFF; }
-  .input button { width: 44px; height: 44px; border: none; border-radius: 50%; background: var(--purple);
-                  cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none; }
-  .input button svg { width: 20px; height: 20px; stroke: #FFFFFF; }
-
-  /* 사이트 안에 넣었을 때(chatbot.html?embed=1): 사이트 상단 바와 겹치는 머리 부분 숨김 */
-  .embed .top, .embed .tab { display: none; }
-  .embed .app { max-width: none; box-shadow: none; }
+/* 입력 */
+.input { display: flex; gap: 8px; padding: 10px 14px 14px; border-top: 1px solid rgba(255,255,255,.06); }
+.input input { flex: 1; min-width: 0; height: 48px; border: 1.5px solid var(--line); border-radius: 999px; padding: 0 18px; font-size: 15px; outline: none; background: var(--tile); }
+.input input::placeholder { color: var(--sub); }
+.input input:focus { border-color: var(--pri); }
+.input button { width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--acc); color: var(--on-acc); cursor: pointer; display: grid; place-items: center; flex: none; }
+.input button svg { width: 20px; height: 20px; }
 </style>
 <script>
-  if (/[?&]embed=1/.test(location.search)) document.documentElement.classList.add('embed');
+  // 서버 AI 를 쓰게 되면 여기에 주소를 넣는다. (예: '/api/chat') — 비워 두면 자료에서 찾은 내용으로만 답한다.
+  window.CHAT_CONFIG = { aiEndpoint: null };
 </script>
+<script src="chatbot/kb/festivals.js"></script>
+<script src="chatbot/kb/common.js"></script>
+<script src="chatbot/kb/places-gwangyang.js"></script>
+<script src="chatbot/rag.js"></script>
 </head>
 <body>
 <div class="app">
   <div class="top">
-    <a class="circle" style="background: var(--purple-dark)" href="http://www.gwangyangpang.kr/vote.html">만족도<br>조사</a>
-    <div class="title"><div class="year">2025-2026</div><div class="main"><b>한국관광100선</b> 탐방 이벤트</div></div>
-    <a class="circle" style="background: var(--pink)" href="http://www.gwangyangpang.kr/phone_login.html?login_type=mylist">나의<br>포인트</a>
+    <div class="ava" aria-hidden="true"></div>
+    <div class="who"><b id="title"></b><small id="festName"></small></div>
+    <label class="demo"><span id="demoLabel"></span>
+      <select id="fest" aria-describedby="demoLabel">
+        <option value="gwangyang"></option><option value="gyeongbuk"></option><option value="wetland"></option>
+      </select>
+    </label>
   </div>
-  <div class="tab">행운팡팡 이용가이드 챗봇</div>
-
-  <div class="chat" id="chat" role="log" aria-live="polite">
-    <div class="banner">
-      <div class="t1">행운팡팡 궁금한 점,</div>
-      <div class="t2">무엇이든 물어보세요</div>
-      <div class="t3">포인트 적립부터 선물 교환까지 안내해 드려요</div>
-    </div>
-  </div>
-
+  <div class="chat" id="chat" role="log" aria-live="polite"></div>
   <form class="input" id="form" autocomplete="off">
-    <input id="q" type="text" placeholder="궁금한 걸 입력하세요" aria-label="질문 입력">
-    <button type="submit" aria-label="보내기">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
-    </button>
+    <input id="q" type="text" maxlength="200">
+    <button type="submit" id="send"></button>
   </form>
 </div>
-
 <script>
-/* =====================================================================
-   1. 챗봇이 아는 내용 (여기만 고치면 돼요)
-   - keywords: [단어, 점수]. 질문에 이 단어가 들어 있으면 점수를 더해요.
-     띄어쓰기는 무시하고 비교해요. 예) "선물교환" = "선물 교환"
-   - 점수가 가장 높은 항목의 answer를 보여줘요.
-   - need(선택): 이 단어 중 하나가 질문에 꼭 있어야 이 항목으로 답해요
-   - chips: 답변 아래에 보여줄 다음 질문 버튼
-   출처: http://www.gwangyangpang.kr/coupon.html (행운팡팡 이용가이드)
-   ===================================================================== */
-const FAQ = [
-  {
-    id: "earn",
-    answer: "관광지 안에 있는 <b>행운팡팡 QR코드</b>를 스캔하면 행운의 포인트를 받을 수 있어요.\n모은 포인트는 <b>종합안내 7번부스</b>에서 선물로 교환해 드려요.",
-    keywords: [["적립", 4], ["받는", 4], ["받아", 3], ["받을", 3], ["받으", 3], ["받", 2], ["관광지", 4], ["모으", 3], ["모아", 2], ["모을", 3], ["얻", 3], ["qr", 3], ["큐알", 3],
-               ["스캔", 3], ["찍", 3], ["포인트주", 3], ["어떻게모", 3]],
-    chips: ["선물 교환 방법", "포인트 소멸"]
-  },
-  {
-    id: "where",
-    answer: "선물 교환은 <b>종합안내 7번부스</b>에서 하시면 돼요.",
-    keywords: [["어디", 6], ["장소", 4], ["위치", 4], ["부스", 3], ["7번", 3], ["칠번", 3], ["종합안내", 3], ["교환처", 4]],
-    // '주차장 어디예요?'처럼 상관없는 질문에 답하지 않도록, 아래 단어 중 하나가 있어야 답해요
-    // ('포인트 어디서 받아요?'는 관광지 QR 안내가 맞아서 '포인트'는 일부러 뺐어요)
-    need: ["교환", "선물", "부스", "7번", "칠번", "종합안내", "바꾸", "바꿔", "바꿀", "쓰", "써", "사용"],
-    chips: ["선물 교환 방법", "몇 포인트 필요해?"]
-  },
-  {
-    id: "how",
-    answer: "선물 교환은 이렇게 하시면 돼요.\n1. <b>종합안내 7번부스</b>에서 선물교환용 QR코드를 스캔해요.\n2. 본인인증 절차를 밟아요.\n3. <b>5,000포인트</b>를 선택하고 확인을 누르면 선물 교환이 완료돼요.",
-    keywords: [["교환", 3], ["선물", 2], ["바꾸", 3], ["바꿔", 3], ["바꿀", 3], ["사용", 3], ["쓰는", 3], ["쓰려", 3], ["써요", 3], ["써야", 3], ["쓸", 3],
-               ["방법", 1], ["절차", 3], ["순서", 3], ["선물받", 4]],
-    chips: ["교환 장소", "포인트 소멸"]
-  },
-  {
-    id: "need",
-    answer: "선물 교환에는 <b>5,000포인트</b>가 필요해요.\n7번부스에서 5,000포인트를 선택하고 확인을 누르면 교환돼요.",
-    keywords: [["몇포인트", 6], ["얼마", 4], ["5000", 5], ["5,000", 5], ["오천", 5], ["필요", 3], ["모아야", 5],
-               ["몇점", 5], ["점수", 3]],
-    chips: ["선물 교환 방법", "포인트 소멸"]
-  },
-  {
-    id: "auth",
-    answer: "네, 선물 교환할 때 <b>본인인증</b> 절차를 밟아야 해요.\n7번부스에서 선물교환용 QR코드를 스캔한 뒤 본인인증을 하시면 돼요.",
-    keywords: [["본인", 5], ["인증", 5], ["신분", 4]],
-    chips: ["선물 교환 방법", "교환 장소"]
-  },
-  {
-    id: "tomorrow",
-    answer: "아니요, 포인트는 <b>받은 날 23시까지만</b> 쓸 수 있어요.\n23시가 지나면 사용하지 못한 포인트는 자동으로 소멸되고, 다음 날로 넘어가지 않아요.",
-    keywords: [["내일", 6], ["다음날", 6], ["다음에", 5], ["담에", 5], ["이월", 6], ["남으면", 5], ["남은", 4],
-               ["모레", 6], ["나중에", 5], ["다른날", 6]],
-    chips: ["포인트 받는 법", "선물 교환 방법"]
-  },
-  {
-    id: "expire",
-    answer: "행운팡팡 포인트는 <b>당일 23시</b>를 기준으로, 사용하지 못한 포인트가 자동 소멸돼요.\n그날 받은 포인트는 그날 23시 전에 7번부스에서 교환해 주세요.",
-    keywords: [["소멸", 6], ["사라", 6], ["없어", 4], ["유효", 6], ["기한", 6], ["만료", 6], ["언제까지", 6],
-               ["23시", 5], ["11시", 4], ["12시", 4], ["자정", 5], ["밤", 2], ["언제", 2],
-               ["시까지써", 6], ["시까지사용", 6], ["시까지교환", 6]],
-    chips: ["내일 써도 돼?", "선물 교환 방법"]
-  },
-  {
-    id: "coffee",
-    answer: "<b>만족도 조사</b>에 참여하시면 추첨을 통해 <b>커피 쿠폰</b>을 보내드려요.\n상단 왼쪽의 '만족도 조사' 버튼에서 참여할 수 있어요.",
-    keywords: [["커피", 6], ["쿠폰", 5], ["만족도", 6], ["설문", 5], ["추첨", 5], ["당첨", 4], ["경품", 3]],
-    chips: ["포인트 받는 법", "선물 교환 방법"]
-  },
-  {
-    id: "hello",
-    answer: "안녕하세요! 행운팡팡 이용 방법을 알려드릴게요. 아래 메뉴에서 고르거나 궁금한 걸 직접 입력해 주세요.",
-    keywords: [["안녕", 4], ["하이", 3], ["ㅎㅇ", 3], ["hello", 3], ["hi", 2], ["반가", 3]],
-    chips: ["포인트 받는 법", "선물 교환 방법", "포인트 소멸", "커피 쿠폰"]
-  },
-  {
-    id: "thanks",
-    answer: "도움이 되었다니 다행이에요! 또 궁금한 게 있으면 언제든 물어보세요.",
-    keywords: [["고마", 5], ["감사", 5], ["ㄱㅅ", 5], ["땡큐", 5], ["thank", 5], ["알겠", 3], ["오키", 3]],
-    chips: []
-  },
-  {
-    // 이용가이드 내용을 한 문장으로 요약한 소개
-    id: "about",
-    answer: "행운팡팡은 관광지에서 <b>QR코드를 스캔해 포인트를 모으고</b>, 모은 포인트를 <b>종합안내 7번부스</b>에서 선물로 교환하는 이벤트예요.",
-    keywords: [["뭐예요", 4], ["뭐야", 4], ["뭔가요", 4], ["뭐에요", 4], ["무엇", 4], ["소개", 4], ["이벤트", 2], ["설명", 3]],
-    need: ["행운팡팡", "팡팡", "이벤트"],
-    chips: ["포인트 받는 법", "선물 교환 방법"]
-  },
-  {
-    // 이용가이드에 없는 '운영 시간' 질문을 교환 장소 답으로 착각하지 않게 따로 받아요
-    id: "hours",
-    answer: "7번부스 운영 시간은 이용가이드에 나와 있지 않아요.\n현장의 종합안내에서 확인해 주세요.\n참고로 포인트는 <b>당일 23시</b>에 소멸되니 그 전에 교환해 주세요.",
-    keywords: [["몇시", 5], ["시까지해", 4], ["시까지하", 4], ["시에열", 4], ["운영시간", 7], ["영업", 6], ["문열", 6], ["문닫", 6], ["오픈", 5], ["마감", 5]],
-    need: ["부스", "안내", "운영", "영업", "문", "오픈", "마감", "열어", "열려", "닫"],
-    chips: ["교환 장소", "포인트 소멸"]
+(function () {
+  'use strict';
+  var KB = window.CHAT_KB, RAG = window.ChatRAG;
+  var LANGS = ['ko', 'en', 'ja', 'zh'];
+
+  /* 화면 언어: 주소 ?lang= → 사이트에서 고른 언어(쿠키) → 한국어 */
+  function readCookie(n) { var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
+  var qs = new URLSearchParams(location.search);
+  var ui = qs.get('lang'); if (LANGS.indexOf(ui) < 0) ui = readCookie('lang'); if (LANGS.indexOf(ui) < 0) ui = 'ko';
+  var fest = qs.get('fest'); if (!KB.festivals[fest]) fest = 'gwangyang';
+  document.documentElement.lang = { ko: 'ko', en: 'en', ja: 'ja', zh: 'zh-CN' }[ui];
+
+  var T = {
+    title: { ko: '행운팡팡 도우미', en: 'Lucky PangPang Helper', ja: 'ラッキーパンパン案内', zh: 'Lucky PangPang 助手' },
+    demo: { ko: '시연용 · 행사 바꾸기', en: 'Demo · switch event', ja: 'デモ・イベント切替', zh: '演示 · 切换活动' },
+    place: { ko: '궁금한 걸 입력하세요', en: 'Type your question', ja: '質問を入力してください', zh: '请输入问题' },
+    send: { ko: '보내기', en: 'Send', ja: '送信', zh: '发送' },
+    hi: {
+      ko: '안녕하세요! <b>{name}</b> 안내 도우미예요.\n행사 자료에서 찾아서 답해 드려요. 아래에서 고르거나 궁금한 걸 입력해 주세요.',
+      en: 'Hi! I\'m the helper for <b>{name}</b>.\nI answer from this event\'s materials. Pick a topic or type a question.',
+      ja: 'こんにちは！<b>{name}</b>の案内役です。\nイベント資料から探してお答えします。下から選ぶか、質問を入力してください。',
+      zh: '你好！我是<b>{name}</b>的向导。\n我会从活动资料中查找答案。请选择下方话题或输入问题。'
+    },
+    switched: { ko: '지금부터 <b>{name}</b> 안내예요. 같은 질문을 해 보세요!', en: 'Switched to <b>{name}</b>. Try the same question!', ja: '<b>{name}</b>に切り替えました。同じ質問をしてみてください！', zh: '已切换到<b>{name}</b>，试试问同样的问题！' },
+    source: { ko: '근거', en: 'Source', ja: '根拠', zh: '依据' },
+    menu: {
+      how: { ko: '참여 방법', en: 'How to join', ja: '参加方法', zh: '参与方法' },
+      gift: { ko: '선물 받기', en: 'Getting gifts', ja: 'プレゼント', zh: '领取礼品' },
+      mypoints: { ko: '내 포인트', en: 'My points', ja: 'マイポイント', zh: '我的积分' },
+      food: { ko: '근처 맛집', en: 'Food nearby', ja: '近くの飲食店', zh: '附近美食' },
+      event: { ko: '행사 정보', en: 'Event info', ja: 'イベント情報', zh: '活动信息' },
+      app: { ko: '앱 설치 필요?', en: 'Need an app?', ja: 'アプリは必要？', zh: '需要下载应用？' }
+    },
+    foodQ: { ko: '근처 맛집 알려 줘', en: 'Restaurants nearby', ja: '近くの飲食店', zh: '附近的餐厅' }
+  };
+  function L(v) { return v[ui] != null ? v[ui] : v.ko; }
+
+  var ICON = {
+    bot: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h.01M12 9h.01M16 9h.01"/>',
+    how: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M14 20v.01M17 20h4v-3"/>',
+    gift: '<path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',
+    mypoints: '<circle cx="12" cy="12" r="9"/><path d="M9.5 16V8h3.2a2.4 2.4 0 0 1 0 4.8H9.5"/>',
+    food: '<path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 2c-2 2-3 5-3 8h4v12"/>',
+    event: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    app: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    send: '<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/>'
+  };
+  function svg(n) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[n] + '</svg>'; }
+
+  var chat = document.getElementById('chat'), form = document.getElementById('form'), input = document.getElementById('q'), sel = document.getElementById('fest');
+  document.querySelector('.top .ava').innerHTML = svg('bot');
+  document.getElementById('send').innerHTML = svg('send');
+  document.getElementById('send').setAttribute('aria-label', L(T.send));
+  document.getElementById('title').textContent = L(T.title);
+  document.getElementById('demoLabel').textContent = L(T.demo);
+  input.placeholder = L(T.place);
+  input.setAttribute('aria-label', L(T.place));
+  Array.prototype.forEach.call(sel.options, function (o) { o.textContent = L(KB.festivals[o.value].short); });
+
+  function down() { chat.scrollTop = chat.scrollHeight; }
+  function addBot(html, src) {
+    var row = document.createElement('div');
+    row.className = 'row bot';
+    row.innerHTML = '<div class="mini">' + svg('bot') + '</div><div class="bubble">' + html +
+      (src ? '<span class="src">' + L(T.source) + ': ' + src + '</span>' : '') + '</div>';
+    chat.appendChild(row); down(); return row;
   }
-];
-
-// 어떤 항목과도 맞지 않을 때
-const FALLBACK = {
-  answer: "죄송해요, 이용가이드에 없는 내용이에요.\n자세한 내용은 <b>종합안내 7번부스</b>에 문의해 주세요.\n\n이런 걸 물어볼 수 있어요.",
-  chips: ["포인트 받는 법", "선물 교환 방법", "포인트 소멸", "커피 쿠폰"]
-};
-
-// 첫 화면 메뉴 (버튼 글자, 실제로 보낼 질문, 아이콘)
-const MENU = [
-  ["포인트 받기", "포인트 받는 법", "qr"],
-  ["선물 교환", "선물 교환 방법", "gift"],
-  ["포인트 소멸", "포인트 소멸", "clock"],
-  ["커피 쿠폰", "커피 쿠폰", "coffee"]
-];
-
-const MIN_SCORE = 3; // 이 점수보다 낮으면 '모르겠어요'로 답해요
-
-/* =====================================================================
-   2. 질문에 맞는 답 찾기
-   ===================================================================== */
-function normalize(text) {
-  return text.toLowerCase().replace(/[\s?!.,~·'"()]/g, "");
-}
-
-function findAnswer(question) {
-  const q = normalize(question);
-  let best = null, bestScore = 0;
-  for (const item of FAQ) {
-    if (item.need && !item.need.some(w => q.includes(normalize(w)))) continue;
-    let score = 0;
-    for (const [word, point] of item.keywords) {
-      if (q.includes(normalize(word))) score += point;
-    }
-    if (score > bestScore) { best = item; bestScore = score; }
+  function addUser(text) {
+    var row = document.createElement('div'); row.className = 'row user';
+    var b = document.createElement('div'); b.className = 'bubble'; b.textContent = text;  // 사용자가 쓴 글은 글자로만
+    row.appendChild(b); chat.appendChild(row); down();
   }
-  return bestScore >= MIN_SCORE ? best : FALLBACK;
-}
-
-/* =====================================================================
-   3. 화면 그리기
-   ===================================================================== */
-const ICONS = {
-  bot: '<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',
-  qr: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20v.01M17 20h4v-3"/>',
-  gift: '<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  coffee: '<path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/>'
-};
-const svg = name => `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]}</svg>`;
-
-const chat = document.getElementById("chat");
-const form = document.getElementById("form");
-const input = document.getElementById("q");
-
-function scrollDown() { chat.scrollTop = chat.scrollHeight; }
-
-function addBot(html) {
-  const row = document.createElement("div");
-  row.className = "row bot";
-  row.innerHTML = `<div class="avatar">${svg("bot")}</div><div class="bubble">${html}</div>`;
-  chat.appendChild(row);
-  scrollDown();
-  return row;
-}
-
-function addUser(text) {
-  const row = document.createElement("div");
-  row.className = "row user";
-  const bubble = document.createElement("div");
-  bubble.className = "bubble";
-  bubble.textContent = text; // 사용자가 쓴 글은 그대로 글자로만 보여줘요 (안전)
-  row.appendChild(bubble);
-  chat.appendChild(row);
-  scrollDown();
-}
-
-function addChips(list) {
-  if (!list.length) return;
-  const box = document.createElement("div");
-  box.className = "chips";
-  for (const text of list) {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.textContent = text;
-    b.onclick = () => ask(text);
-    box.appendChild(b);
+  function addChips(ids, lang) {
+    if (!ids || !ids.length) return;
+    var box = document.createElement('div'); box.className = 'chips';
+    ids.forEach(function (id) {
+      var t = RAG.chipText(id, lang), b = document.createElement('button');
+      b.type = 'button'; b.textContent = t; b.onclick = function () { ask(t); };
+      box.appendChild(b);
+    });
+    chat.appendChild(box); down();
   }
-  chat.appendChild(box);
-  scrollDown();
-}
-
-function addMenu() {
-  const box = document.createElement("div");
-  box.className = "menu";
-  for (const [label, question, icon] of MENU) {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.innerHTML = `${svg(icon)}<span>${label}</span>`;
-    b.onclick = () => ask(question);
-    box.appendChild(b);
+  function addMenu() {
+    var f = KB.festivals[fest];
+    // 4번째 칸: 장소 자료가 있으면 '근처 맛집', 없으면 '행사 정보' — 그것도 자료에 없으면(기간·장소 모름) '앱 설치?'
+    var hasEvent = f.period != null && f.venue != null;
+    var fourth = f.places ? ['food', L(T.foodQ)] : hasEvent ? ['event', RAG.chipText('event', ui)] : ['app', RAG.chipText('app', ui)];
+    var items = [['how', RAG.chipText('how', ui)], ['gift', RAG.chipText('gift', ui)], ['mypoints', RAG.chipText('mypoints', ui)], fourth];
+    var box = document.createElement('div'); box.className = 'menu';
+    items.forEach(function (it) {
+      var b = document.createElement('button'); b.type = 'button';
+      b.innerHTML = '<span class="ic">' + svg(it[0]) + '</span><span>' + L(T.menu[it[0]]) + '</span>';
+      b.onclick = function () { ask(it[1]); };
+      box.appendChild(b);
+    });
+    chat.appendChild(box); down();
   }
-  chat.appendChild(box);
-  scrollDown();
-}
 
-let busy = false;
-function ask(question) {
-  question = question.trim().slice(0, 200); // 너무 긴 글은 200자까지만
-  if (!question || busy) return false;
-  busy = true;
-  addUser(question);
-  // 잠깐 '입력 중...' 점 세 개를 보여주고 답해요
-  const typing = addBot('<span class="typing"><span></span><span></span><span></span></span>');
-  setTimeout(() => {
-    typing.remove();
-    const result = findAnswer(question);
-    addBot(result.answer);
-    addChips(result.chips);
-    busy = false;
-  }, 450);
-  return true;
-}
+  function setFest(id, announce) {
+    fest = id; sel.value = id;
+    var f = KB.festivals[id];
+    document.documentElement.setAttribute('data-theme', f.theme);
+    document.getElementById('festName').textContent = L(f.name);
+    if (announce) { addBot(L(T.switched).replace('{name}', L(f.name))); addMenu(); }
+  }
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  if (ask(input.value)) input.value = ""; // 질문이 접수됐을 때만 입력창을 비워요
-  input.focus();
-});
+  var busy = false;
+  function ask(text) {
+    text = String(text).trim().slice(0, 200);
+    if (!text || busy) return false;
+    busy = true;
+    addUser(text);
+    var typing = addBot('<span class="typing"><span></span><span></span><span></span></span>');
+    var started = Date.now();
+    RAG.answer(text, fest, ui).then(function (r) {
+      setTimeout(function () {
+        typing.remove();
+        addBot(r.html, r.source);
+        addChips(r.chips, r.lang);
+        busy = false;
+      }, Math.max(0, 380 - (Date.now() - started)));
+    });
+    return true;
+  }
 
-// 첫 인사 + 메뉴
-addBot("안녕하세요! 행운팡팡 이용 방법을 알려드릴게요.\n아래에서 고르거나 궁금한 걸 직접 입력해 주세요.");
-addMenu();
+  form.addEventListener('submit', function (e) { e.preventDefault(); if (ask(input.value)) input.value = ''; input.focus(); });
+  sel.addEventListener('change', function () { setFest(sel.value, true); });
+  // 사이트 안 창으로 열렸을 때: ESC → 바깥 페이지에 '닫아 줘' 알림
+  if (window.parent !== window) {
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') window.parent.postMessage('pp-chat-close', location.origin);
+    });
+  }
+
+  setFest(fest, false);
+  addBot(L(T.hi).replace('{name}', L(KB.festivals[fest].name)));
+  addMenu();
+
+  window.ChatUI = { ask: ask, setFest: setFest };   // 시험·발표용
+})();
 </script>
 </body>
 </html>
