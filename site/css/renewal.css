@@ -6,7 +6,21 @@
  * - 축제 색은 아래 [data-theme] 블록의 --pri(주색) / --acc(포인트색) 두 개만 바꾸면 된다.
  * - 기존 HTML에 인라인 스타일이 많아 일부 규칙은 !important 로 덮는다.
  */
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Gothic+A1:wght@400;500;600;700;800;900&display=swap');
+/* 글꼴은 저장소 안(site/fonts)에 두어 인터넷이 없어도 똑같이 보이게 한다 (둘 다 OFL, 라이선스 파일 같은 폴더)
+   - Pretendard: 한글·본문·제목 (가변 글꼴 하나로 모든 굵기)
+   - RnAccent: Gasoek One 의 영어·숫자만. 제목의 "5,000P", "LUCKY PASS" 같은 강조에만 쓰인다.
+     굵기 100~900 어디에 써도 원래 굵기 그대로 (브라우저가 가짜로 굵게 칠해 번지지 않게) */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../fonts/PretendardVariable.woff2') format('woff2-variations'), url('../fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 45 920; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'RnAccent';
+  src: url('../fonts/GasoekOne-latin.woff2') format('woff2');
+  font-weight: 100 900; font-style: normal; font-display: swap;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+002C, U+002E, U+0025, U+002B;
+}
 
 /* ───────────── 1. 색 · 글꼴 토큰 ───────────── */
 html.rn {
@@ -21,8 +35,11 @@ html.rn {
   --radius: 22px;
   --gap: 16px;
   --top-h: 60px;
-  --font: 'Gothic A1', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  --display: 'Gasoek One', 'Gothic A1', 'Malgun Gothic', sans-serif;
+  --font: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* 제목: 영어·숫자는 RnAccent, 나머지(한글·공백·문장부호)는 Pretendard 로 글자마다 자동으로 나뉜다 */
+  --display: 'RnAccent', 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --display-weight: 900;
+  font-synthesis: none;
   --pri: #FF3D8B;
   --acc: #D4FF3A;
   color-scheme: dark;
@@ -67,11 +84,16 @@ html.rn .wrap [style*="background:#FFF"] { background: transparent !important; }
    :where() 로 우선순위를 0으로 두어, 아래의 각 부품 규칙이 항상 이긴다 */
 :where(html.rn) [class*="rn-"] { font-family: var(--font); }
 :where(html.rn [class*="rn-"]) * { font-size: inherit; font-family: inherit; }
+/* 원래 사이트 글자(가게 설명 등)도 Noto Sans KR(구글에서 받아 옴) 대신 Pretendard 로 통일 */
+:where(html.rn) body * { font-family: var(--font); }
+/* 단, 제목 글꼴 요소 안쪽은 제목 글꼴을 이어받는다 */
+html.rn .rn-display *, html.rn .rn-h2 *, html.rn .rn-hello-row *, html.rn .rn-ribbon *,
+html.rn .rn-pass-badge *, html.rn .title03 *, html.rn .search_title * { font-family: inherit; }
 /* ini.css 의 A:link { font:100% Gulim } 보다 강하게 */
 html.rn a.rn-logo, html.rn a.rn-ico-btn, html.rn a.rn-link, html.rn a.rn-chip { font-family: var(--font); }
 
 .rn-ic { width: 18px; height: 18px; flex: none; }
-.rn-display { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; }
+.rn-display { font-family: var(--display); font-weight: var(--display-weight); letter-spacing: -0.03em; }
 
 /* 이미지를 담던 상자의 line-height:0 / 고정 높이 해제 */
 html.rn .rn-holder { line-height: normal !important; height: auto !important; }
@@ -192,7 +214,7 @@ html.rn img.rn-poster {
   display: flex !important; align-items: center; justify-content: center; text-align: center;
   background: var(--acc); color: var(--on-acc);
   border: 6px solid var(--bg);
-  font-family: var(--display); font-size: 13px; line-height: 1.15;
+  font-family: var(--display); font-weight: var(--display-weight); font-size: 13px; line-height: 1.15;
   transform: rotate(10deg);
 }
 .rn-pass-label { font-size: 12px; font-weight: 800; letter-spacing: .14em; }
@@ -208,7 +230,7 @@ html.rn img.rn-poster {
 .rn-pass-cut::after { right: -13px; }
 .rn-pass-lead { font-size: 13px; font-weight: 700; }
 .rn-pass-row { display: flex !important; align-items: flex-end; justify-content: space-between; margin-top: 4px; }
-.rn-pass-row b { font-size: 54px; line-height: 1; }
+.rn-pass-row b { font-size: 54px; line-height: 1; letter-spacing: 0; }  /* 숫자는 원래 글꼴 자간 그대로 */
 .rn-pass-row .rn-ic { width: 44px; height: 44px; stroke-width: 2.4; }
 
 .rn-info-grid {
@@ -246,7 +268,7 @@ html.rn img.rn-poster {
   padding: 38px 16px 2px;
 }
 .rn-eyebrow { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; color: var(--pri); text-transform: uppercase; }
-.rn-h2 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 27px; line-height: 1.1; color: var(--text); }
+.rn-h2 { margin: 6px 0 0; font-family: var(--display); font-weight: var(--display-weight); letter-spacing: -0.03em; font-size: 27px; line-height: 1.1; color: var(--text); }
 html.rn a.rn-link, .rn-link {
   display: inline-flex; align-items: center; gap: 4px; flex: none;
   padding-bottom: 3px; font-size: 13px; font-weight: 700; color: var(--sub) !important; text-decoration: none;
@@ -336,9 +358,10 @@ html.rn .rn-holder:has(> .rn-more) { text-align: center; }
 
 /* ───────────── 9. 상세 페이지 ───────────── */
 html.rn .item img { display: block; }
+/* 상세 제목은 업체가 입력하는 글이라 숫자가 단어 중간에 섞인다("4대계곡") → 섞기 글꼴 대신 Pretendard 만 */
 html.rn .title03 {
   padding: 4px 0 10px !important;
-  font-family: var(--display); font-weight: 400 !important;
+  font-family: var(--font); font-weight: var(--display-weight) !important; letter-spacing: -0.03em;
   font-size: 30px !important; line-height: 1.15 !important; color: var(--text) !important;
 }
 html.rn .sub_cont02, html.rn .sub_cont02 strong { color: var(--sub) !important; }
@@ -410,7 +433,7 @@ html.rn a:has(> .rn-card) { display: block; text-decoration: none; }
 .rn-card--accent .rn-card-body em { color: rgba(14, 13, 18, .72); }
 .rn-card--accent .rn-card-body em b { color: var(--on-pri); }
 .rn-card--accent .rn-card-go { background: var(--bg); color: var(--acc); }
-.rn-card--contact .rn-num { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: .01em; }
+.rn-card--contact .rn-num { font-family: var(--display); font-weight: var(--display-weight); font-size: 26px; letter-spacing: .01em; }
 
 /* ───────────── 11. 하단 회사 정보 ───────────── */
 html.rn .copy {
@@ -443,7 +466,7 @@ html.rn .wrap > div > div:has(> .rn-wordmark) {
 .rn-hello { margin: 18px -20px 0; overflow: hidden; pointer-events: none; }
 .rn-hello-row {
   display: flex; gap: 18px; width: max-content;
-  font-family: var(--display); font-size: 52px; line-height: 1.12; white-space: nowrap;
+  font-family: var(--display); font-weight: var(--display-weight); font-size: 52px; line-height: 1.12; white-space: nowrap;
   color: transparent; -webkit-text-stroke: 1.4px #4A4556;
   animation: rn-marquee 26s linear infinite;
   animation-direction: normal;
@@ -479,7 +502,7 @@ html.rn .rn-lang-row.on button { background: var(--pri) !important; color: var(-
 .rn-ribbon {
   margin: 16px -40px 0; padding: 10px 0; overflow: hidden; white-space: nowrap;
   background: var(--acc); color: var(--on-acc); transform: rotate(-3deg);
-  font-family: var(--display); font-size: 18px; line-height: 1;
+  font-family: var(--display); font-weight: var(--display-weight); font-size: 18px; line-height: 1;
 }
 .rn-ribbon span { display: inline-block; animation: rn-marquee 18s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .rn-ribbon span { animation: none; } }
@@ -507,7 +530,7 @@ html.rn .rn-skip-link button {
 
 /* 정보 입력 (이름 · 연락처) */
 html.rn .wrap div[style*="Cafe24Ssurround"] {
-  font-family: var(--display) !important; font-size: 34px !important; line-height: 1.15 !important;
+  font-family: var(--display) !important; font-weight: var(--display-weight) !important; letter-spacing: -0.03em; font-size: 34px !important; line-height: 1.15 !important;
   color: var(--text) !important; text-align: left !important; padding-top: 26px !important;
 }
 html.rn .info_box { margin: 26px 0 !important; gap: 10px 0 !important; }
@@ -555,7 +578,7 @@ html.rn .search_box + article,
 html.rn .wrap article[style*="padding:45px"] { padding: 30px 16px 10px !important; }
 html.rn .search_title {
   padding: 0 0 18px !important; text-align: left !important;
-  font-family: var(--display); font-weight: 400 !important; font-size: 28px !important; color: var(--text) !important;
+  font-family: var(--display); font-weight: var(--display-weight) !important; letter-spacing: -0.03em; font-size: 28px !important; color: var(--text) !important;
 }
 html.rn .use_1 { align-items: center; margin: 0 0 10px !important; }
 html.rn .use_1_1 img { height: 26px; width: auto; }
