@@ -1,6 +1,6 @@
 """site/ 의 모든 페이지에 디자인 리뉴얼 · DB 내용 번역 파일을 연결한다.
 
-- js/i18n.js 를 불러오는 줄 바로 앞에
+- js/i18n.js 를 불러오는 줄 바로 앞에 (뒤에는 js/chatbot-launcher.js)
     js/renewal.js       (i18n.js 보다 먼저 실행되어야 함)
     js/i18n-content.js  (i18n.js 가 번역을 찾을 때 함께 보는 DB 내용 번역)
 - </head> 바로 앞에 css/renewal.css
@@ -17,6 +17,10 @@ BEFORE_I18N = [
     ('js/renewal.js', '<script type="text/javascript" src="js/renewal.js"></script>'),
     ('js/i18n-content.js', '<script type="text/javascript" src="js/i18n-content.js"></script>'),
 ]
+AFTER_I18N = [
+    # 챗봇 버튼: i18n.js 가 정한 언어(window.I18N)를 써야 해서 i18n.js 뒤
+    ('js/chatbot-launcher.js', '<script type="text/javascript" src="js/chatbot-launcher.js"></script>'),
+]
 I18N = re.compile(r'<script[^>]+src="js/i18n\.js"[^>]*></script>', re.I)
 SKIP = {'_i18n_gallery.html', 'chatbot.html'}
 
@@ -31,6 +35,13 @@ def apply(path: pathlib.Path) -> str:
         if not m:
             return 'no-i18n'
         html = html[:m.start()] + tag + '\n' + html[m.start():]
+    for src, tag in AFTER_I18N:
+        if src in html:
+            continue
+        m = I18N.search(html)
+        if not m:
+            return 'no-i18n'
+        html = html[:m.end()] + '\n' + tag + html[m.end():]
     if 'css/renewal.css' not in html:
         head_end = html.lower().find('</head>')
         if head_end < 0:

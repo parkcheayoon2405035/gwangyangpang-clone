@@ -15,6 +15,7 @@
      1. 축제 설정 (축제가 바뀌면 여기만 수정)
      ================================================================ */
   var FESTIVAL = {
+    id: 'gwangyang',                       // 챗봇 행사 자료 이름 (chatbot/kb/festivals.js)
     theme: 'spring',                       // 색 테마: spring(봄 축제) | edu(교육 축제) | eco(생태 행사)
     year: '2025-2026',
     name: {
