@@ -26,6 +26,7 @@
 
 <script type="text/javascript" src="js/renewal.js"></script>
 <script type="text/javascript" src="js/i18n-content.js"></script>
+<script type="text/javascript" src="js/site-fixes.js"></script>
 <script type="text/javascript" src="js/i18n.js"></script>
 <script type="text/javascript" src="js/chatbot-launcher.js"></script>
 <link rel="stylesheet" type="text/css" href="css/renewal.css">
@@ -46,18 +47,23 @@ function agree_ok()
 
 function send_submit()
 {
-  document.getElementById('send_form').submit();
-/*
-  if(document.getElementById('chk_info').checked == true || 1)
+  // 이름·연락처·개인정보 동의를 확인한 뒤 전송 (원래는 동의 확인이 꺼져 있었음)
+  if(document.getElementById('B_name').value == '')
   {
-    document.getElementById('send_form').submit();
+    err_msg_layer('이름을 적으세요');
+    return;
   }
-  else
+  if(document.getElementById('B_phone').value == '')
   {
-    alert('개인정보 수집에 동의하셔야됩니다');
-    open_agree_pop();
-  }  
-  */
+    err_msg_layer('연락처를 적으세요');
+    return;
+  }
+  if(!document.getElementById('chk_info').checked)
+  {
+    err_msg_layer('개인정보 수집·이용에 동의해 주세요.');
+    return;
+  }
+  document.getElementById('send_form').submit();
 }  
 
 function get_auth_num()
@@ -211,6 +217,7 @@ placeholder{color:red; }
   2. 포인트 지급 및 사용에만 이용 됩니다<br>
   3. 4주 후 자동 삭제됩니다
   </div>
+  <label class="agree_chk"><input type="checkbox" id="chk_info" name="agree_info" value="Y"> <span>위 내용에 동의합니다 (필수)</span></label>
   <div class="t_box"><input type="text" name='B_name' id='B_name' placeholder='이름'></div>
   <div class="t_box"><input type="text" name='B_phone' id='B_phone' placeholder='연락처'></div>
 </div>
