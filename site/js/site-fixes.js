@@ -6,6 +6,7 @@
  *    - 그래서 설문(vote.html)처럼 페이지로 바로 열면 함수가 없어 빈 화면이 됐다 ("설문조사 기간이 지났습니다").
  *    - 페이지에 자기 함수가 있으면 그쪽이 덮어쓰므로 기존 동작은 그대로.
  * 2) 개인정보 동의 체크박스(.agree_chk) 모양
+ * 3) 주소 링크 칸에 지도 <iframe> 코드가 들어가 깨진 링크 → 주소로 지도 검색 링크
  *
  * 안내 문구는 js/i18n.js 사전에 있으면 선택한 언어로 바뀐다.
  */
@@ -42,6 +43,24 @@
     (document.head || document.documentElement).appendChild(st);
   }
   addStyle();
+
+  // 3) 깨진 주소 링크 고치기
+  //    원래 DB 의 주소 링크 칸에 지도 <iframe> 코드가 통째로 들어가 있어(72곳) 누르면 엉뚱한 주소가 열렸다.
+  //    링크 글자(주소·장소 이름)로 지도 검색 링크를 새로 만든다. 번역되기 전(한국어)에 실행해야 해서
+  //    i18n.js 보다 먼저 불러오는 이 파일에서 DOMContentLoaded 에 맨 먼저 처리한다.
+  function fixMapLinks() {
+    var links = document.querySelectorAll('a[href*="<iframe"], a[href*="%3Ciframe"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var q = (a.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!q) { a.removeAttribute('href'); continue; }
+      a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixMapLinks);
+  else fixMapLinks();
 
   if (typeof window.err_msg_layer !== 'function') {
     window.err_msg_layer = function (html) {

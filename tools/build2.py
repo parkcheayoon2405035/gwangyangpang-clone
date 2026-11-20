@@ -27,7 +27,7 @@ for name,url in page_url.items():
     if not name.endswith(('.html','.css')): continue
     p=os.path.join(S,name); t=open(p,encoding='utf-8',errors='replace').read()
     if name.endswith('.html'):
-        t=re.sub(r'<script[^>]*wcs\.naver\.net[^>]*></script>\s*(<script[^>]*>[^<]*wcs_[^<]*</script>)?','',t)
+        t=re.sub(r'<script[^>]*wcs\.(?:naver\.net|pstatic\.net)[^>]*>\s*</script>\s*(<script[^>]*>[^<]*wcs_[^<]*</script>)?','',t)   # 네이버 방문 추적 (두 주소 모두)
         t=re.sub(r'<script[^>]*url_list\.php[^>]*></script>\s*','',t)
     t=relink(t,url,name); open(p,'w',encoding='utf-8',newline='').write(t); n+=1
 print('rewritten',n)

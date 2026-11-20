@@ -35,6 +35,9 @@
   function init() {
     // QR 첫 화면(언어 선택)에는 띄우지 않는다
     if (document.querySelector('.lan_btn a[data-set-lang]')) return;
+    // 참여 흐름 화면(참여 안내·참여·포인트 조회·설문 — 위쪽 제목줄이 없는 화면)도 띄우지 않는다.
+    // 화면 아래쪽 큰 버튼('참여하기' 등)을 챗봇 버튼이 가렸다. 나머지 페이지에서는 그대로 보인다.
+    if (window.RENEWAL && !document.querySelector('.rn-top')) return;
     var lang = (window.I18N && window.I18N.lang) || 'ko';
     var fest = (window.RENEWAL && window.RENEWAL.festival && window.RENEWAL.festival.id) || 'gwangyang';
     var t = function (k) { return TXT[k][lang] || TXT[k].ko; };
