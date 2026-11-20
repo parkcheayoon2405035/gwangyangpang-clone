@@ -184,6 +184,8 @@ button, input, select { font: inherit; color: inherit; }
   document.getElementById('send').setAttribute('aria-label', L(T.send));
   document.getElementById('title').textContent = L(T.title);
   document.getElementById('demoLabel').textContent = L(T.demo);
+  // '시연용 · 행사 바꾸기'는 발표·시연 때만: 주소에 ?demo=1 이 있을 때만 보인다 (방문객이 다른 행사 안내를 보지 않게)
+  if (!/[?&]demo=1(&|$)/.test(location.search)) document.querySelector('.top .demo').style.display = 'none';
   input.placeholder = L(T.place);
   input.setAttribute('aria-label', L(T.place));
   Array.prototype.forEach.call(sel.options, function (o) { o.textContent = L(KB.festivals[o.value].short); });

@@ -104,10 +104,11 @@
 
   /* ---------------- 글자 쪼개기 (영어는 단어, 한·중·일은 두 글자씩) ---------------- */
   // 어떤 질문에나 들어가는 말(묻는 말·어미)은 점수에서 뺀다. 안 빼면 "주차장 어디야"가 '어디'만으로 엉뚱한 답에 걸린다
+  // ('번호'도 전화번호·인증번호·로또 번호 어디에나 붙어서 뺀다 — '전화' 같은 앞 조각으로 찾는다)
   var STOP = { the: 1, a: 1, an: 1, is: 1, are: 1, do: 1, does: 1, i: 1, my: 1, me: 1, to: 1, of: 1, in: 1, at: 1, for: 1, can: 1, it: 1, this: 1, please: 1, you: 1, there: 1, any: 1, be: 1,
     how: 1, what: 1, where: 1, when: 1, which: 1, who: 1, tell: 1, about: 1, want: 1, know: 1 };
   var STOP_BI = { '어디': 1, '디야': 1, '디서': 1, '디예': 1, '디에': 1, '언제': 1, '제야': 1, '어떻': 1, '떻게': 1, '알려': 1, '려줘': 1, '려주': 1, '주세': 1, '세요': 1,
-    '해요': 1, '돼요': 1, '되나': 1, '나요': 1, '있어': 1, '어요': 1, '까요': 1, '예요': 1, '이에': 1, '에요': 1, '인가': 1, '가요': 1, '뭐야': 1, '뭐예': 1, '해줘': 1, '싶어': 1,
+    '번호': 1, '해요': 1, '돼요': 1, '되나': 1, '나요': 1, '있어': 1, '어요': 1, '까요': 1, '예요': 1, '이에': 1, '에요': 1, '인가': 1, '가요': 1, '뭐야': 1, '뭐예': 1, '해줘': 1, '싶어': 1,
     'どこ': 1, 'です': 1, 'ます': 1, 'すか': 1, 'ください': 1, '哪里': 1, '什么': 1, '怎么': 1, '吗？': 1 };
   function stem(w) { return w.length > 4 ? w.replace(/(ies|es|s|ing|ed)$/, '') : w; }
   function norm(s) { return String(s).normalize('NFKC').toLowerCase(); }
@@ -296,6 +297,10 @@
     var doc = d.ref;
     var missing = (doc.needs || []).some(function (k) { return f[k] == null; });
     var html = missing ? fill(pick(S.unknown, lang), f, lang) : fill(doc.a[lang] || doc.a.ko, f, lang);
+    // 값이 없어 모른다고 답할 때, 대신 도움이 되는 말이 있으면 덧붙임 (예: 운영 시간 → 포인트 소멸 시각)
+    if (missing && doc.unknownNote && !(doc.noteNeeds || []).some(function (k) { return f[k] == null; })) {
+      html += '\n\n' + fill(pick(doc.unknownNote, lang), f, lang);
+    }
     return { lang: lang, html: html, chips: doc.chips || [], source: missing ? pick(f.source, lang) : srcLabel('faq', doc.src, f, lang), hit: doc.id + (missing ? ':unknown' : ''), ranked: ranked.slice(0, 3) };
   }
 

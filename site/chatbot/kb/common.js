@@ -66,10 +66,10 @@ window.CHAT_KB.common = [
   {
     id: 'earn', src: 'guide',
     q: {
-      ko: ['포인트 어떻게 받아요?', '포인트 적립', '포인트 받는 법', '포인트 모으기', 'QR 위치', 'QR 팻말 찾기'],
-      en: ['How do I get points?', 'earn points', 'collect points', 'where are the QR codes', 'get points'],
-      ja: ['ポイントはどうやってもらえますか？', 'ポイント 貯める', 'QRはどこ', 'ポイント 獲得'],
-      zh: ['怎么获得积分？', '积分 累积', '二维码在哪里', '赚积分']
+      ko: ['포인트 어떻게 받아요?', '포인트 적립', '포인트 받는 법', '포인트 모으기', 'QR 위치', 'QR 팻말 찾기', 'QR 어디서 찍어요', 'QR 어디 있어요', '어디서 스캔해요'],
+      en: ['How do I get points?', 'earn points', 'collect points', 'where are the QR codes', 'get points', 'where do I scan the QR'],
+      ja: ['ポイントはどうやってもらえますか？', 'ポイント 貯める', 'QRはどこ', 'ポイント 獲得', 'QRはどこで読み取りますか'],
+      zh: ['怎么获得积分？', '积分 累积', '二维码在哪里', '赚积分', '在哪里扫码']
     },
     a: { ko: '{earn}', en: '{earn}', ja: '{earn}', zh: '{earn}' },
     chips: ['gift', 'expire', 'already']
@@ -135,7 +135,47 @@ window.CHAT_KB.common = [
       zh: '开放时间：<b>{hours}</b>。'
     },
     needs: ['hours'],
+    // 운영 시간이 자료에 없을 때 덧붙이는 말 (noteNeeds 값이 있는 행사만)
+    unknownNote: {
+      ko: '참고로 포인트는 <b>{expire}</b>에 사라지니 그 전에 교환해 주세요.',
+      en: 'Note: points expire at <b>{expire}</b>, so please exchange them before then.',
+      ja: 'なお、ポイントは<b>{expire}</b>に消えるので、それまでに交換してください。',
+      zh: '提示：积分在<b>{expire}</b>失效，请在此之前兑换。'
+    },
+    noteNeeds: ['expire'],
     chips: ['expire', 'contact']
+  },
+  {
+    // 선물 교환 때 본인 확인 — 방법은 행사 자료(giftMethod)에 적힌 것만 보여 준다
+    id: 'auth', src: 'guide',
+    q: {
+      ko: ['본인인증 해야 돼요?', '본인 확인', '본인인증', '신분증 필요해요?', '신분 확인', '인증 해야 해요'],
+      en: ['Do I need to verify my identity?', 'identity verification', 'ID verification', 'do I need ID', 'verify identity'],
+      ja: ['本人確認は必要ですか？', '本人認証', '身分証', '認証は必要'],
+      zh: ['需要身份验证吗？', '身份验证', '要带身份证吗', '实名认证']
+    },
+    a: {
+      ko: '네, 선물로 바꿀 때 <b>본인인증</b>을 해요.\n{giftMethod}',
+      en: 'Yes — you\'ll <b>verify your identity</b> when exchanging for a gift.\n{giftMethod}',
+      ja: 'はい、プレゼントと交換するときに<b>本人認証</b>をします。\n{giftMethod}',
+      zh: '是的，兑换礼品时需要<b>身份验证</b>。\n{giftMethod}'
+    },
+    needs: ['exchangePlace', 'giftMethod'],
+    chips: ['gift', 'privacy']
+  },
+  {
+    // 주차·화장실·와이파이 등 행사장 시설 — 지금 행사 자료에는 없어서 "자료에 없어요 + 문의처"로 답한다
+    // (행사 자료 festivals.js 에 facilities 를 넣으면 그 내용으로 답함)
+    id: 'facilities', src: 'festival',
+    q: {
+      ko: ['주차장 어디예요?', '주차', '화장실 어디예요?', '화장실', '와이파이', '분실물', '물품 보관', '짐 보관', '흡연 구역', '수유실', '휠체어', '편의시설'],
+      en: ['Is there parking?', 'parking lot', 'where can I park', 'where is the restroom', 'restroom', 'toilet', 'bathroom', 'wifi', 'lost and found', 'luggage storage', 'smoking area', 'wheelchair', 'facilities'],
+      ja: ['駐車場はありますか？', '駐車場', 'トイレはどこですか', 'トイレ', 'お手洗い', 'Wi-Fi', '落とし物', '荷物 預け', '喫煙所', '授乳室', '車椅子', '施設'],
+      zh: ['有停车场吗？', '停车场', '停车', '洗手间在哪里', '洗手间', '厕所', '卫生间', '无线网', 'WiFi', '失物招领', '寄存行李', '吸烟区', '母婴室', '轮椅', '设施']
+    },
+    a: { ko: '{facilities}', en: '{facilities}', ja: '{facilities}', zh: '{facilities}' },
+    needs: ['facilities'],
+    chips: ['contact', 'event']
   },
   {
     id: 'mypoints', src: 'site',
