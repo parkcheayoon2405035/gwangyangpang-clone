@@ -7,6 +7,9 @@ for p in glob.glob(os.path.join(S,'*.html')):
     if os.path.basename(p) in ('chatbot.html',) or os.path.basename(p).startswith('_'): continue  # 챗봇·확인용 페이지 제외
     h=open(p,encoding='utf-8').read(); o=h
     if 'js/i18n.js' not in h: h=re.sub(r'(</head>)',TAG+r'\n\1',h,count=1,flags=re.I)
+    # 원래 사이트 고장 보완(안내창 함수 등) — i18n.js 바로 앞, 본문 스크립트보다 먼저 불러온다
+    FIX='<script type="text/javascript" src="js/site-fixes.js"></script>'
+    if 'js/site-fixes.js' not in h: h=h.replace(TAG, FIX+'\n'+TAG, 1)
     if os.path.basename(p).startswith('intro'):
         ko=re.search(r"<a href='([^']+)'><button type=\"button\">한국어로 시작",h)
         if ko:

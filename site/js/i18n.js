@@ -95,12 +95,15 @@
 
     // ── phone_login: 나의 포인트 조회 ──
     '본인확인': { en: 'Identity Verification', ja: '本人確認', zh: '身份验证' },
-    // ※ 원문에 '경북교육청'이 잘못 들어가 있음(다른 사이트 문구 복사). 원문을 고치면 이 키도 같이 바꿀 것
-    '경북교육청 참여를 위한 정보 수집 동의 (필수) 1. 수집 항목 : 이름, 전화번호 2. 선물지급 및 사용에만 이용 됩니다 3. 4주 후 자동 삭제됩니다': {
-      en: '<b>Consent to collection of personal information for participation (required)</b><div class="text_h1"></div>1. Collected: name, phone number<br>2. Used only for gift delivery and redemption<br>3. Automatically deleted after 4 weeks',
-      ja: '<b>参加のための個人情報収集への同意（必須）</b><div class="text_h1"></div>1. 収集項目：氏名、電話番号<br>2. プレゼントの支給・利用のみに使用します<br>3. 4週間後に自動削除されます',
-      zh: '<b>参与活动的个人信息收集同意（必填）</b><div class="text_h1"></div>1. 收集项目：姓名、电话号码<br>2. 仅用于礼品发放及使用<br>3. 4周后自动删除'
+    // 원문의 '경북교육청'(다른 사이트 문구 복사)을 '행운팡팡'으로 바로잡음
+    '행운팡팡 참여를 위한 정보 수집 동의 (필수) 1. 수집 항목 : 이름, 전화번호 2. 선물지급 및 사용에만 이용 됩니다 3. 4주 후 자동 삭제됩니다': {
+      en: '<b>Consent to collection of personal information for ' + BRAND.en + ' (required)</b><div class="text_h1"></div>1. Collected: name, phone number<br>2. Used only for gift delivery and redemption<br>3. Automatically deleted after 4 weeks',
+      ja: '<b>' + BRAND.ja + '参加のための個人情報収集への同意（必須）</b><div class="text_h1"></div>1. 収集項目：氏名、電話番号<br>2. プレゼントの支給・利用のみに使用します<br>3. 4週間後に自動削除されます',
+      zh: '<b>参与 ' + BRAND.zh + ' 的个人信息收集同意（必填）</b><div class="text_h1"></div>1. 收集项目：姓名、电话号码<br>2. 仅用于礼品发放及使用<br>3. 4周后自动删除'
     },
+    '위 내용에 동의합니다 (필수)': { en: 'I agree to the above (required)', ja: '上記の内容に同意します（必須）', zh: '我同意以上内容（必填）' },
+    '개인정보 수집·이용에 동의해 주세요.': { en: 'Please agree to the collection and use of your personal information.', ja: '個人情報の収集・利用に同意してください。', zh: '请同意收集和使用个人信息。' },
+    '설문조사 기간이 지났습니다.': { en: 'The survey period has ended.', ja: 'アンケートの実施期間は終了しました。', zh: '满意度调查已结束。' },
     "연락처를 적으시고 '인증번호받기'버튼을 클릭 하세요": {
       en: "Enter your phone number and tap 'Get code'",
       ja: '電話番号を入力し、「認証コード取得」ボタンを押してください',
