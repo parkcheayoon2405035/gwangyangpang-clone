@@ -111,7 +111,12 @@
     '번호': 1, '해요': 1, '돼요': 1, '되나': 1, '나요': 1, '있어': 1, '어요': 1, '까요': 1, '예요': 1, '이에': 1, '에요': 1, '인가': 1, '가요': 1, '뭐야': 1, '뭐예': 1, '해줘': 1, '싶어': 1,
     'どこ': 1, 'です': 1, 'ます': 1, 'すか': 1, 'ください': 1, '哪里': 1, '什么': 1, '怎么': 1, '吗？': 1 };
   function stem(w) { return w.length > 4 ? w.replace(/(ies|es|s|ing|ed)$/, '') : w; }
-  function norm(s) { return String(s).normalize('NFKC').toLowerCase(); }
+  function norm(s) {
+    return String(s).normalize('NFKC').toLowerCase()
+      .replace(/[‘’]/g, "'")
+      .replace(/\bwi[\s-]?fi\b/g, 'wifi')                                  // Wi-Fi, wi fi → wifi
+      .replace(/\b(can'?t|cannot|won'?t|doesn'?t|isn'?t|not working)(?![a-z])/g, ' cant ');  // '안 돼요' 류를 한 낱말로
+  }
   function tokenize(text) {
     var t = norm(text).replace(/<[^>]+>/g, ' ').replace(/\{[a-z]+\}/g, ' ');
     var out = [];
@@ -145,15 +150,20 @@
 
   /* ---------------- 자료 목록 만들기 (행사 · 언어마다 한 번) ---------------- */
   var cache = {};
+  // 질문 예시와 글자가 똑같은지 비교할 때 쓰는 열쇠 (띄어쓰기·문장부호 무시)
+  function exactKey(s) { return norm(s).replace(/[\s?？!！.。,、~]+/g, ''); }
+
   function buildIndex(festId, lang) {
     var key = festId + '|' + lang;
     if (cache[key]) return cache[key];
     var f = KB.festivals[festId];
-    var docs = [];
+    var docs = [], exact = {};
     KB.common.forEach(function (d) {
       var qs = (d.q[lang] || d.q.ko).join(' ');
       var ans = textOnly(fill(d.a[lang] || d.a.ko, f, lang));
-      docs.push({ kind: 'faq', ref: d, text: qs + ' ' + qs + ' ' + qs + ' ' + ans });   // 질문 예시를 답 본문보다 무겁게
+      var doc = { kind: 'faq', ref: d, text: qs + ' ' + qs + ' ' + qs + ' ' + ans };   // 질문 예시를 답 본문보다 무겁게
+      docs.push(doc);
+      (d.q[lang] || d.q.ko).forEach(function (x) { var k = exactKey(x); if (k && !exact[k]) exact[k] = doc; });
     });
     var places = (f.places && KB.places && KB.places[f.places]) || [];
     places.forEach(function (p) {
@@ -174,7 +184,7 @@
       toks.forEach(function (t) { d.tf[t] = (d.tf[t] || 0) + 1; });
       Object.keys(d.tf).forEach(function (t) { df[t] = (df[t] || 0) + 1; });
     });
-    var idx = { docs: docs, df: df, N: docs.length, avg: total / Math.max(1, docs.length), places: places, fest: f };
+    var idx = { docs: docs, exact: exact, df: df, N: docs.length, avg: total / Math.max(1, docs.length), places: places, fest: f };
     cache[key] = idx;
     return idx;
   }
@@ -289,6 +299,9 @@
     // 3) 자료 전체에서 찾기
     var ranked = search(idx, q);
     var top = ranked[0];
+    // 질문 예시와 똑같이 물었으면 점수와 상관없이 그 답 (예: "where do I scan the QR", "施設")
+    var ex = idx.exact[exactKey(q)];
+    if (ex) top = { doc: ex, score: 99, cover: 1 };
     if (!top || top.cover < 0.3 || top.score < 1.2) {
       return { lang: lang, html: fill(pick(S.fallback, lang), f, lang), chips: ['how', 'gift', 'about', 'contact'], source: null, hit: 'fallback', ranked: ranked.slice(0, 3) };
     }
