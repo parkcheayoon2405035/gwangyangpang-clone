@@ -65,8 +65,9 @@
   // 4) 시연용 사이트(서버 없음) 안내
   //    참여(당첨확인)·인증번호받기·포인트 조회는 서버(PHP·DB)가 있어야 동작한다.
   //    정적 사이트에서는 눌러도 아무 반응이 없어 고장처럼 보였다 → 안내창을 띄운다.
-  //    실제 서버(.kr 주소)에서는 이 부분이 동작하지 않으므로 원래 기능 그대로.
-  if (!/\.kr$/i.test(location.hostname)) {
+  //    실제 서버(gwangyangpang.com · .kr)에서는 이 부분이 동작하지 않으므로 원래 기능 그대로.
+  //    (실제 사이트 주소는 www.gwangyangpang.com — .kr 만 빼면 실서버에서 참여·인증이 막힌다)
+  if (!/(^|\.)gwangyangpang\.(com|kr)$/i.test(location.hostname)) {
     var DEMO_MSG = '시연용 사이트에서는 실제 참여·인증·조회가 되지 않아요. 실제 서버에 연결하면 그대로 동작해요.';
     var demoNotice = function () {
       if (typeof window.err_msg_layer === 'function') window.err_msg_layer(DEMO_MSG);
