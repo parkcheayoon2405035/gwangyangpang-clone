@@ -104,13 +104,19 @@
 
   /* ---------------- 글자 쪼개기 (영어는 단어, 한·중·일은 두 글자씩) ---------------- */
   // 어떤 질문에나 들어가는 말(묻는 말·어미)은 점수에서 뺀다. 안 빼면 "주차장 어디야"가 '어디'만으로 엉뚱한 답에 걸린다
+  // ('번호'도 전화번호·인증번호·로또 번호 어디에나 붙어서 뺀다 — '전화' 같은 앞 조각으로 찾는다)
   var STOP = { the: 1, a: 1, an: 1, is: 1, are: 1, do: 1, does: 1, i: 1, my: 1, me: 1, to: 1, of: 1, in: 1, at: 1, for: 1, can: 1, it: 1, this: 1, please: 1, you: 1, there: 1, any: 1, be: 1,
     how: 1, what: 1, where: 1, when: 1, which: 1, who: 1, tell: 1, about: 1, want: 1, know: 1 };
   var STOP_BI = { '어디': 1, '디야': 1, '디서': 1, '디예': 1, '디에': 1, '언제': 1, '제야': 1, '어떻': 1, '떻게': 1, '알려': 1, '려줘': 1, '려주': 1, '주세': 1, '세요': 1,
-    '해요': 1, '돼요': 1, '되나': 1, '나요': 1, '있어': 1, '어요': 1, '까요': 1, '예요': 1, '이에': 1, '에요': 1, '인가': 1, '가요': 1, '뭐야': 1, '뭐예': 1, '해줘': 1, '싶어': 1,
+    '번호': 1, '해요': 1, '돼요': 1, '되나': 1, '나요': 1, '있어': 1, '어요': 1, '까요': 1, '예요': 1, '이에': 1, '에요': 1, '인가': 1, '가요': 1, '뭐야': 1, '뭐예': 1, '해줘': 1, '싶어': 1,
     'どこ': 1, 'です': 1, 'ます': 1, 'すか': 1, 'ください': 1, '哪里': 1, '什么': 1, '怎么': 1, '吗？': 1 };
   function stem(w) { return w.length > 4 ? w.replace(/(ies|es|s|ing|ed)$/, '') : w; }
-  function norm(s) { return String(s).normalize('NFKC').toLowerCase(); }
+  function norm(s) {
+    return String(s).normalize('NFKC').toLowerCase()
+      .replace(/[‘’]/g, "'")
+      .replace(/\bwi[\s-]?fi\b/g, 'wifi')                                  // Wi-Fi, wi fi → wifi
+      .replace(/\b(can'?t|cannot|won'?t|doesn'?t|isn'?t|not working)(?![a-z])/g, ' cant ');  // '안 돼요' 류를 한 낱말로
+  }
   function tokenize(text) {
     var t = norm(text).replace(/<[^>]+>/g, ' ').replace(/\{[a-z]+\}/g, ' ');
     var out = [];
@@ -144,15 +150,20 @@
 
   /* ---------------- 자료 목록 만들기 (행사 · 언어마다 한 번) ---------------- */
   var cache = {};
+  // 질문 예시와 글자가 똑같은지 비교할 때 쓰는 열쇠 (띄어쓰기·문장부호 무시)
+  function exactKey(s) { return norm(s).replace(/[\s?？!！.。,、~]+/g, ''); }
+
   function buildIndex(festId, lang) {
     var key = festId + '|' + lang;
     if (cache[key]) return cache[key];
     var f = KB.festivals[festId];
-    var docs = [];
+    var docs = [], exact = {};
     KB.common.forEach(function (d) {
       var qs = (d.q[lang] || d.q.ko).join(' ');
       var ans = textOnly(fill(d.a[lang] || d.a.ko, f, lang));
-      docs.push({ kind: 'faq', ref: d, text: qs + ' ' + qs + ' ' + qs + ' ' + ans });   // 질문 예시를 답 본문보다 무겁게
+      var doc = { kind: 'faq', ref: d, text: qs + ' ' + qs + ' ' + qs + ' ' + ans };   // 질문 예시를 답 본문보다 무겁게
+      docs.push(doc);
+      (d.q[lang] || d.q.ko).forEach(function (x) { var k = exactKey(x); if (k && !exact[k]) exact[k] = doc; });
     });
     var places = (f.places && KB.places && KB.places[f.places]) || [];
     places.forEach(function (p) {
@@ -173,7 +184,7 @@
       toks.forEach(function (t) { d.tf[t] = (d.tf[t] || 0) + 1; });
       Object.keys(d.tf).forEach(function (t) { df[t] = (df[t] || 0) + 1; });
     });
-    var idx = { docs: docs, df: df, N: docs.length, avg: total / Math.max(1, docs.length), places: places, fest: f };
+    var idx = { docs: docs, exact: exact, df: df, N: docs.length, avg: total / Math.max(1, docs.length), places: places, fest: f };
     cache[key] = idx;
     return idx;
   }
@@ -288,6 +299,9 @@
     // 3) 자료 전체에서 찾기
     var ranked = search(idx, q);
     var top = ranked[0];
+    // 질문 예시와 똑같이 물었으면 점수와 상관없이 그 답 (예: "where do I scan the QR", "施設")
+    var ex = idx.exact[exactKey(q)];
+    if (ex) top = { doc: ex, score: 99, cover: 1 };
     if (!top || top.cover < 0.3 || top.score < 1.2) {
       return { lang: lang, html: fill(pick(S.fallback, lang), f, lang), chips: ['how', 'gift', 'about', 'contact'], source: null, hit: 'fallback', ranked: ranked.slice(0, 3) };
     }
@@ -296,6 +310,10 @@
     var doc = d.ref;
     var missing = (doc.needs || []).some(function (k) { return f[k] == null; });
     var html = missing ? fill(pick(S.unknown, lang), f, lang) : fill(doc.a[lang] || doc.a.ko, f, lang);
+    // 값이 없어 모른다고 답할 때, 대신 도움이 되는 말이 있으면 덧붙임 (예: 운영 시간 → 포인트 소멸 시각)
+    if (missing && doc.unknownNote && !(doc.noteNeeds || []).some(function (k) { return f[k] == null; })) {
+      html += '\n\n' + fill(pick(doc.unknownNote, lang), f, lang);
+    }
     return { lang: lang, html: html, chips: doc.chips || [], source: missing ? pick(f.source, lang) : srcLabel('faq', doc.src, f, lang), hit: doc.id + (missing ? ':unknown' : ''), ranked: ranked.slice(0, 3) };
   }
 

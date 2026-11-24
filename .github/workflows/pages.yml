@@ -1,0 +1,46 @@
+# 시연용 웹사이트 (GitHub Pages)
+#
+# main 에 올라오면 site 폴더를 https://<계정>.github.io/gwangyangpang-clone/ 로 자동 배포한다.
+# - 배포본에만 "검색 엔진에 올리지 말 것"(noindex)을 넣는다. 진짜 사이트로 오해받지 않게.
+#   저장소의 site 파일은 그대로 → 실제 서버(gwangyangpang.com)에 올릴 파일에는 영향 없음.
+# - 참여·인증·포인트 조회는 서버가 없어 동작하지 않고, 시연용 안내창이 뜬다 (js/site-fixes.js).
+# 처음 한 번: 저장소 Settings → Pages → Source 를 "GitHub Actions" 로.
+name: 시연 사이트 배포 (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 배포본 만들기 (noindex 추가, 미리보기용 페이지 제외)
+        run: |
+          cp -r site _site
+          rm -f _site/_i18n_gallery.html
+          find _site -name '*.html' -print0 | xargs -0 sed -i '0,/<head[^>]*>/I s//&\n<meta name="robots" content="noindex, nofollow">/'
+          printf 'User-agent: *\nDisallow:\n' > _site/robots.txt
+          grep -L 'name="robots"' $(find _site -name '*.html') | head -5 || true
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

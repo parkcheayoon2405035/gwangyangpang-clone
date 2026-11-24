@@ -4,52 +4,6 @@ window.CHAT_KB = window.CHAT_KB || {};
 window.CHAT_KB.places = window.CHAT_KB.places || {};
 window.CHAT_KB.places.gwangyang = [
  {
-  "id": "festival-1",
-  "cat": "festival",
-  "name": "제25회 광양매화축제",
-  "url": "festival_s1__com_idx_1.html",
-  "tagline": {
-   "ko": "빛으로 수놓은 매화, 매화로 물든 봄",
-   "en": "Plum blossoms embroidered with light, a spring dyed in plum blossoms",
-   "ja": "光で彩られた梅、梅に染まる春",
-   "zh": "以光点缀的梅花，被梅花染红的春天"
-  },
-  "desc": [
-   {
-    "ko": "- 축제 명칭: 제25회 광양매화축제",
-    "en": "- Festival: The 25th Gwangyang Maehwa (Plum Blossom) Festival",
-    "ja": "- 祭り名：第25回 光陽梅花祭り",
-    "zh": "- 节庆名称：第25届光阳梅花节"
-   },
-   {
-    "ko": "- 축제 기간: 2026. 3. 13.(금) ~ 3. 22.(일)(10일간)",
-    "en": "- Dates: Mar 13 (Fri) – Mar 22 (Sun), 2026 (10 days)",
-    "ja": "- 期間：2026年3月13日(金)～3月22日(日)（10日間）",
-    "zh": "- 时间：2026年3月13日(周五)～3月22日(周日)（共10天）"
-   },
-   {
-    "ko": "- 축제 장소: 다압면 매화마을 일원",
-    "en": "- Venue: Maehwa (Plum Blossom) Village area, Daap-myeon",
-    "ja": "- 場所：多鴨面 梅花村一帯",
-    "zh": "- 地点：多鸭面梅花村一带"
-   }
-  ],
-  "period": {
-   "ko": "2026. 3. 13.(금) ~ 3. 22.(일) [10일간] / 07:00~18:00",
-   "en": "Mar 13 (Fri) – Mar 22 (Sun), 2026 [10 days] / 07:00–18:00",
-   "ja": "2026年3月13日(金)～3月22日(日)［10日間］/ 07:00～18:00",
-   "zh": "2026年3月13日(周五)～3月22日(周日)［共10天］/ 07:00～18:00"
-  },
-  "phone": "0507-1412-2721",
-  "address": {
-   "ko": "전남 광양시 다압면 지막1길 55 섬진마을",
-   "en": "55 Jimak 1-gil, Daap-myeon, Gwangyang-si, Jeollanam-do (Seomjin Village) · 전남 광양시 다압면 지막1길 55 섬진마을",
-   "ja": "55 Jimak 1-gil, Daap-myeon, Gwangyang-si, Jeollanam-do (Seomjin Village) · 전남 광양시 다압면 지막1길 55 섬진마을",
-   "zh": "55 Jimak 1-gil, Daap-myeon, Gwangyang-si, Jeollanam-do (Seomjin Village) · 전남 광양시 다압면 지막1길 55 섬진마을"
-  },
-  "menu": null
- },
- {
   "id": "festival-2",
   "cat": "festival",
   "name": "제10회 광양벚꽃문화축제",
