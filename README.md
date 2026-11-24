@@ -98,6 +98,15 @@ python -m http.server 8125
 | 이용가이드 + 챗봇 (한국어) | http://localhost:8125/coupon.html?lang=ko |
 | 챗봇만 크게 (행사·언어 지정) | http://localhost:8125/chatbot.html?fest=gyeongbuk&lang=en |
 | 챗봇 시연 (행사 바꾸기 보임) | http://localhost:8125/chatbot.html?demo=1 |
+
+### 웹에서 보기 (GitHub Pages 시연 사이트)
+
+`main` 에 올라오면 `.github/workflows/pages.yml` 이 `site` 폴더를 자동으로 배포한다.
+
+- 주소: https://parkcheayoon2405035.github.io/gwangyangpang-clone/intro__num_D604B24477545F5C60502405576165.html (언어 선택 첫 화면)
+- 처음 한 번만: 저장소 **Settings → Pages → Source = GitHub Actions** (저장소가 Public 이어야 무료로 됨)
+- 배포본에만 검색 차단(`noindex`)을 넣는다 → 진짜 사이트로 오해받지 않게. 저장소 파일은 그대로라 실서버용 파일에는 영향 없음
+- 서버(PHP·DB)가 없어서 참여·인증·포인트 조회는 "시연용 사이트" 안내창이 뜬다. 실제 주소(gwangyangpang.com)에서는 원래 기능 그대로
 | 번역 이미지 25개 한눈에 비교 | http://localhost:8125/_i18n_gallery.html?lang=en |
 
 - 주소 끝 `?lang=` 을 `ko` `en` `ja` `zh` 로 바꾸면 그 언어로 바뀜. 페이지 안에서는 오른쪽 아래 🌐 버튼
