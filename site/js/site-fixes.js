@@ -62,6 +62,35 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixMapLinks);
   else fixMapLinks();
 
+  // 4) 시연용 사이트(서버 없음) 안내
+  //    참여(당첨확인)·인증번호받기·포인트 조회는 서버(PHP·DB)가 있어야 동작한다.
+  //    정적 사이트에서는 눌러도 아무 반응이 없어 고장처럼 보였다 → 안내창을 띄운다.
+  //    실제 서버(.kr 주소)에서는 이 부분이 동작하지 않으므로 원래 기능 그대로.
+  if (!/\.kr$/i.test(location.hostname)) {
+    var DEMO_MSG = '시연용 사이트에서는 실제 참여·인증·조회가 되지 않아요. 실제 서버에 연결하면 그대로 동작해요.';
+    var demoNotice = function () {
+      if (typeof window.err_msg_layer === 'function') window.err_msg_layer(DEMO_MSG);
+      else alert(DEMO_MSG);
+    };
+    var nativeSubmit = HTMLFormElement.prototype.submit;
+    HTMLFormElement.prototype.submit = function () {
+      if (String(this.method).toLowerCase() === 'post') { demoNotice(); return; }
+      return nativeSubmit.apply(this, arguments);
+    };
+    document.addEventListener('submit', function (e) {
+      if (e.target && String(e.target.method).toLowerCase() === 'post') { e.preventDefault(); demoNotice(); }
+    }, true);
+    var hookAjax = function () {
+      if (hookAjax.done || !window.jQuery || !window.jQuery.ajaxPrefilter) return;
+      hookAjax.done = true;
+      window.jQuery.ajaxPrefilter(function (o, orig, xhr) {
+        if (/\.php(\?|$)/i.test(o.url || '')) { xhr.abort(); demoNotice(); }
+      });
+    };
+    hookAjax();
+    document.addEventListener('DOMContentLoaded', hookAjax);
+  }
+
   if (typeof window.err_msg_layer !== 'function') {
     window.err_msg_layer = function (html) {
       // 안내만 있고 내용이 없는 페이지(설문 등)였는지: 확인을 누르면 이전 화면으로 돌아간다

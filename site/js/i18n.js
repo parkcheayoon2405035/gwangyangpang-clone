@@ -104,6 +104,11 @@
     '위 내용에 동의합니다 (필수)': { en: 'I agree to the above (required)', ja: '上記の内容に同意します（必須）', zh: '我同意以上内容（必填）' },
     '개인정보 수집·이용에 동의해 주세요.': { en: 'Please agree to the collection and use of your personal information.', ja: '個人情報の収集・利用に同意してください。', zh: '请同意收集和使用个人信息。' },
     '설문조사 기간이 지났습니다.': { en: 'The survey period has ended.', ja: 'アンケートの実施期間は終了しました。', zh: '满意度调查已结束。' },
+    '시연용 사이트에서는 실제 참여·인증·조회가 되지 않아요. 실제 서버에 연결하면 그대로 동작해요.': {
+      en: 'This is a demo site, so participation, verification and point lookup do not actually run. They work as-is once connected to the real server.',
+      ja: 'デモ用サイトのため、実際の参加・認証・照会はできません。実際のサーバーに接続すればそのまま動作します。',
+      zh: '这是演示网站，无法实际参与、验证或查询。连接正式服务器后即可正常使用。'
+    },
     "연락처를 적으시고 '인증번호받기'버튼을 클릭 하세요": {
       en: "Enter your phone number and tap 'Get code'",
       ja: '電話番号を入力し、「認証コード取得」ボタンを押してください',
