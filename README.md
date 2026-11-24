@@ -3,9 +3,13 @@
 의뢰받은 **광양행운팡팡**(www.gwangyangpang.com) 사이트를 통째로 받아와서 로컬에서 그대로 띄우고,
 그 위에 **다국어(영어·일본어·중국어)** 와 **이용가이드 챗봇**을 붙인 작업물입니다.
 
+> 📄 **의뢰처용 요약**: 원래 사이트에서 무엇이 달라졌는지, 서버·DB 가 없어 하지 못한 것 → [의뢰처_안내.md](의뢰처_안내.md)
+>
+> 🌐 **시연 사이트**: https://parkcheayoon2405035.github.io/gwangyangpang-clone/intro__num_D604B24477545F5C60502405576165.html
+
 ---
 
-## 진행 상황 (2026-11-20 기준, `integration` 브랜치)
+## 진행 상황 (2026-11-24 기준, `main` 브랜치)
 
 ### 📋 업데이트 기록 (한눈에)
 | 날짜 | 누가 | 내용 | 브랜치 / PR |
@@ -15,6 +19,8 @@
 | 11/20 | parkcheayoon2405035 | 원래 사이트 버그 수정: 개인정보 동의 확인, 설문 빈 화면, '경북교육청' 문구 | `fix/consent-survey-text` → `integration` |
 | 11/20 | parkcheayoon2405035 | 챗봇 오답 11개 수정, 시연용 선택창 숨김, 회귀 테스트(75개) | `fix/chatbot` → `integration` |
 | 11/20 | parkcheayoon2405035 | 전체 재검수(472화면·링크 9,026개): 추적 코드 제거, 주소 링크 72곳, 외국어 제목 잘림, 챗봇 버튼 겹침 | `integration` |
+| 11/21 | jeongit1256 | 챗봇 오답 4개 수정(Wi-Fi·can't 인식) | `integration` |
+| 11/24 | jeongit1256 · parkcheayoon2405035 | 시연용 안내창(실제 주소에서는 원래 기능), 사이트 아이콘, 글꼴 https, GitHub Pages 시연 사이트, 의뢰처 안내 문서 | PR #5 → `main` |
 
 
 ### ✅ 완료
@@ -94,6 +100,11 @@ python -m http.server 8125
 | 이용가이드 + 챗봇 (한국어) | http://localhost:8125/coupon.html?lang=ko |
 | 챗봇만 크게 (행사·언어 지정) | http://localhost:8125/chatbot.html?fest=gyeongbuk&lang=en |
 | 챗봇 시연 (행사 바꾸기 보임) | http://localhost:8125/chatbot.html?demo=1 |
+| 번역 이미지 25개 한눈에 비교 | http://localhost:8125/_i18n_gallery.html?lang=en |
+
+- 주소 끝 `?lang=` 을 `ko` `en` `ja` `zh` 로 바꾸면 그 언어로 바뀜. 페이지 안에서는 오른쪽 아래 🌐 버튼
+- 모바일 사이트라서 PC에선 `F12` → `Ctrl+Shift+M` 으로 휴대폰 크기로 보는 게 실제와 비슷함
+- 포인트 조회·참여·설문은 **서버(PHP)와 DB가 없어서 로컬에선 동작하지 않음** (정상)
 
 ### 웹에서 보기 (GitHub Pages 시연 사이트)
 
@@ -103,11 +114,6 @@ python -m http.server 8125
 - 처음 한 번만: 저장소 **Settings → Pages → Source = GitHub Actions** (저장소가 Public 이어야 무료로 됨)
 - 배포본에만 검색 차단(`noindex`)을 넣는다 → 진짜 사이트로 오해받지 않게. 저장소 파일은 그대로라 실서버용 파일에는 영향 없음
 - 서버(PHP·DB)가 없어서 참여·인증·포인트 조회는 "시연용 사이트" 안내창이 뜬다. 실제 주소(gwangyangpang.com)에서는 원래 기능 그대로
-| 번역 이미지 25개 한눈에 비교 | http://localhost:8125/_i18n_gallery.html?lang=en |
-
-- 주소 끝 `?lang=` 을 `ko` `en` `ja` `zh` 로 바꾸면 그 언어로 바뀜. 페이지 안에서는 오른쪽 아래 🌐 버튼
-- 모바일 사이트라서 PC에선 `F12` → `Ctrl+Shift+M` 으로 휴대폰 크기로 보는 게 실제와 비슷함
-- 포인트 조회·참여·설문은 **서버(PHP)와 DB가 없어서 로컬에선 동작하지 않음** (정상)
 
 ---
 
